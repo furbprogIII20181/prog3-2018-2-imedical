@@ -1,14 +1,14 @@
 <div class="container">
     <mat-card class="login-panel">
-        <form class="login-form">
+        <form (ngSubmit)="handleSubmit()" #form="ngForm" novalidate class="login-form">
             <mat-form-field class="full-width">
-                <input matInput placeholder="Username" value="">
+                <input matInput placeholder="Username" name="username" #username="ngModel" [ngModel]="user?.username">
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <input matInput placeholder="Password" value="">
             </mat-form-field>
-            <button (click)="log()" mat-flat-button color="primary">Login</button>
+            <button mat-flat-button color="primary">Login</button>
             <a href="#">Registre-se</a>
         </form>
     </mat-card>
