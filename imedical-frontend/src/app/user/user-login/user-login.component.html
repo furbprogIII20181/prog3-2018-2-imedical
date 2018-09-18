@@ -1,5 +1,15 @@
-<mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<div class="container">
+    <mat-card class="login-panel">
+        <form class="login-form">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Username" value="">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Password" value="">
+            </mat-form-field>
+            <button (click)="log()" mat-flat-button color="primary">Login</button>
+            <a href="#">Registre-se</a>
+        </form>
+    </mat-card>
+</div>
