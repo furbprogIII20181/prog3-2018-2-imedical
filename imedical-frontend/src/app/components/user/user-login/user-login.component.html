@@ -1,0 +1,19 @@
+<div>
+    {{ users | json }}
+</div>
+
+<div class="container">
+    <mat-card class="login-panel">
+        <form (ngSubmit)="handleSubmit(form.value, form.valid)" #form="ngForm" novalidate class="login-form">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Username" name="username" #username="ngModel" [ngModel]="user?.username">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Password" value="">
+            </mat-form-field>
+            <button mat-flat-button color="primary">Login</button>
+            <a href="#">Registre-se</a>
+        </form>
+    </mat-card>
+</div>

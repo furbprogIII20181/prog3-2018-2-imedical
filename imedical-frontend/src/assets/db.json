@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "username": "dasasdsaeqwe123",
+      "password": "1234",
+      "email": "oi@teste.com.br",
+      "birthDate": "13/02/2018",
+      "fullname": "aaaaaaa"
+    },
+    {
+      "email": "oi@teste.com.br",
+      "password": "1234",
+      "username": "Rose",
+      "birthDate": "13/06/1932",
+      "fullname": ""
+    },
+    {
+      "email": "oi@teste.com.br",
+      "password": "1234",
+      "username": "Louise",
+      "birthDate": "13/09/1943",
+      "fullname": ""
+    },
+    {
+      "email": "oi@teste.com.br",
+      "password": "1234",
+      "username": "Tina",
+      "birthDate": "13/02/2018",
+      "fullname": ""
+    }
+  ]
+}
