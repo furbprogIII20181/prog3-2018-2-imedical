@@ -1,12 +1,12 @@
 <div class="container">
-  <mat-card class="login-panel">
+  <mat-card class="reg-panel">
     <form
       (ngSubmit)="handleRegister(form.value, form.valid)"
       #form="ngForm"
       novalidate
-      class="login-form">
+      class="reg-form">
       <div>
-        <mat-form-field class="full-width">
+        <mat-form-field>
           <input
             matInput
             placeholder="E-mail"
@@ -17,7 +17,7 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="full-width">
+        <mat-form-field>
           <input
             matInput
             placeholder="Username"
@@ -28,7 +28,7 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="full-width">
+        <mat-form-field>
           <input
             matInput
             placeholder="Password"
@@ -39,7 +39,7 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="full-width">
+        <mat-form-field>
           <input
             matInput
             placeholder="Fullname"
@@ -50,7 +50,7 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="full-width">
+        <mat-form-field>
           <input
             matInput
             placeholder="birthDate"
