@@ -1,3 +1,4 @@
+import { UserService } from './../../../containers/user/user.service';
 import {
   Component,
   Input,
@@ -6,6 +7,7 @@ import {
   Output
 } from '@angular/core';
 import { User } from '../../../models/user';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-user-login',
@@ -15,5 +17,11 @@ import { User } from '../../../models/user';
 export class UserLoginComponent {
   @Input()
   users: User[];
-  onSubmit(user: User, valid: boolean) {}
+
+  constructor() {}
+  onSubmit(user: User, valid: boolean) {
+    if (valid) {
+      //this.update.emit(JSON.stringify(user));
+    }
+  }
 }

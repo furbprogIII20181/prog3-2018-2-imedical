@@ -12,4 +12,14 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get(USER_API).pipe(map((data: User[]) => data));
   }
+
+  getUser(name): Observable<User> {
+    return this.http.get(`${USER_API}/${name}`).pipe(map((data: User) => data));
+  }
+
+  addUser(user: User) {
+    return this.http
+      .post(`${USER_API}`, user)
+      .pipe(map((response: Response) => response));
+  }
 }

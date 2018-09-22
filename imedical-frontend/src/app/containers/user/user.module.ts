@@ -1,10 +1,10 @@
-import { UserComponent } from './user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserComponent } from './user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserService } from './user.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
@@ -19,7 +19,8 @@ import { UserRegisterComponent } from '../../components/user/user-register/user-
     CommonModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [UserComponent],
   providers: [UserService]

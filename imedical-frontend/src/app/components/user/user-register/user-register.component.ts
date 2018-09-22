@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { User } from './../../../models/user';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-register',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-register.component.css']
 })
 export class UserRegisterComponent implements OnInit {
+  user: User;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  @Output()
+  update: EventEmitter<User> = new EventEmitter();
+
+  handleRegister(user: User, valid: boolean) {
+    if (valid) {
+      this.update.emit(user);
+    }
   }
-
 }

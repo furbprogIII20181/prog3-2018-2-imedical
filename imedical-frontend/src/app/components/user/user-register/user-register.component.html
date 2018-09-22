@@ -1,1 +1,74 @@
-register works!
+<div class="container">
+  <mat-card class="login-panel">
+    <form
+      (ngSubmit)="handleRegister(form.value, form.valid)"
+      #form="ngForm"
+      novalidate
+      class="login-form">
+      <div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="E-mail"
+            name="email"
+            required
+            #email="ngModel"
+            [ngModel]="user?.email">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Username"
+            name="username"
+            required
+            #username="ngModel"
+            [ngModel]="user?.username">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Password"
+            name="password"
+            required
+            #password="ngModel"
+            [ngModel]="user?.password">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Fullname"
+            name="fullname"
+            required
+            #fullname="ngModel"
+            [ngModel]="user?.fullname">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="birthDate"
+            name="birthDate"
+            required
+            #birthDate="ngModel"
+            [ngModel]="user?.birthDate">
+        </mat-form-field>
+      </div>
+
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        [disabled]="form.invalid">
+        Register
+      </button>
+      <a routerLink="/login">Cancel</a>
+    </form>
+  </mat-card>
+</div>
