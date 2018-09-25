@@ -3,9 +3,14 @@
   height: 500px;
 }
 
+.container mat-card mat-card-title {
+  text-align: center;
+}
+
 .container mat-form-field {
   width: 50%;
 }
+
 
 a {
   text-decoration: none;
