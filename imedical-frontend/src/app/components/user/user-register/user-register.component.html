@@ -4,74 +4,53 @@
       Register
     </mat-card-title>
     <form
-      (ngSubmit)="handleRegister(form.value, form.valid)"
-      #form="ngForm"
-      novalidate
+      (ngSubmit)="handleRegister()"
+      [formGroup]="form"
       class="reg-form">
-      <div>
+      <div formGroupName="user">
         <mat-form-field>
           <input
             matInput
-            placeholder="E-mail"
-            name="email"
-            required
-            #email="ngModel"
-            [ngModel]="user?.email">
+            formControlName="email"
+            placeholder="E-mail">
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="username"
+            placeholder="Username">
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Password">
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="fullname"
+            placeholder="Fullname">
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="birthdate"
+            placeholder="birthDate">
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Username"
-            name="username"
-            required
-            #username="ngModel"
-            [ngModel]="user?.username">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Password"
-            name="password"
-            required
-            #password="ngModel"
-            [ngModel]="user?.password">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Fullname"
-            name="fullname"
-            required
-            #fullname="ngModel"
-            [ngModel]="user?.fullname">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="birthDate"
-            name="birthDate"
-            required
-            #birthDate="ngModel"
-            [ngModel]="user?.birthDate">
-        </mat-form-field>
+      <div class="user_button">
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          [disabled]="form.invalid">
+          Register
+        </button>
+        <a routerLink="/login">Cancel</a>
       </div>
 
-      <button
-        mat-flat-button
-        type="submit"
-        color="primary"
-        [disabled]="form.invalid">
-        Register
-      </button>
-      <a routerLink="/login">Cancel</a>
+      <pre> {{ form.value | json }} </pre>
     </form>
   </mat-card>
 </div>

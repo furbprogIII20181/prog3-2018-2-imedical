@@ -5,7 +5,7 @@ import { UserService } from './user.service';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
 import { UserLoginComponent } from '../../components/user/user-login/user-login.component';
@@ -19,6 +19,7 @@ import { UserRegisterComponent } from '../../components/user/user-register/user-
     CommonModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     RouterModule
   ],
