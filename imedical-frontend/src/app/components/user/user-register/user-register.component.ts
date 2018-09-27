@@ -9,17 +9,18 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent implements OnInit {
-  user: User;
+
   form = new FormGroup({
     user: new FormGroup({
-      email: new FormControl(''),
+      email: new FormControl('',  [Validators.required, Validators.email]),
+      emailConfirm: new FormControl('',  [Validators.required, Validators.email]),
       password: new FormControl(''),
+      passwordConfirm: new FormControl(''),
       username: new FormControl(''),
       fullname: new FormControl(''),
       birthdate: new FormControl('')
     })
   });
-  emailV = new FormControl('', [Validators.required, Validators.email]);
 
   constructor() {}
 
@@ -29,9 +30,7 @@ export class UserRegisterComponent implements OnInit {
   update: EventEmitter<User> = new EventEmitter();
 
   getErrorMessage() {
-    return this.emailV.hasError('required') ? 'You must enter a value' :
-        this.emailV.hasError('email') ? 'Not a valid email' :
-            '';
+    return 'Valor inválido';
   }
 
   handleRegister() {
