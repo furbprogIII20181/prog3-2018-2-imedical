@@ -26,12 +26,6 @@ a {
   margin-top: 5%; 
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 @media (max-width: 700px) {
   .container mat-card {
     width: 50%;
