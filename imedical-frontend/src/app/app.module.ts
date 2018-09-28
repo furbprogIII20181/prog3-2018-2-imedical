@@ -1,3 +1,5 @@
+import { HomeComponent } from './containers/home.component.scss/home.component';
+import { HomeModule } from './containers/home.component.scss/home.module';
 import { UserComponent } from './containers/user/user.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { NgModule } from '@angular/core';
@@ -11,13 +13,13 @@ const routes: Routes = [
   { path: '', component: UserComponent },
   { path: 'register', component: UserRegisterComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'home', component: UserLoginComponent },
+  { path: 'home', component: HomeComponent },
   { path: '**', component: UserComponent }
 ];
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, UserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, UserModule, RouterModule.forRoot(routes), HomeModule],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]

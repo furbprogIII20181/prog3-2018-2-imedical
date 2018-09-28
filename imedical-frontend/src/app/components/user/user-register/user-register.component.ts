@@ -22,6 +22,7 @@ export class UserRegisterComponent implements OnInit {
       phoneNumber: new FormControl('')
     })
   });
+
   hide = true;
   constructor() {}
 
@@ -48,7 +49,7 @@ export class UserRegisterComponent implements OnInit {
     if (this.form.value.user.password !== this.form.value.user.passwordConfirm) {
       console.log('password diff');
       return
-    }    
+    }
     console.log(this.form.value)
   }
 }
