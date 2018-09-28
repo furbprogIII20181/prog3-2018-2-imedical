@@ -14,14 +14,15 @@ export class UserRegisterComponent implements OnInit {
     user: new FormGroup({
       email: new FormControl('',  [Validators.required, Validators.email]),
       emailConfirm: new FormControl('',  [Validators.required, Validators.email]),
-      password: new FormControl(''),
-      passwordConfirm: new FormControl(''),
       username: new FormControl(''),
       fullname: new FormControl(''),
-      birthdate: new FormControl('')
+      password: new FormControl(''),
+      passwordConfirm: new FormControl(''),
+      birthdate: new FormControl(''),
+      phoneNumber: new FormControl('')
     })
   });
-
+  hide = true;
   constructor() {}
 
   ngOnInit() {}
@@ -34,6 +35,20 @@ export class UserRegisterComponent implements OnInit {
   }
 
   handleRegister() {
-    console.log(this.form.value);
+    if (this.form.invalid) {
+      console.log('invalido');
+      return
+    }
+
+    if (this.form.value.user.email !== this.form.value.user.emailConfirm) {
+      console.log('email diff');
+      return
+    }
+
+    if (this.form.value.user.password !== this.form.value.user.passwordConfirm) {
+      console.log('password diff');
+      return
+    }    
+    console.log(this.form.value)
   }
 }

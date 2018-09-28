@@ -20,10 +20,15 @@
   width: 100%;
 }
 
+.container mat-card .user_button {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   text-decoration: none;
-  float: right;
-  margin-top: 5%; 
+  margin-left: 3%;
+  align-self: center;
 }
 
 @media (max-width: 700px) {

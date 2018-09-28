@@ -18,6 +18,8 @@ export class UserLoginComponent {
   @Input()
   users: User[];
 
+  hide = true;
+
   constructor() {}
   onSubmit(user: User, valid: boolean) {
     if (valid) {
