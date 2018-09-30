@@ -1,7 +1,8 @@
 import { EventEmitter } from '@angular/core';
 import { User } from './../../../models/user';
 import { Component, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserValidators } from './user.validators';
 
 @Component({
   selector: 'app-user-register',
@@ -9,47 +10,54 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent implements OnInit {
-
-  form = new FormGroup({
-    user: new FormGroup({
-      email: new FormControl('',  [Validators.required, Validators.email]),
-      emailConfirm: new FormControl('',  [Validators.required, Validators.email]),
-      username: new FormControl(''),
-      fullname: new FormControl(''),
-      password: new FormControl(''),
-      passwordConfirm: new FormControl(''),
-      birthdate: new FormControl(''),
-      phoneNumber: new FormControl('')
+  form = this.fb.group({
+    user: this.fb.group({
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      emailConfirm: this.fb.control('', [
+        Validators.required,
+        Validators.email,
+        UserValidators.equals
+      ]),
+      username: this.fb.control('', [Validators.required]),
+      fullname: this.fb.control('', [Validators.required]),
+      password: this.fb.control('', [Validators.required]),
+      passwordConfirm: this.fb.control('', [Validators.required]),
+      birthdate: this.fb.control('', [Validators.required]),
+      phoneNumber: this.fb.control('', [Validators.required])
     })
   });
 
   hide = true;
-  constructor() {}
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 
   @Output()
   update: EventEmitter<User> = new EventEmitter();
 
-  getErrorMessage() {
-    return 'Valor inválido';
+  getRequiredMessage(name: string) {
+    // #TO DO implement a/an to the NAME
+    return `You have to type a ${name}`;
   }
 
   handleRegister() {
     if (this.form.invalid) {
       console.log('invalido');
-      return
+      return;
     }
 
     if (this.form.value.user.email !== this.form.value.user.emailConfirm) {
       console.log('email diff');
-      return
+      return;
     }
 
-    if (this.form.value.user.password !== this.form.value.user.passwordConfirm) {
+    if (
+      this.form.value.user.password !== this.form.value.user.passwordConfirm
+    ) {
       console.log('password diff');
-      return
+      return;
     }
-    console.log(this.form.value)
+    console.log(this.form.value);
   }
 }

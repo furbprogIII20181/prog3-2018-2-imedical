@@ -1,8 +1,6 @@
 <div class="container">
   <mat-card class="reg-panel">
-    <mat-card-title>
-      Register
-    </mat-card-title>
+    <mat-card-title>Register</mat-card-title>
     <form
       (ngSubmit)="handleRegister()"
       [formGroup]="form"
@@ -14,7 +12,8 @@
             required
             formControlName="email"
             placeholder="E-mail">
-            <mat-error> {{getErrorMessage()}} </mat-error>            
+          <mat-error *ngIf="form.get('user.email').hasError('required')">{{getRequiredMessage('email')}}</mat-error>
+          <mat-error *ngIf="form.get('user.email').hasError('email')">Invalid e-mail</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
@@ -22,20 +21,25 @@
             required
             formControlName="emailConfirm"
             placeholder="Confirm e-mail">
-        </mat-form-field>  
+          <mat-error *ngIf="form.get('user.emailConfirm').hasError('notEqualsEmail')">Does not match the e-mail.</mat-error>
+          <mat-error *ngIf="form.get('user.emailConfirm').hasError('required')">{{getRequiredMessage('emailConfirm')}}</mat-error>
+          <mat-error *ngIf="form.get('user.emailConfirm').hasError('email')">Invalid e-mail</mat-error>
+        </mat-form-field>
         <mat-form-field>
           <input
             matInput
             required
             formControlName="username"
             placeholder="Username">
-        </mat-form-field>      
+          <mat-error *ngIf="form.get('user.username').hasError('required')">{{getRequiredMessage('username')}}</mat-error>
+        </mat-form-field>
         <mat-form-field>
           <input
             matInput
             required
             formControlName="fullname"
             placeholder="Full name">
+          <mat-error *ngIf="form.get('user.fullname').hasError('required')">{{getRequiredMessage('fullname')}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
@@ -44,7 +48,8 @@
             [type]="hide ? 'password' : 'text'"
             formControlName="password"
             placeholder="Password">
-            <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>                  -->
+          <mat-error *ngIf="form.get('user.password').hasError('required')">{{getRequiredMessage('password')}}</mat-error>
+          <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon> -->
         </mat-form-field>
         <mat-form-field>
           <input
@@ -53,23 +58,33 @@
             [type]="hide ? 'password' : 'text'"
             formControlName="passwordConfirm"
             placeholder="Confirm password">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>            
-        </mat-form-field>        
+          <mat-error *ngIf="form.get('user.passwordConfirm').hasError('required')">
+            {{getRequiredMessage('passwordConfirm')}}
+          </mat-error>
+          <mat-icon
+            matSuffix
+            (click)="hide = !hide">
+            {{hide ? 'visibility' : 'visibility_off'}}
+          </mat-icon>
+        </mat-form-field>
         <mat-form-field>
           <input
             matInput
             required
             type="date"
-            value=""
+            value
             formControlName="birthdate"
             placeholder="Birth Date">
+          <mat-error *ngIf="form.get('user.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input
-              matInput
-              type="tel" matInput 
-              placeholder="Telephone"
-              formControlName="phoneNumber">
+          <input
+            matInput
+            type="tel"
+            matInput
+            placeholder="Telephone"
+            formControlName="phoneNumber">
+          <mat-error *ngIf="form.get('user.phoneNumber').hasError('required')">{{getRequiredMessage('phoneNumber')}}</mat-error>
         </mat-form-field>
       </div>
       <div class="user_button">
