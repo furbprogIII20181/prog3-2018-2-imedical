@@ -3,6 +3,9 @@ import { User } from './../../../models/user';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserValidators } from './user.validators';
+import { UserService } from '../../../containers/user/user.service';
+import { first } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-register',
@@ -13,15 +16,9 @@ export class UserRegisterComponent implements OnInit {
   form = this.fb.group({
     user: this.fb.group({
       email: this.fb.control('', [Validators.required, Validators.email]),
-      emailConfirm: this.fb.control('', [
-        Validators.required,
-        Validators.email,
-        UserValidators.equals
-      ]),
       username: this.fb.control('', [Validators.required]),
       fullname: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
-      passwordConfirm: this.fb.control('', [Validators.required]),
       birthdate: this.fb.control('', [Validators.required]),
       phoneNumber: this.fb.control('', [Validators.required])
     })
@@ -29,7 +26,8 @@ export class UserRegisterComponent implements OnInit {
 
   hide = true;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {}
 
@@ -42,22 +40,15 @@ export class UserRegisterComponent implements OnInit {
   }
 
   handleRegister() {
-    if (this.form.invalid) {
-      console.log('invalido');
-      return;
-    }
-
-    if (this.form.value.user.email !== this.form.value.user.emailConfirm) {
-      console.log('email diff');
-      return;
-    }
-
-    if (
-      this.form.value.user.password !== this.form.value.user.passwordConfirm
-    ) {
-      console.log('password diff');
-      return;
-    }
-    console.log(this.form.value);
+    this.userService.register(this.form.value)
+    .pipe(first())
+    .subscribe(
+        data => {
+            alert('Registrado com sucesso');
+            this.router.navigate(['/login']);
+        },
+        error => {
+            alert('erro no register ' + error);
+        });
   }
 }

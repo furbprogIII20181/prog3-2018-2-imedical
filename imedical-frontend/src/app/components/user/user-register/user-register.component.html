@@ -19,16 +19,6 @@
           <input
             matInput
             required
-            formControlName="emailConfirm"
-            placeholder="Confirm e-mail">
-          <mat-error *ngIf="form.get('user.emailConfirm').hasError('notEqualsEmail')">Does not match the e-mail.</mat-error>
-          <mat-error *ngIf="form.get('user.emailConfirm').hasError('required')">{{getRequiredMessage('emailConfirm')}}</mat-error>
-          <mat-error *ngIf="form.get('user.emailConfirm').hasError('email')">Invalid e-mail</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            required
             formControlName="username"
             placeholder="Username">
           <mat-error *ngIf="form.get('user.username').hasError('required')">{{getRequiredMessage('username')}}</mat-error>
@@ -49,33 +39,16 @@
             formControlName="password"
             placeholder="Password">
           <mat-error *ngIf="form.get('user.password').hasError('required')">{{getRequiredMessage('password')}}</mat-error>
-          <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon> -->
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            required
-            [type]="hide ? 'password' : 'text'"
-            formControlName="passwordConfirm"
-            placeholder="Confirm password">
-          <mat-error *ngIf="form.get('user.passwordConfirm').hasError('required')">
-            {{getRequiredMessage('passwordConfirm')}}
-          </mat-error>
           <mat-icon
             matSuffix
             (click)="hide = !hide">
             {{hide ? 'visibility' : 'visibility_off'}}
           </mat-icon>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            required
-            type="date"
-            value
-            formControlName="birthdate"
-            placeholder="Birth Date">
-          <mat-error *ngIf="form.get('user.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>
+        </mat-form-field><mat-form-field>
+            <input matInput [matDatepicker]="picker" formControlName="birthdate" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="form.get('user.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>      
         </mat-form-field>
         <mat-form-field>
           <input
