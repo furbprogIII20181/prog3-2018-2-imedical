@@ -24,29 +24,32 @@ export class UserLoginComponent {
     user: this.fb.group({
       // email: this.fb.control('', [Validators.required, Validators.email]),
       username: this.fb.control('', [Validators.required]),
-      password: this.fb.control('', [Validators.required]),
+      password: this.fb.control('', [Validators.required])
     })
-  });  
+  });
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
-    ) {}
+  ) {}
 
   handleLogin() {
     if (this.form.valid) {
       console.log('valido');
-      this.userService.login(this.form.value.user.username,  this.form.value.user.password)
-      .pipe(first())
-      .subscribe(
+      this.userService
+        .login(this.form.value.user.username, this.form.value.user.password)
+        .pipe(first())
+        .subscribe(
           data => {
-              console.log(data);
-              this.router.navigate(['/home']);
+            console.log(data);
+            this.router.navigate(['/home']);
           },
           error => {
-              alert('Erro no Login')
-          });
+            alert('Erro no Login');
+          }
+        );
     }
   }
 

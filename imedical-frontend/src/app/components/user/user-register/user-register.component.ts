@@ -26,8 +26,12 @@ export class UserRegisterComponent implements OnInit {
 
   hide = true;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute,
-    private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -40,15 +44,17 @@ export class UserRegisterComponent implements OnInit {
   }
 
   handleRegister() {
-    this.userService.register(this.form.value)
-    .pipe(first())
-    .subscribe(
+    this.userService
+      .register(this.form.value)
+      .pipe(first())
+      .subscribe(
         data => {
-            alert('Registrado com sucesso');
-            this.router.navigate(['/login']);
+          alert('Registrado com sucesso');
+          this.router.navigate(['/login']);
         },
         error => {
-            alert('erro no register ' + error);
-        });
+          console.log('erro no register ' + error);
+        }
+      );
   }
 }

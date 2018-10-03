@@ -18,19 +18,19 @@ export class UserService {
   }
 
   getById(id: number) {
-      return this.http.get(`/users/` + id);
+    return this.http.get(`/users/` + id);
   }
 
   register(user: User) {
-      return this.http.post(`/users/register`, user);
+    return this.http.post(`/users/register`, user);
   }
 
   update(user: User) {
-      return this.http.put(`/users/` + user.username, user);
+    return this.http.put(`/users/` + user.username, user);
   }
 
   delete(id: number) {
-      return this.http.delete(`/users/` + id);
+    return this.http.delete(`/users/` + id);
   }
 
   getUser(name): Observable<User> {
@@ -45,20 +45,26 @@ export class UserService {
 
   login(username: string, password: string) {
     alert(username + ':' + password);
-    return this.http.post<any>('/users/authenticate', { username: username, password: password })
-        .pipe(map(user => {
-            // login successful if there's a jwt token in the response
-            if (user && user.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-            }
+    return this.http
+      .post<any>('/users/authenticate', {
+        username: username,
+        password: password
+      })
+      .pipe(
+        map(user => {
+          // login successful if there's a jwt token in the response
+          if (user && user.token) {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('currentUser', JSON.stringify(user));
+          }
 
-            return user;
-      }));
-    }
+          return user;
+        })
+      );
+  }
 
-    logout() {
-        // remove user from local storage to log user out
-      localStorage.removeItem('currentUser');
-    }  
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+  }
 }
