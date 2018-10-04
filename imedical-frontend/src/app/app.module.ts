@@ -1,5 +1,5 @@
-import { HomeComponent } from './containers/home.component.scss/home.component';
-import { HomeModule } from './containers/home.component.scss/home.module';
+import { HomeComponent } from './containers/home/home.component';
+import { HomeModule } from './containers/home/home.module';
 import { UserComponent } from './containers/user/user.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { NgModule } from '@angular/core';

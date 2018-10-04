@@ -45,7 +45,7 @@
             {{hide ? 'visibility' : 'visibility_off'}}
           </mat-icon>
         </mat-form-field><mat-form-field>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate" placeholder="Choose a date">
+            <input matInput [matDatepicker]="picker" formControlName="birthdate" placeholder="Select your birth date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="form.get('user.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>      
