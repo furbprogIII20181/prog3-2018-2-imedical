@@ -9,6 +9,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatCardModule,
+  MatSelectModule,
   MatIconModule
 } from '@angular/material';
 
@@ -24,6 +25,7 @@ import {
     MatCardModule,
     MatNativeDateModule,
     MatIconModule,
+    MatSelectModule,
   ],
   exports: [
     MatButtonModule,
@@ -32,6 +34,7 @@ import {
     MatInputModule,
     MatCardModule,
     MatIconModule,
+    MatSelectModule,
     MatDatepickerModule
   ]
 })
