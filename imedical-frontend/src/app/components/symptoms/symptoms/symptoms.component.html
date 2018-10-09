@@ -1,0 +1,9 @@
+<mat-selection-list #select>
+  <mat-list-option *ngFor="let symptom of symptoms">
+    {{symptom.name}}
+  </mat-list-option>
+</mat-selection-list>
+
+<p>
+  Options selected: {{select.selectedOptions.selected.length}}
+</p>

@@ -1,3 +1,5 @@
+import { DiagnosisComponent } from './../../components/diagnosis/diagnosis/diagnosis.component';
+import { SymptomsComponent } from './../../components/symptoms/symptoms/symptoms.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +13,12 @@ import { MaterialModule } from '../../material.module';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [HomeComponent, NavbarComponent],
+  declarations: [
+    HomeComponent,
+    NavbarComponent,
+    SymptomsComponent,
+    DiagnosisComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
