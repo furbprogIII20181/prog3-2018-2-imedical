@@ -10,10 +10,11 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
 import { UserLoginComponent } from '../../components/user/user-login/user-login.component';
 import { UserRegisterComponent } from '../../components/user/user-register/user-register.component';
+import { DoctorRegisterComponent } from '../../components/user/doctor-register/doctor-register.component';
 import { fakeBackendProvider } from '../../mock/fake-backend-interceptor';
 
 @NgModule({
-  declarations: [UserLoginComponent, UserRegisterComponent, UserComponent],
+  declarations: [UserLoginComponent, UserRegisterComponent, DoctorRegisterComponent, UserComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,

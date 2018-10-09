@@ -2,6 +2,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { HomeModule } from './containers/home/home.module';
 import { UserComponent } from './containers/user/user.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
+import { DoctorRegisterComponent} from './components/user/doctor-register/doctor-register.component';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UserModule } from './containers/user/user.module';
@@ -10,11 +11,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 
 const routes: Routes = [
-  { path: '', component: UserComponent },
-  { path: 'register', component: UserRegisterComponent },
+  { path: '', component: UserLoginComponent },
+  { path: 'user-register', component: UserRegisterComponent },
+  { path: 'doctor-register', component: DoctorRegisterComponent },
   { path: 'login', component: UserLoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', component: UserComponent }
+  { path: '**', component: UserLoginComponent }
 ];
 
 @NgModule({
