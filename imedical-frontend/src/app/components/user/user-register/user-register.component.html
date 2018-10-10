@@ -60,15 +60,19 @@
           <mat-error *ngIf="form.get('user.phoneNumber').hasError('required')">{{getRequiredMessage('phoneNumber')}}</mat-error>
         </mat-form-field>
       </div>
-      <div class="user_button">
-        <button
-          mat-flat-button
-          type="submit"
-          color="primary"
-          [disabled]="form.invalid">
-          Register
-        </button>
-        <a routerLink="/login">Cancel</a>
+      <div>
+        <!---->
+        <div class="user_button">
+          <a mat-button routerLink="/doctor-register">I'm a Doctor</a>
+          <button
+            mat-flat-button
+            type="submit"
+            color="primary"
+            [disabled]="form.invalid">
+            Register
+          </button>
+          <a routerLink="/login">Cancel</a>
+        </div>
       </div>
 
       <!-- <pre> {{ form.value | json }} </pre> -->
