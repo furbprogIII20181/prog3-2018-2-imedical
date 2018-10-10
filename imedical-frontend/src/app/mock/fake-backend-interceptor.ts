@@ -19,8 +19,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // array in local storage for registered users
-    const users: any[] = JSON.parse(sessionStorage.getItem('users')) || [];
-    console.log('teste2');
+    const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
+    console.log(users);
     // wrap in delayed observable to simulate server api call
     return (
       of(null)
@@ -31,17 +31,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               request.url.endsWith('/users/authenticate') &&
               request.method === 'POST'
             ) {
-              console.log(users);
               const filteredUsers = users.filter(data => {
-                console.log(data.user.username, request.body.username);
-                console.log(data.user.password, request.body.password);
-                console.log(
-                  data.user.username === request.body.username,
-                  data.user.password === request.body.password
-                );
+                debugger;
                 return (
-                  data.user.username === request.body.username &&
-                  data.user.password === request.body.password
+                  data.username === request.body.username &&
+                  data.password === request.body.password
                 );
               });
               console.log('filtered users', request.body, filteredUsers, users);
@@ -129,7 +123,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               // save new user
               newUser.id = users.length + 1;
               users.push(newUser);
-              sessionStorage.setItem('users', JSON.stringify(users));
+              localStorage.setItem('users', JSON.stringify(users));
 
               // respond 200 OK
               return of(new HttpResponse({ status: 200 }));
