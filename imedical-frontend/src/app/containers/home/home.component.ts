@@ -10,7 +10,9 @@ import { User } from '../../models/user';
 //        <app-user-login [users]="users"></app-user-login>
 export class HomeComponent implements OnInit {
   users: User[];
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService) {
+
+  }
   ngOnInit() {
 
   }

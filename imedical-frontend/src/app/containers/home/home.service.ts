@@ -10,15 +10,12 @@ const USER_API = '/assets/db.json';
 
 @Injectable()
 export class HomeService {
-  token: any;
   symptoms: any;
 
   API_URL_AUTH = 'https://sandbox-authservice.priaid.ch';
   API_URL_HEALT = 'https://sandbox-healthservice.priaid.ch';
 
-  constructor(private http: HttpClient) {
-    this.token = this.getToken();
-  }
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
     return this.http.get(USER_API).pipe(map((data: User[]) => data));
@@ -28,37 +25,38 @@ export class HomeService {
     return this.http.get(`${USER_API}/${name}`).pipe(map((data: User) => data));
   }
 
-  addUser(user: User) {
+  addUser(user: User): Observable<User> {
     return this.http
       .post(`${USER_API}`, user)
-      .pipe(map((response: Response) => response));
+      .pipe(map((response: User) => response));
   }
 
-  getToken() {
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append(
-      'Authorization',
-      'Bearer merinigames@hotmail.com:SV3+R2c0tD0+E12r51HVIg=='
-    );
+  getToken(): Observable<string> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization':  'Bearer merinigames@hotmail.com:SV3+R2c0tD0+E12r51HVIg==',
+      })
+    };
+
     return this.http
-      .post(this.API_URL_AUTH + '/login', null, { headers })
-      .pipe(map((res: string) => (this.token = res)));
+      .post(this.API_URL_AUTH + '/login', undefined, httpOptions)
+      .pipe(map((res: any) => res.Token));
   }
 
-  getSymptoms(): Observable<Symptom[]> {
+  getSymptoms(token): Observable<Symptom[]> {
     return this.http
       .get(
-        this.API_URL_HEALT + '/symptoms?token=' + this.token + '&language=en-gb'
+        this.API_URL_HEALT + '/symptoms?token=' + token + '&language=en-gb'
       )
       .pipe(map((res: any) => res));
   }
 
-  getDiagnosis(): Observable<Diagnosis[]> {
+  getDiagnosis(token): Observable<Diagnosis[]> {
     return this.http
       .get(
         this.API_URL_HEALT +
           '/diagnosis?token=' +
-          this.token +
+          token +
           '&symptoms=' +
           this.symptoms +
           '&language=en-gb'
