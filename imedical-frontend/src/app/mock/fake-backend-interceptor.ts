@@ -107,7 +107,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               request.url.endsWith('/users/register') &&
               request.method === 'POST'
             ) {
-              alert('chegou no register');
               console.log(request.body);
               // get new user object from post body
               debugger;
