@@ -7,6 +7,11 @@ import { UserService } from '../../../containers/user/user.service';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
+export interface Spec {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-doctor-register',
   templateUrl: './doctor-register.component.html',
@@ -20,14 +25,19 @@ export class DoctorRegisterComponent implements OnInit {
       fullname: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
       birthdate: this.fb.control('', [Validators.required]),
-      phoneNumber: this.fb.control('', [Validators.required])
-
-
-
+      phoneNumber: this.fb.control('', [Validators.required]),
+      docID:  this.fb.control('', [Validators.required]),
+      specialization:  this.fb.control('', [Validators.required])
     })
   });
 
   hide = true;
+
+  specs: Spec[] = [
+    {value: 'psychology', viewValue: 'Psychology'},
+    {value: 'orthopaedist', viewValue: 'Orthopaedist'},
+    {value: 'dentist', viewValue: 'Dentist'}
+  ];
 
   constructor(
     private fb: FormBuilder,

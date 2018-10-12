@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card class="reg-panel">
-    <mat-card-title>Register</mat-card-title>
+    <mat-card-title>Doctor Register</mat-card-title>
     <form
       (ngSubmit)="handleRegister()"
       [formGroup]="form"
@@ -59,6 +59,26 @@
             formControlName="phoneNumber">
           <mat-error *ngIf="form.get('doctor.phoneNumber').hasError('required')">{{getRequiredMessage('phoneNumber')}}</mat-error>
         </mat-form-field>
+        <mat-form-field>
+            <input
+            id="docID"
+            matInput
+            required
+            placeholder="Doctor ID"
+            formControlName="docID">
+            <mat-error *ngIf="form.get('doctor.docID').hasError('required')">{{getRequiredMessage('docID')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select
+            id="specialization"
+            required 
+            placeholder="Specialization"
+            formControlName="specialization">
+            <mat-option *ngFor="let spec of specs" [value]="spec.value">
+              {{spec.viewValue}}
+            </mat-option>
+            </mat-select>
+          </mat-form-field>
       </div>
       <div class="user_button">
         <button
@@ -70,6 +90,9 @@
         </button>
         <a routerLink="/user-register">Cancel</a>
       </div>
+
+      
+
 
       <!-- <pre> {{ form.value | json }} </pre> -->
     </form>

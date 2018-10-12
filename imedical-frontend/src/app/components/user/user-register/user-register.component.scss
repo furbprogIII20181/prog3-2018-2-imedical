@@ -23,13 +23,22 @@
 
 .container mat-card .user_button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    margin-left: 3%;
+    align-self: center;
+    color: #9D9B9B;
+  }
+}
+
+a:visited {
+  color: #9D9B9B;
 }
 
 a {
   text-decoration: none;
-  margin-left: 3%;
-  align-self: center;
+  float: right;
 }
 
 mat-icon{
