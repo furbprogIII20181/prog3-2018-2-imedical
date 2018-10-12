@@ -43,7 +43,6 @@ export class UserLoginComponent {
         .pipe(first())
         .subscribe(
           data => {
-            console.log(data);
             this.router.navigate(['/home']);
           },
           error => {

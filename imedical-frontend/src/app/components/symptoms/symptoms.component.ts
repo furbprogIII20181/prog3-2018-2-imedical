@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { HomeService } from './../../containers/home/home.service';
 import { Symptom } from './../../models/symptom';
 
@@ -13,12 +14,16 @@ export class SymptomsComponent implements OnInit {
   symptoms: Symptom[];
   loaded = false;
   selectedOptions: Symptom[];
-  constructor(private homeService: HomeService) {}
+  constructor(
+    private homeService: HomeService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.homeService.getToken().subscribe(data => {
       const token = data;
-      this.homeService.getSymptoms(token).subscribe(symptoms => {
+      this.homeService.getSymptoms(data).subscribe(symptoms => {
         this.symptoms = symptoms;
         this.loaded = true;
         console.log(this.symptoms[0].ID, this.symptoms[0].Name);
@@ -27,6 +32,7 @@ export class SymptomsComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.homeService.getDiagnosis(this.selectedOptions).subscribe();
+    this.homeService.setSelectedSymptoms(this.selectedOptions);
+    this.router.navigate(['/diagnosis']);
   }
 }

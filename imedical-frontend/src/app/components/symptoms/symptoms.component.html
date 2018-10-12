@@ -12,9 +12,7 @@
         #symptomSearch
         placeholder="Search for a symptom">
     </mat-form-field>
-    <mat-selection-list
-      [(ngModel)]="selectedOptions"
-      (ngModelChange)="onSelectedOptionsChange($event)">
+    <mat-selection-list [(ngModel)]="selectedOptions">
       <mat-list-option
         *ngFor="let symptom of (symptoms | symptomSearch:symptomSearch.value)"
         [value]="symptom.ID">
