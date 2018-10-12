@@ -1,16 +1,16 @@
-import { SymptomsComponent } from './components/symptoms/symptoms/symptoms.component';
+import { SymptomsComponent } from './components/symptoms/symptoms.component';
 import { HomeComponent } from './containers/home/home.component';
 import { HomeModule } from './containers/home/home.module';
 import { UserComponent } from './containers/user/user.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
-import { DoctorRegisterComponent} from './components/user/doctor-register/doctor-register.component';
+import { DoctorRegisterComponent } from './components/user/doctor-register/doctor-register.component';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { UserModule } from './containers/user/user.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
-import { DiagnosisComponent } from './components/diagnosis/diagnosis/diagnosis.component';
+import { DiagnosisComponent } from './components/diagnosis/diagnosis.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },

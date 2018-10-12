@@ -1,0 +1,35 @@
+<div class="container">
+  <div *ngIf="!loaded">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div
+    *ngIf="loaded"
+    class="checkbox">
+    <div>Selected: {{ selectedOptions | json }}</div>
+    <mat-form-field>
+      <input
+        matInput
+        #symptomSearch
+        placeholder="Search for a symptom">
+    </mat-form-field>
+    <mat-selection-list
+      [(ngModel)]="selectedOptions"
+      (ngModelChange)="onSelectedOptionsChange($event)">
+      <mat-list-option
+        *ngFor="let symptom of (symptoms | symptomSearch:symptomSearch.value)"
+        [value]="symptom.ID">
+        {{symptom?.Name}}
+      </mat-list-option>
+    </mat-selection-list>
+
+  </div>
+  <div *ngIf="loaded">
+    <button
+      mat-flat-button
+      type="submit"
+      (click)="handleSubmit()"
+      color="primary">
+      Register
+    </button>
+  </div>
+</div>

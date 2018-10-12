@@ -1,0 +1,18 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox {
+  height: 80%;
+  width: 80%;
+  overflow: scroll;
+  flex-direction: column;
+}
+
+.checkbox mat-selection-list {
+}

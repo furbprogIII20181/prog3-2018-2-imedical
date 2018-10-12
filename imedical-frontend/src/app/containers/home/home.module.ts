@@ -1,5 +1,5 @@
-import { DiagnosisComponent } from './../../components/diagnosis/diagnosis/diagnosis.component';
-import { SymptomsComponent } from './../../components/symptoms/symptoms/symptoms.component';
+import { DiagnosisComponent } from './../../components/diagnosis/diagnosis.component';
+import { SymptomsComponent } from './../../components/symptoms/symptoms.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { SymptomFilterPipe } from '../../components/pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavbarComponent,
     SymptomsComponent,
-    DiagnosisComponent
+    DiagnosisComponent,
+    SymptomFilterPipe
   ],
   imports: [
     BrowserAnimationsModule,
@@ -30,6 +32,6 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
     RouterModule
   ],
   exports: [HomeComponent],
-  providers: [HomeService]
+  providers: [HomeService, SymptomFilterPipe]
 })
 export class HomeModule {}
