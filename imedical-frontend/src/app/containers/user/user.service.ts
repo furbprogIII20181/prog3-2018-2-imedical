@@ -44,7 +44,6 @@ export class UserService {
   }
 
   login(username: string, password: string) {
-    alert(username + ':' + password);
     return this.http
       .post<any>('/users/authenticate', {
         username: username,

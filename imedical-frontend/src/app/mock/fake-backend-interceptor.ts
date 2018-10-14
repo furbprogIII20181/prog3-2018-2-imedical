@@ -20,7 +20,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     // array in local storage for registered users
     const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
-    console.log(users);
+
     // wrap in delayed observable to simulate server api call
     return (
       of(null)
@@ -38,7 +38,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   data.password === request.body.password
                 );
               });
-              console.log('filtered users', request.body, filteredUsers, users);
+
               if (filteredUsers.length) {
                 // if login details are valid return 200 OK with user details and fake jwt token
                 const user = filteredUsers[0];
@@ -101,7 +101,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               request.url.endsWith('/users/register') &&
               request.method === 'POST'
             ) {
-              console.log(request.body);
               // get new user object from post body
               debugger;
               const newUser = request.body.user;

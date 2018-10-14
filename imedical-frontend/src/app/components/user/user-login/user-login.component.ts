@@ -37,7 +37,6 @@ export class UserLoginComponent {
 
   handleLogin() {
     if (this.form.valid) {
-      console.log('valido');
       this.userService
         .login(this.form.value.user.username, this.form.value.user.password)
         .pipe(first())

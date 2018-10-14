@@ -53,7 +53,7 @@ export class UserRegisterComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         error => {
-          console.log('erro no register ' + error);
+          console.error('erro no register ' + error);
         }
       );
   }

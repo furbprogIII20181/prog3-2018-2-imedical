@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { Issue } from './../../models/issue';
 import { Diagnosis } from './../../models/diagnosis';
 import { HomeService } from './../../containers/home/home.service';
 import { OnInit, Component } from '@angular/core';
 import { Symptom } from '../../models/symptom';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-diagnosis',
@@ -15,15 +17,18 @@ export class DiagnosisComponent implements OnInit {
   issues: Issue[];
   loaded = false;
   currentUser = {};
-  constructor(private homeService: HomeService) {}
+  constructor(
+    private homeService: HomeService,
+    private router: Router,
+    public snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.homeService.getToken().subscribe(data => {
       const token = data;
       this.symptoms = this.homeService.getSelectedSymptoms();
-      this.homeService
-        .getDiagnosis(token, this.symptoms)
-        .subscribe(diagnosis => {
+      this.homeService.getDiagnosis(token, this.symptoms).subscribe(
+        diagnosis => {
           this.diagnosis = diagnosis;
           console.log(diagnosis);
           diagnosis.forEach((diagnosis, i) => {
@@ -41,7 +46,18 @@ export class DiagnosisComponent implements OnInit {
                 });
             }
           });
-        });
+        },
+        err => {
+          this.snackBar.open(
+            'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
+            'OK!',
+            {
+              duration: 10000
+            }
+          );
+          this.router.navigate(['/symptoms']);
+        }
+      );
     });
   }
 }

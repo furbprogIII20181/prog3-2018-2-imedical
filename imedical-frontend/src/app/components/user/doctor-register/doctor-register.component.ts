@@ -26,17 +26,17 @@ export class DoctorRegisterComponent implements OnInit {
       password: this.fb.control('', [Validators.required]),
       birthdate: this.fb.control('', [Validators.required]),
       phoneNumber: this.fb.control('', [Validators.required]),
-      docID:  this.fb.control('', [Validators.required]),
-      specialization:  this.fb.control('', [Validators.required])
+      docID: this.fb.control('', [Validators.required]),
+      specialization: this.fb.control('', [Validators.required])
     })
   });
 
   hide = true;
 
   specs: Spec[] = [
-    {value: 'psychology', viewValue: 'Psychology'},
-    {value: 'orthopaedist', viewValue: 'Orthopaedist'},
-    {value: 'dentist', viewValue: 'Dentist'}
+    { value: 'psychology', viewValue: 'Psychology' },
+    { value: 'orthopaedist', viewValue: 'Orthopaedist' },
+    { value: 'dentist', viewValue: 'Dentist' }
   ];
 
   constructor(
@@ -66,7 +66,7 @@ export class DoctorRegisterComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         error => {
-          console.log('erro no register ' + error);
+          console.error(err);
         }
       );
   }

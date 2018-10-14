@@ -26,7 +26,6 @@ export class SymptomsComponent implements OnInit {
       this.homeService.getSymptoms(data).subscribe(symptoms => {
         this.symptoms = symptoms;
         this.loaded = true;
-        console.log(this.symptoms[0].ID, this.symptoms[0].Name);
       });
     });
   }

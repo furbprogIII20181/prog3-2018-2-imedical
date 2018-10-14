@@ -44,11 +44,18 @@
             (click)="hide = !hide">
             {{hide ? 'visibility' : 'visibility_off'}}
           </mat-icon>
-        </mat-form-field><mat-form-field>
-            <input matInput [matDatepicker]="picker" formControlName="birthdate" placeholder="Select your birth date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="form.get('doctor.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>      
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="birthdate"
+            placeholder="Select your birth date">
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="form.get('doctor.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
@@ -60,25 +67,27 @@
           <mat-error *ngIf="form.get('doctor.phoneNumber').hasError('required')">{{getRequiredMessage('phoneNumber')}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input
+          <input
             id="docID"
             matInput
             required
             placeholder="Doctor ID"
             formControlName="docID">
-            <mat-error *ngIf="form.get('doctor.docID').hasError('required')">{{getRequiredMessage('docID')}}</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-select
+          <mat-error *ngIf="form.get('doctor.docID').hasError('required')">{{getRequiredMessage('docID')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select
             id="specialization"
-            required 
+            required
             placeholder="Specialization"
             formControlName="specialization">
-            <mat-option *ngFor="let spec of specs" [value]="spec.value">
+            <mat-option
+              *ngFor="let spec of specs"
+              [value]="spec.value">
               {{spec.viewValue}}
             </mat-option>
-            </mat-select>
-          </mat-form-field>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div class="user_button">
         <button
@@ -90,9 +99,6 @@
         </button>
         <a routerLink="/user-register">Cancel</a>
       </div>
-
-      
-
 
       <!-- <pre> {{ form.value | json }} </pre> -->
     </form>

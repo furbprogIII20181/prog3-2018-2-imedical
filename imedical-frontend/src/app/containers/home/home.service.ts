@@ -1,8 +1,8 @@
 import { Diagnosis } from './../../models/diagnosis';
 import { Symptom } from './../../models/symptom';
 import { User } from '../../models/user';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, timeout, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Issue } from '../../models/issue';
@@ -69,8 +69,6 @@ export class HomeService {
 
   // https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[9,10,11]&gender=male&year_of_birth=1983&token=&format=json&language=en-gb:
   getDiagnosis(token, symptoms): Observable<Diagnosis[]> {
-    symptoms = [10, 11, 12];
-    this.currentUser = localStorage.getItem('currentUser');
     return this.http
       .get(
         this.API_URL_HEALT +
@@ -84,7 +82,10 @@ export class HomeService {
           '&year_of_birth=1983' +
           '&language=en-gb'
       )
-      .pipe(map((res: any) => res));
+      .pipe(
+        map((res: any) => res),
+        timeout(5000)
+      );
   }
   //https://sandbox-healthservice.priaid.ch/issues/11/info?token=&format=json&language=en-gb
   getIssue(token, id): Observable<Issue> {
