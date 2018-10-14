@@ -66,7 +66,7 @@ export class DoctorRegisterComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         error => {
-          console.error(err);
+          console.error(error);
         }
       );
   }
