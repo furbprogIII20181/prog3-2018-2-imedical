@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'user-register', component: UserRegisterComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: SymptomsComponent },
   { path: 'symptoms', component: SymptomsComponent },
   { path: 'diagnosis', component: DiagnosisComponent },
   { path: '**', component: UserLoginComponent }

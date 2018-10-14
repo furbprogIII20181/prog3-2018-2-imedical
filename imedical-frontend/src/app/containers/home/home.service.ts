@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Issue } from '../../models/issue';
 
 const USER_API = '/assets/db.json';
 
@@ -82,6 +83,19 @@ export class HomeService {
           '&gender=male' +
           '&year_of_birth=1983' +
           '&language=en-gb'
+      )
+      .pipe(map((res: any) => res));
+  }
+  //https://sandbox-healthservice.priaid.ch/issues/11/info?token=&format=json&language=en-gb
+  getIssue(token, id): Observable<Issue> {
+    return this.http
+      .get(
+        this.API_URL_HEALT +
+          '/issues/' +
+          id +
+          '/info?token=' +
+          token +
+          '&format=json&language=en-gb'
       )
       .pipe(map((res: any) => res));
   }

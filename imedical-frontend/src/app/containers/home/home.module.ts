@@ -10,13 +10,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { SymptomFilterPipe } from '../../components/pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    NavbarComponent,
     SymptomsComponent,
     DiagnosisComponent,
     SymptomFilterPipe

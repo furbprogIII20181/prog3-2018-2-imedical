@@ -1,8 +1,17 @@
 export class Diagnosis {
-  public id: number;
-  public date: string;
-  public team1: string;
-  public img1: number;
-  public team2: string;
-  public img2: string;
+  public Issue: {
+    ID: number;
+    Accuracy: number;
+    Name: string;
+    ProfName: string;
+    Description: string;
+    DescriptionShort: string;
+    MedicalCondition: string;
+    PossibleSymptoms;
+    TreatmentDescription;
+  };
+  public Specialisation: {
+    ID: number;
+    Name: string;
+  };
 }
