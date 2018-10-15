@@ -2,28 +2,25 @@
   <div *ngIf="!loaded">
     <mat-spinner></mat-spinner>
   </div>
-
   <mat-card
     class="checkbox"
     *ngIf="loaded">
-
-    <div>
+    <mat-card-title>Select your Symptoms</mat-card-title>
+    <div class="search">
       <mat-form-field>
         <input
           matInput
           #symptomSearch
           placeholder="Search for a symptom">
       </mat-form-field>
-
       <button
         mat-icon-button
         type="submit"
         (click)="handleSubmit()"
-        [disabled]="selectedOptions?.length < 1"
-        color="primary">
-        <mat-icon>search</mat-icon>
+        [disabled]="selectedOptions?.length < 1">
+        <mat-icon>subject</mat-icon>
+        DIAGNOSE
       </button>
-
       <mat-selection-list [(ngModel)]="selectedOptions">
         <mat-list-option
           *ngFor="let symptom of (symptoms | symptomSearch:symptomSearch.value)"
@@ -31,8 +28,6 @@
           {{symptom?.Name}}
         </mat-list-option>
       </mat-selection-list>
-
     </div>
   </mat-card>
-
 </div>
