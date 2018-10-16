@@ -14,6 +14,7 @@ export class SymptomsComponent implements OnInit {
   symptoms: Symptom[];
   loaded = false;
   selectedOptions: Symptom[];
+  genders: string[] = ["Male", "Female"];
   constructor(
     private homeService: HomeService,
     private route: ActivatedRoute,

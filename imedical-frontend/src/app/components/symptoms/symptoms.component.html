@@ -7,6 +7,24 @@
     *ngIf="loaded">
     <mat-card-title>Select your Symptoms</mat-card-title>
     <div class="search">
+      <div class="dataUser">
+        <a>Select your gender and tell us your year of birth. This will help us to give a more accurate diagnosis.</a>
+        <mat-form-field>
+          <mat-select
+          id="gender"
+          placeholder="Gender"
+          [(value)]="selected">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          matInput
+          maxlength="4"
+          placeholder="Birth year">
+        </mat-form-field>
+      </div>
       <mat-form-field>
         <input
           matInput
