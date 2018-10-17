@@ -11,9 +11,10 @@
         <a>Select your gender and tell us your year of birth. This will help us to give a more accurate diagnosis.</a>
         <mat-form-field>
           <mat-select
+          required
           id="gender"
           placeholder="Gender"
-          [(value)]="selected">
+          [(value)]="selectedGender">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
           </mat-select>
@@ -21,7 +22,9 @@
         <mat-form-field>
           <input
           matInput
+          required
           maxlength="4"
+          [(ngModel)]="birthYear"
           placeholder="Birth year">
         </mat-form-field>
       </div>
