@@ -4,12 +4,8 @@ import { User } from '../../models/user';
 
 @Component({
   selector: 'app-user',
-  template: `
-        <app-user-register (update)="onUpdatePassenger($event)"></app-user-register>
-        <div *ngFor="let user of Users">{{ user | json }}</div>
-  `
 })
-//        <app-user-login [users]="users"></app-user-login>
+
 export class UserComponent implements OnInit {
   users: User[];
   constructor(private userService: UserService) {}
