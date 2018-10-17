@@ -38,13 +38,15 @@
         mat-icon-button
         type="submit"
         (click)="handleSubmit()"
-        [disabled]="selectedOptions?.length < 1">
+        [disabled]="selectedSymptoms?.length < 1">
         <mat-icon>subject</mat-icon>
         DIAGNOSE
       </button>
-      <mat-selection-list [(ngModel)]="selectedOptions">
+      <mat-selection-list (selectionChange)="onSelectedOptionsChange()">
         <mat-list-option
           *ngFor="let symptom of (symptoms | symptomSearch:symptomSearch.value)"
+          [selected]="symptom.selected"
+          (click)="symptom.selected = !symptom.selected;"
           [value]="symptom.ID">
           {{symptom?.Name}}
         </mat-list-option>

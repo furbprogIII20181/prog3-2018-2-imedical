@@ -13,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class SymptomsComponent implements OnInit {
   symptoms: Symptom[];
   loaded = false;
-  selectedOptions: Symptom[];
-  genders: string[] = ["Male", "Female"];
+  selectedSymptoms: number[];
+  genders: string[] = ['Male', 'Female'];
   selectedGender: string;
   birthYear: string;
   constructor(
@@ -34,9 +34,19 @@ export class SymptomsComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.homeService.setSelectedSymptoms(this.selectedOptions);
+    this.homeService.setSelectedSymptoms(this.selectedSymptoms);
     this.homeService.setGender(this.selectedGender);
     this.homeService.setBirthYear(this.birthYear);
     this.router.navigate(['/diagnosis']);
   }
+
+  onSelectedOptionsChange() {
+    setTimeout(() => {
+      this.selectedSymptoms = this.symptoms.filter(symptom => {
+          return symptom.selected;
+      }).map(data => data.ID);
+
+    });
+  }
+
 }

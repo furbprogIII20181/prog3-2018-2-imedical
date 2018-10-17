@@ -32,7 +32,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               request.method === 'POST'
             ) {
               const filteredUsers = users.filter(data => {
-                debugger;
                 return (
                   data.username === request.body.username &&
                   data.password === request.body.password
@@ -107,8 +106,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
               // validation
               const duplicateUser = users.filter(data => {
-                debugger;
-                return data.user.username === newUser.username;
+                return data.username === newUser.username;
               }).length;
               if (duplicateUser) {
                 return throwError({
@@ -118,7 +116,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                   }
                 });
               }
-              debugger;
               // save new user
               newUser.id = users.length + 1;
               users.push(newUser);
