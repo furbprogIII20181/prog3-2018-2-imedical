@@ -27,11 +27,11 @@ export class HomeService {
     this.symptoms = symptoms;
   }
 
-  setGender(gender: string){
+  setGender(gender: string) {
     this.gender = gender;
   }
-  
-  setBirthYear(birthYear: string){
+
+  setBirthYear(birthYear: string) {
     this.birthYear = birthYear;
   }
 
@@ -85,7 +85,6 @@ export class HomeService {
       .pipe(map((res: any) => res));
   }
 
-  // https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[9,10,11]&gender=male&year_of_birth=1983&token=&format=json&language=en-gb:
   getDiagnosis(token, symptoms, gender, birthYear): Observable<Diagnosis[]> {
     return this.http
       .get(
@@ -107,7 +106,6 @@ export class HomeService {
         timeout(5000)
       );
   }
-  //https://sandbox-healthservice.priaid.ch/issues/11/info?token=&format=json&language=en-gb
   getIssue(token, id): Observable<Issue> {
     return this.http
       .get(
