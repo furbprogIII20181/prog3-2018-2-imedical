@@ -12,6 +12,8 @@ const USER_API = '/assets/db.json';
 @Injectable()
 export class HomeService {
   symptoms: Symptom[];
+  gender: string;
+  birthYear: string;
   currentUser = {};
   token: string;
   API_URL_AUTH = 'https://sandbox-authservice.priaid.ch';
@@ -25,8 +27,24 @@ export class HomeService {
     this.symptoms = symptoms;
   }
 
+  setGender(gender: string) {
+    this.gender = gender;
+  }
+
+  setBirthYear(birthYear: string) {
+    this.birthYear = birthYear;
+  }
+
   getSelectedSymptoms(): Symptom[] {
     return this.symptoms;
+  }
+
+  getGender(): string {
+    return this.gender;
+  }
+
+  getBirthYear(): string {
+    return this.birthYear;
   }
 
   getUsers(): Observable<User[]> {
@@ -67,8 +85,7 @@ export class HomeService {
       .pipe(map((res: any) => res));
   }
 
-  // https://sandbox-healthservice.priaid.ch/diagnosis?symptoms=[9,10,11]&gender=male&year_of_birth=1983&token=&format=json&language=en-gb:
-  getDiagnosis(token, symptoms): Observable<Diagnosis[]> {
+  getDiagnosis(token, symptoms, gender, birthYear): Observable<Diagnosis[]> {
     return this.http
       .get(
         this.API_URL_HEALT +
@@ -78,8 +95,10 @@ export class HomeService {
           '[' +
           symptoms +
           ']' +
-          '&gender=male' +
-          '&year_of_birth=1983' +
+          '&gender=' +
+          gender +
+          '&year_of_birth=' +
+          birthYear +
           '&language=en-gb'
       )
       .pipe(
@@ -87,7 +106,6 @@ export class HomeService {
         timeout(5000)
       );
   }
-  //https://sandbox-healthservice.priaid.ch/issues/11/info?token=&format=json&language=en-gb
   getIssue(token, id): Observable<Issue> {
     return this.http
       .get(

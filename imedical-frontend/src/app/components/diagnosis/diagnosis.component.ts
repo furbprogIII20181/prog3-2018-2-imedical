@@ -14,6 +14,8 @@ import { MatSnackBar } from '@angular/material';
 export class DiagnosisComponent implements OnInit {
   diagnosis: Diagnosis[];
   symptoms: Symptom[];
+  gender: string;
+  birthYear: string;
   issues: Issue[];
   loaded = false;
   currentUser = {};
@@ -27,22 +29,33 @@ export class DiagnosisComponent implements OnInit {
     this.homeService.getToken().subscribe(data => {
       const token = data;
       this.symptoms = this.homeService.getSelectedSymptoms();
-      this.homeService.getDiagnosis(token, this.symptoms).subscribe(
+      this.gender = this.homeService.getGender();
+      this.birthYear = this.homeService.getBirthYear();
+      this.homeService.getDiagnosis(token, this.symptoms, this.gender, this.birthYear).subscribe(
         diagnosis => {
+          if (Array.isArray(diagnosis) && !diagnosis.length) {
+            this.snackBar.open(
+              'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
+              'OK!',
+              {
+                duration: 10000
+              }
+            );
+            this.router.navigate(['/symptoms']);
+          }
           this.diagnosis = diagnosis;
-          console.log(diagnosis);
-          diagnosis.forEach((diagnosis, i) => {
-            if (diagnosis.Issue.Accuracy > 5) {
+          diagnosis.forEach((diagnose, i) => {
+            if (diagnose.Issue.Accuracy > 5) {
               this.homeService
-                .getIssue(token, diagnosis.Issue.ID)
+                .getIssue(token, diagnose.Issue.ID)
                 .subscribe(issue => {
-                  diagnosis.Issue.DescriptionShort = issue.DescriptionShort;
-                  diagnosis.Issue.MedicalCondition = issue.MedicalCondition;
-                  diagnosis.Issue.TreatmentDescription =
+                  diagnose.Issue.DescriptionShort = issue.DescriptionShort;
+                  diagnose.Issue.MedicalCondition = issue.MedicalCondition;
+                  diagnose.Issue.TreatmentDescription =
                     issue.TreatmentDescription;
-                  diagnosis.Issue.Description = issue.Description;
+                  diagnose.Issue.Description = issue.Description;
                   this.loaded = true;
-                  localStorage.setItem('diagnosis', JSON.stringify(diagnosis));
+                  localStorage.setItem('diagnose', JSON.stringify(diagnose));
                 });
             }
           });
