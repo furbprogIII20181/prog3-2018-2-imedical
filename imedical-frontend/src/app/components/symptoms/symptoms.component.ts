@@ -15,6 +15,8 @@ export class SymptomsComponent implements OnInit {
   loaded = false;
   selectedOptions: Symptom[];
   genders: string[] = ["Male", "Female"];
+  selectedGender: string;
+  birthYear: string;
   constructor(
     private homeService: HomeService,
     private route: ActivatedRoute,
@@ -33,6 +35,8 @@ export class SymptomsComponent implements OnInit {
 
   handleSubmit() {
     this.homeService.setSelectedSymptoms(this.selectedOptions);
+    this.homeService.setGender(this.selectedGender);
+    this.homeService.setBirthYear(this.birthYear);
     this.router.navigate(['/diagnosis']);
   }
 }

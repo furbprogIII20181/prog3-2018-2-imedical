@@ -14,6 +14,8 @@ import { MatSnackBar } from '@angular/material';
 export class DiagnosisComponent implements OnInit {
   diagnosis: Diagnosis[];
   symptoms: Symptom[];
+  gender: string;
+  birthYear: string;
   issues: Issue[];
   loaded = false;
   currentUser = {};
@@ -27,7 +29,9 @@ export class DiagnosisComponent implements OnInit {
     this.homeService.getToken().subscribe(data => {
       const token = data;
       this.symptoms = this.homeService.getSelectedSymptoms();
-      this.homeService.getDiagnosis(token, this.symptoms).subscribe(
+      this.gender = this.homeService.getGender();
+      this.birthYear = this.homeService.getBirthYear();
+      this.homeService.getDiagnosis(token, this.symptoms, this.gender, this.birthYear).subscribe(
         diagnosis => {
           this.diagnosis = diagnosis;
           console.log(diagnosis);
