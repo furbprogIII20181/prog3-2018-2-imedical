@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class DiagnosisComponent implements OnInit {
   diagnosis: Diagnosis[];
-  symptoms: Symptom[];
+  symptoms: number[];
   gender: string;
   birthYear: string;
   issues: Issue[];

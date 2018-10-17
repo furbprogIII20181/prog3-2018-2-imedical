@@ -11,7 +11,7 @@ const USER_API = '/assets/db.json';
 
 @Injectable()
 export class HomeService {
-  symptoms: Symptom[];
+  symptoms: number[];
   gender: string;
   birthYear: string;
   currentUser = {};
@@ -23,7 +23,7 @@ export class HomeService {
     this.getToken();
   }
 
-  setSelectedSymptoms(symptoms: Symptom[]) {
+  setSelectedSymptoms(symptoms: number[]) {
     this.symptoms = symptoms;
   }
 
@@ -35,7 +35,7 @@ export class HomeService {
     this.birthYear = birthYear;
   }
 
-  getSelectedSymptoms(): Symptom[] {
+  getSelectedSymptoms(): number[] {
     return this.symptoms;
   }
 
