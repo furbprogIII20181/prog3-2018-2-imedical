@@ -15,11 +15,28 @@ import { DiagnosisComponent } from './components/diagnosis/diagnosis.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
-  { path: 'user-register', component: UserRegisterComponent },
-  { path: 'doctor-register', component: DoctorRegisterComponent },
-  { path: 'login', component: UserLoginComponent },
-  { path: 'symptoms', component: SymptomsComponent, canActivate: [AuthGuardService] },
-  { path: 'diagnosis', component: DiagnosisComponent, canActivate: [AuthGuardService] },
+  {
+    path: 'user-register',
+    component: UserRegisterComponent
+  },
+  {
+    path: 'doctor-register',
+    component: DoctorRegisterComponent
+  },
+  {
+    path: 'login',
+    component: UserLoginComponent
+  },
+  {
+    path: 'symptoms',
+    component: SymptomsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'diagnosis',
+    component: DiagnosisComponent,
+    canActivate: [AuthGuardService]
+  },
   { path: '**', component: UserLoginComponent }
 ];
 

@@ -10,6 +10,7 @@
 .container mat-card {
   width: 250px;
   height: 210px;
+  margin-bottom: 40px;
 }
 
 .container mat-card mat-card-title {
@@ -29,11 +30,11 @@ a {
   text-decoration: none;
   margin-left: 3%;
   align-self: center;
-  color: #9D9B9B;
+  color: #9d9b9b;
 }
 
 a:visited {
-  color: #9D9B9B;
+  color: #9d9b9b;
 }
 
 @media (max-width: 700px) {
@@ -43,6 +44,6 @@ a:visited {
   }
 }
 
-mat-icon{
+mat-icon {
   cursor: pointer;
 }
