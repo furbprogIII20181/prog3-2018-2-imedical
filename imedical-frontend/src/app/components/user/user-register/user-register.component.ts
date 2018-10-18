@@ -35,9 +35,6 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  @Output()
-  update: EventEmitter<User> = new EventEmitter();
-
   getRequiredMessage(name: string) {
     // #TO DO implement a/an to the NAME
     return `You have to type a ${name}`;

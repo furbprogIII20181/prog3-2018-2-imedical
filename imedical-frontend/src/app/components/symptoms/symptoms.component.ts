@@ -45,7 +45,6 @@ export class SymptomsComponent implements OnInit {
       this.selectedSymptoms = this.symptoms.filter(symptom => {
           return symptom.selected;
       }).map(data => data.ID);
-
     });
   }
 

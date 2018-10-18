@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 const USER_API = '/assets/db.json';
 
@@ -65,5 +66,14 @@ export class UserService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+  }
+
+  public isAuthenticated(): boolean {
+
+    const token = localStorage.getItem('token');
+
+    // Check whether the token is expired and return
+    // true or false
+    return !!token;
   }
 }

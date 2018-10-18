@@ -1,3 +1,4 @@
+import { AuthGuardService } from './guard/auth-guard.service';
 import { SymptomsComponent } from './components/symptoms/symptoms.component';
 import { HomeComponent } from './containers/home/home.component';
 import { HomeModule } from './containers/home/home.module';
@@ -17,9 +18,8 @@ const routes: Routes = [
   { path: 'user-register', component: UserRegisterComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'home', component: SymptomsComponent },
-  { path: 'symptoms', component: SymptomsComponent },
-  { path: 'diagnosis', component: DiagnosisComponent },
+  { path: 'symptoms', component: SymptomsComponent, canActivate: [AuthGuardService] },
+  { path: 'diagnosis', component: DiagnosisComponent, canActivate: [AuthGuardService] },
   { path: '**', component: UserLoginComponent }
 ];
 
@@ -32,7 +32,7 @@ const routes: Routes = [
     HomeModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
