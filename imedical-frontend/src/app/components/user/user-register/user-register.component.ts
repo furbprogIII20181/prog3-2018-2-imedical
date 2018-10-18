@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { EventEmitter } from '@angular/core';
 import { User } from './../../../models/user';
 import { Component, OnInit, Output } from '@angular/core';
@@ -30,7 +31,8 @@ export class UserRegisterComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {}
@@ -46,7 +48,7 @@ export class UserRegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          alert('Registrado com sucesso');
+          this.snackBar.open('You are successfully registered ', 'Awesome!');
           this.router.navigate(['/login']);
         },
         error => {

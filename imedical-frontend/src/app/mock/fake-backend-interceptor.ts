@@ -101,7 +101,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               request.method === 'POST'
             ) {
               // get new user object from post body
-              debugger;
               const newUser = request.body.user;
 
               // validation
