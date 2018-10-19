@@ -11,12 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
 import { SymptomFilterPipe } from '../../components/pipe/filter.pipe';
+import { HelpComponent } from 'src/app/components/help/help.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SymptomsComponent,
     DiagnosisComponent,
+    HelpComponent,
     SymptomFilterPipe
   ],
   imports: [

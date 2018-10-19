@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { DiagnosisComponent } from './components/diagnosis/diagnosis.component';
+import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'home', component: SymptomsComponent },
   { path: 'symptoms', component: SymptomsComponent },
   { path: 'diagnosis', component: DiagnosisComponent },
+  { path: 'help', component: HelpComponent },
   { path: '**', component: UserLoginComponent }
 ];
 
