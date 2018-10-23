@@ -1,0 +1,18 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container mat-card {
+    width: 70%;
+    height: 50%;
+    margin-bottom: 40px;
+  }
+
+  .container mat-card mat-card-title {
+    text-align: center;
+  }
