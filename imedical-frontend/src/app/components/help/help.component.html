@@ -1,39 +1,52 @@
 <div class="container">
   <mat-card class="help=panel">
   <mat-card-title>Help</mat-card-title>
-  
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Login or register</ng-template>
-          <a>Log in using your <b>username and password</b>. If you do not have a registration, click on the <b>Register</b> option and enter your data.</a>
-          <p>After that, log in.</p>
+          <p>Log in using your <b>username and password</b>.</p>
+          <p>If you do not have a registration, click on the <b>Register</b> option and enter your data. After that, log in.</p>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext color="primary">Next</button>
         </div>
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
+        <ng-template matStepLabel>Select your symptoms</ng-template>
+        <p>Select the symptoms you're feeling.</p>
+        <p>Do not forget to select your <b>gender</b> and tell us your <b>date of birth</b>. This information is necessary for an accurate diagnosis.</p>
+        <p>You can quickly search for a symptom through the "Search for a symptom" input.</p>
+        <p>After selecting your symptoms and telling us your gender and date of birth, click the "DIAGNOSIS" button to have your diagnosis.</p>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious color="primary">Back</button>
+          <button mat-button matStepperNext color="primary">Next</button>
         </div>
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
+      <ng-template matStepLabel>Verify diagnosis</ng-template>
+      <p>This is the way the possible causes of your symptoms will appear to you:</p>
+      <p></p>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Name of the disease or cause</mat-panel-title>
+            <mat-panel-description><b>Probability</b></mat-panel-description>
+          </mat-expansion-panel-header>
+          <p><b>Description:</b></p>
+          <p><b>Treatment:</b></p>
+          <p><b>How to find a doctor:</b></p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <p>The possible causes will be sorted according to the probability that you own it.</p>
+      <p>You can find a doctor by going to the Doctors menu.</p>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperPrevious color="primary">Back</button>
+        <button mat-button color="primary" (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
-
   </mat-card>
 </div>
