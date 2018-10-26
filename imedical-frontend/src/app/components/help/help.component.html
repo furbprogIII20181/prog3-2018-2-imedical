@@ -2,16 +2,12 @@
   <mat-card class="help=panel">
   <mat-card-title>Help</mat-card-title>
   
-  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
+        <ng-template matStepLabel>Login or register</ng-template>
+          <a>Log in using your <b>username and password</b>. If you do not have a registration, click on the <b>Register</b> option and enter your data.</a>
+          <p>After that, log in.</p>
         <div>
           <button mat-button matStepperNext>Next</button>
         </div>

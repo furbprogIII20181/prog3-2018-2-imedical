@@ -8,7 +8,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class HelpComponent implements OnInit {
 
-  isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
