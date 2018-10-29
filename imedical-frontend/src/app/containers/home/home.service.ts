@@ -23,6 +23,8 @@ export class HomeService {
     this.getToken();
   }
 
+  getPosts() {}
+
   setSelectedSymptoms(symptoms: number[]) {
     this.symptoms = symptoms;
   }
