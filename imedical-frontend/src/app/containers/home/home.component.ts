@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 
 @Component({
-  selector: 'app-user',
-  template: '',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent implements OnInit {
@@ -12,9 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService) {
 
   }
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 
 }
