@@ -1,3 +1,5 @@
+import { User } from './../../models/user';
+import { UserService } from './../../containers/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomeService } from './../../containers/home/home.service';
 import { Symptom } from './../../models/symptom';
@@ -17,13 +19,19 @@ export class SymptomsComponent implements OnInit {
   genders: string[] = ['Male', 'Female'];
   selectedGender: string;
   birthYear: string;
+  users: User[];
   constructor(
     private homeService: HomeService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit() {
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+      console.log('parapapapapa', this.users);
+    });
     this.homeService.getToken().subscribe(data => {
       const token = data;
       this.homeService.getSymptoms(data).subscribe(symptoms => {
@@ -42,10 +50,11 @@ export class SymptomsComponent implements OnInit {
 
   onSelectedOptionsChange() {
     setTimeout(() => {
-      this.selectedSymptoms = this.symptoms.filter(symptom => {
+      this.selectedSymptoms = this.symptoms
+        .filter(symptom => {
           return symptom.selected;
-      }).map(data => data.ID);
+        })
+        .map(data => data.ID);
     });
   }
-
 }

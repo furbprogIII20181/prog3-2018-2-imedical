@@ -10,9 +10,6 @@ const USER_API = '/assets/db.json';
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) {}
-  getUsers(): Observable<User[]> {
-    return this.http.get(USER_API).pipe(map((data: User[]) => data));
-  }
 
   getAll() {
     return this.http.get<User[]>(`/users`);
@@ -36,6 +33,12 @@ export class UserService {
 
   getUser(name): Observable<User> {
     return this.http.get(`${USER_API}/${name}`).pipe(map((data: User) => data));
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.http
+      .get(`http://localhost:3000/api/getUsers`)
+      .pipe(map((data: User[]) => data));
   }
 
   addUser(user: User) {
@@ -69,7 +72,6 @@ export class UserService {
   }
 
   public isAuthenticated(): boolean {
-
     const token = localStorage.getItem('token');
 
     // Check whether the token is expired and return

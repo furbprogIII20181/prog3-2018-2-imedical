@@ -4,16 +4,16 @@ import { User } from '../../models/user';
 
 @Component({
   selector: 'app-user',
-  template: '',
+  template: ''
 })
-
 export class UserComponent implements OnInit {
   users: User[];
   constructor(private userService: UserService) {}
   ngOnInit() {
-    this.userService
-      .getUsers()
-      .subscribe((data: User[]) => (this.users = data));
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+      console.log('parapapapapa', this.users);
+    });
   }
 
   onUpdatePassenger(event: User) {
