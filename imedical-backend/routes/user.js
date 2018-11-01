@@ -1,10 +1,12 @@
-const db = require("../db");
+const db = require("../db/conn");
 const express = require("express");
 const app = express();
 
 app.post("/api/insert/user", (req, res, next) => {
   // create a new user
-  db.query('INSERT INTO users(data) VALUES($1)', [req], (err, res) => {
+  console.log('body', req.body);
+  const newUser = JSON.parse(req.body);
+  db.query('INSERT INTO users(data) VALUES($1)', [newUser], (err, res) => {
     if (err) {
       return next(err);
     }
@@ -28,6 +30,8 @@ app.get("/api/get/users", (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.send(res.rows[0]);
+    res.send(res.rows);
   });
 });
+
+module.exports = app;
