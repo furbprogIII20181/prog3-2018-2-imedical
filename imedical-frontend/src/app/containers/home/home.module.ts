@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
 import { SymptomFilterPipe } from '../../components/pipe/filter.pipe';
+import { AboutComponent } from 'src/app/components/about/about.component';
 import { HelpComponent } from 'src/app/components/help/help.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { HelpComponent } from 'src/app/components/help/help.component';
     HomeComponent,
     SymptomsComponent,
     DiagnosisComponent,
+    AboutComponent,
     HelpComponent,
     SymptomFilterPipe
   ],

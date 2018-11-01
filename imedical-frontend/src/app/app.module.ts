@@ -12,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { DiagnosisComponent } from './components/diagnosis/diagnosis.component';
+import { AboutComponent } from "./components/about/about.component";
 import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
     component: DoctorRegisterComponent
   },
   {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
     path: 'login',
     component: UserLoginComponent
   },
@@ -36,6 +41,11 @@ const routes: Routes = [
   {
     path: 'diagnosis',
     component: DiagnosisComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
     canActivate: [AuthGuardService]
   },
   {
