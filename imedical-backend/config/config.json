@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "postgres",
+    "host": "gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "postgres",
+    "host": "gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "postgres",
+    "host": "gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com",
+    "dialect": "postgres"
+  }
+}

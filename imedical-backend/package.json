@@ -11,15 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
-=======
     "express": "^4.16.4",
-    "pg": "^7.6.0"
->>>>>>> f7d5a3aea6fc5a81e092c56d934a5157bf1ea1ea
+    "pg": "^7.6.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.41.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "sequelize-cli": "^5.2.0"
   }
 }

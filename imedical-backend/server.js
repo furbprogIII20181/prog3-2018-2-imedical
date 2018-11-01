@@ -1,7 +1,8 @@
 const app = require("./app");
 const debug = require("debug")("node-angular");
 const http = require("http");
-
+// "postgresql://postgres:postgres@gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com:5432/postgres";
+//
 const normalizePort = val => {
   var port = parseInt(val, 10);
 

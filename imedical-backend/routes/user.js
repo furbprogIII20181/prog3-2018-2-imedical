@@ -1,21 +1,25 @@
-const db = require("../db");
-const express = require("express");
-const app = express();
-
-app.get("/api/users/:id", (req, res, next) => {
-  db.query("SELECT * FROM users WHERE id = $1", [id], (err, res) => {
-    if (err) {
-      return next(err);
-    }
-    res.send(res.rows[0]);
-  });
+const User = sequelize.define("user", {
+  username: {
+    type: Sequelize.STRING
+  },
+  password: {
+    type: Sequelize.STRING
+  },
+  email: {
+    type: Sequelize.STRING
+  },
+  fullName: {
+    type: Sequelize.STRING
+  },
+  birthDate: {
+    type: Sequelize.DATE
+  },
+  phone: {
+    type: Sequelize.STRING
+  },
+  sex: {
+    type: Sequelize.STRING
+  }
 });
 
-app.get("/api/users", (req, res, next) => {
-  db.query("SELECT * FROM users", [id], (err, res) => {
-    if (err) {
-      return next(err);
-    }
-    res.send(res.rows[0]);
-  });
-});
+module.exports = User;
