@@ -15,6 +15,10 @@ export class HomeComponent implements OnInit {
     private userService: UserService
   ) {}
   ngOnInit() {
+    console.log('a');
+    this.homeService.getMock().subscribe(mock => {
+      console.log(mock);
+    });
     this.userService.getUsers().subscribe((data: User[]) => {
       this.users = data;
       console.log('parapapapapa', this.users);

@@ -87,6 +87,13 @@ export class HomeService {
       .pipe(map((res: any) => res));
   }
 
+  getMock(): Observable<Diagnosis[]> {
+    return this.http.get('http://localhost:4200/assets/db.json').pipe(
+      map((res: any) => res),
+      timeout(5000)
+    );
+  }
+
   getDiagnosis(token, symptoms, gender, birthYear): Observable<Diagnosis[]> {
     return this.http
       .get(
