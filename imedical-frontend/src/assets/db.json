@@ -1,5 +1,6 @@
 [
   {
+    "Date": "1998-03-03T00:00:00.000Z",
     "Issue": {
       "ID": 11,
       "Name": "Flu",
@@ -7,6 +8,7 @@
       "Icd": "J10;J11",
       "IcdName": "Influenza due to other identified influenza virus;Influenza, virus not identified",
       "ProfName": "Influenza",
+      
       "Ranking": 1
     },
     "Specialisation": [
@@ -23,6 +25,7 @@
     ]
   },
   {
+    "Date": "1998-03-03T00:00:00.000Z",
     "Issue": {
       "ID": 281,
       "Name": "Food poisoning",
@@ -46,6 +49,7 @@
     ]
   },
   {
+    "Date": "1998-03-03T00:00:00.000Z",
     "Issue": {
       "ID": 376,
       "Name": "Scarlet fever",
