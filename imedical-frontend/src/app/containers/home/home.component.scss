@@ -45,8 +45,17 @@
     width: 20%;
     height: 40%;
     overflow: hidden;
+    a{
+      display: flex;
+      justify-content: flex-end;
+      font-size: 70%;
+    }
   }
 
-  .container .diagnostics .diagnosisCard mat-card-title{
+  .container .diagnostics .diagnosisCard mat-card-title, h1{
     text-align: center;
+  }
+
+  .issueDate{
+    height: 100%;
   }
