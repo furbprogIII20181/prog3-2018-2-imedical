@@ -7,8 +7,8 @@ export class Diagnosis {
     Description: string;
     DescriptionShort: string;
     MedicalCondition: string;
-    PossibleSymptoms;
-    TreatmentDescription;
+    PossibleSymptoms: string;
+    TreatmentDescription: string;
   };
   public Specialisation: {
     ID: number;

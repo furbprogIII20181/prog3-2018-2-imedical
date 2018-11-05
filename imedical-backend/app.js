@@ -2,6 +2,13 @@ const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 
+const db = require("./server/models/index.js");
+
+// force: true will drop the table if it already exists
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and Resync with { force: true }");
+});
+
 const app = express();
 app.use(logger("dev"));
 app.use(bodyParser.json());

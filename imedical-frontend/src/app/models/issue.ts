@@ -3,6 +3,6 @@ export class Issue {
   public DescriptionShort: string;
   public MedicalCondition: string;
   public Name: string;
-  public PossibleSymptoms;
-  public TreatmentDescription;
+  public PossibleSymptoms: string;
+  public TreatmentDescription: string;
 }
