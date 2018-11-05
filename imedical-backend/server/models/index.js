@@ -40,7 +40,7 @@ db.Sequelize = Sequelize;
 db.user = require("../models/user.js")(sequelize, Sequelize);
 db.diagnosis = require("../models/diagnosis.js")(sequelize, Sequelize);
 db.issue = require("../models/issue.js")(sequelize, Sequelize);
-// Here we can connect companies and products base on company'id
+
 db.user.hasMany(db.diagnosis, {
   foreignKey: "fk_userid",
   sourceKey: "id"
