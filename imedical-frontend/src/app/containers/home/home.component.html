@@ -6,8 +6,11 @@
         <a>Recent diagnostics</a>
     </div>
     <div class="diagnostics">
-
-        
-
+        <mat-card class="diagnosisCard"
+        *ngFor="let diagnostic of diagnosis; let i=index">
+            <mat-card-title>{{ diagnostic?.Issue?.Name }}</mat-card-title>
+            <h1>Probability: {{ diagnostic?.Issue?.Accuracy | number:'1.0-0'}}%</h1>
+            <p>Find a doctor in the {{ diagnostic?.Specialisation[0]?.Name }} area</p>           
+        </mat-card>
     </div>
 </div>

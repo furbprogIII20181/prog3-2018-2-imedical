@@ -8,18 +8,18 @@
       "Icd": "J10;J11",
       "IcdName": "Influenza due to other identified influenza virus;Influenza, virus not identified",
       "ProfName": "Influenza",
-      
+      "TreatmentDescription": "marceloviadomarceloviadomarceloviadomarceloviadomarceloviadomarceloviadomarceloviado",
       "Ranking": 1
     },
     "Specialisation": [
       {
         "ID": 15,
-        "Name": "General practice",
+        "Name": "Internal medicine",
         "SpecialistID": 0
       },
       {
         "ID": 19,
-        "Name": "Internal medicine",
+        "Name": "General pratice",
         "SpecialistID": 0
       }
     ]
@@ -33,6 +33,7 @@
       "Icd": "A05;A02;A03;A04",
       "IcdName": "Other bacterial foodborne intoxications, not elsewhere classified;Other salmonella infections;Shigellosis;Other bacterial intestinal infections",
       "ProfName": "Foodborne illness",
+      "TreatmentDescription": "marceloviadomarceloviadomarceloviadomarceloviadomarceloviadomarceloviadomarceloviado",
       "Ranking": 2
     },
     "Specialisation": [
@@ -57,17 +58,18 @@
       "Icd": "A38",
       "IcdName": "Scarlet fever",
       "ProfName": "Scarlatina",
+      "TreatmentDescription": "marceloviadomarceloviadomarceloviadomarceloviadomarceloviadomarceloviadomarceloviado",
       "Ranking": 3
     },
     "Specialisation": [
       {
         "ID": 15,
-        "Name": "General practice",
+        "Name": "Infectiology",
         "SpecialistID": 0
       },
       {
         "ID": 23,
-        "Name": "Infectiology",
+        "Name": "General pratice",
         "SpecialistID": 0
       },
       {
