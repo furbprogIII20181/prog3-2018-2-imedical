@@ -1,7 +1,8 @@
+import { Post } from './../../models/post';
 import { Diagnosis } from './../../models/diagnosis';
 import { Symptom } from './../../models/symptom';
 import { User } from '../../models/user';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { map, timeout, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -23,7 +24,22 @@ export class HomeService {
     this.getToken();
   }
 
-  getPosts() {}
+  private posts: Post[] = [];
+  private postsUpdated = new Subject<Post[]>();
+
+  getPosts() {
+    return [...this.posts];
+  }
+
+  getPostUpdateListener() {
+    return this.postsUpdated.asObservable();
+  }
+
+  addPost(title: string, content: string) {
+    const post: Post = { title: title, content: content };
+    this.posts.push(post);
+    this.postsUpdated.next([...this.posts]);
+  }
 
   setSelectedSymptoms(symptoms: number[]) {
     this.symptoms = symptoms;

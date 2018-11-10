@@ -42,7 +42,7 @@ export class UserLoginComponent {
         .pipe(first())
         .subscribe(
           data => {
-            this.router.navigate(['/symptoms']);
+            this.router.navigate(['/home']);
           },
           error => {
             alert('Erro no Login');

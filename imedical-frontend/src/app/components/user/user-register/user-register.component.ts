@@ -48,6 +48,7 @@ export class UserRegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          console.log(this.form.value);
           this.snackBar.open('You are successfully registered ', 'Awesome!');
           this.router.navigate(['/login']);
         },

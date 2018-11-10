@@ -1,15 +1,15 @@
-import { UserService } from './../user/user.service';
-import { HomeService } from './home.service';
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
 import { Diagnosis } from './../../models/diagnosis';
+import { UserService } from './../../containers/user/user.service';
+import { HomeService } from './../../containers/home/home.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-my-diagnosis',
+  templateUrl: './my-diagnosis.component.html',
+  styleUrls: ['./my-diagnosis.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class MyDiagnosisComponent implements OnInit {
   users: User[];
   diagnosis: Diagnosis[];
   constructor(
