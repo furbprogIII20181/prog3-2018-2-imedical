@@ -1,21 +1,37 @@
 <div class="container">
-    <div class="logo">
-        <img src="../../../assets/logo.png">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Welcome to iMedical!</mat-card-title>
+      <mat-card-subtitle>
+        We care about your medical status by providing a Symptom Checcker and also providing a way to comunicate with real doctors!
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="menu">
+      <button
+        mat-raised-button
+        routerLink="/symptoms">
+        <img src="../../../assets/symptom.png">
+        <p>
+          Symptom Checker
+        </p>
+      </button>
+      <button
+        collor="primary"
+        routerLink="/find-doctor"
+        mat-raised-button>
+        <img src="../../../assets/doctor.png">
+        <p>
+          Find a Doctor
+        </p>
+      </button>
+      <button
+        mat-raised-button
+        routerLink="/my-diagnostics">
+        <img src="../../../assets/diagnosis.png">
+        <p>
+          My Diagnostics
+        </p>
+      </button>
     </div>
-    <div class="recentDiagnostics">
-        <a>Recent diagnostics</a>
-    </div>
-    <div class="diagnostics">
-        <mat-card class="diagnosisCard"
-        *ngFor="let diagnostic of diagnosis; let i=index">
-            <div class="issueDate">
-                <mat-card-title>{{ diagnostic?.Date | date: 'MMM, d' }}</mat-card-title>
-                <h1>{{ diagnostic?.Issue?.Name }}</h1>
-                <p>Find a doctor in the {{ diagnostic?.Specialisation[0]?.Name }} area</p>           
-            </div>
-            <div>
-                <a>Probability: {{ diagnostic?.Issue?.Accuracy | number:'1.0-0'}}%</a>
-            </div>
-        </mat-card>
-    </div>
+  </mat-card>
 </div>

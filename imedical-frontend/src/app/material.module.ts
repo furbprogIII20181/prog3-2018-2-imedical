@@ -15,9 +15,15 @@ import {
   MatSelectModule,
   MatDividerModule,
   MatExpansionModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatRadioModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   imports: [
@@ -34,10 +40,16 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatProgressSpinnerModule,
     MatSelectModule,
     MatDividerModule,
+    MatRadioModule,
     MatListModule,
     MatExpansionModule,
     MatSnackBarModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
     MatButtonModule,
@@ -45,16 +57,22 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatIconModule,
     MatListModule,
     MatSelectModule,
     MatProgressSpinnerModule,
     MatCardModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatIconModule,
+    MatRadioModule,
     MatDatepickerModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSidenavModule,
+    MatSortModule,
+    MatToolbarModule
   ]
 })
 export class MaterialModule {}

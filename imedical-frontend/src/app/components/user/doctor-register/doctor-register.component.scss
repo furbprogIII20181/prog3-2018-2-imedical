@@ -17,7 +17,7 @@
 }
 
 .container mat-card mat-form-field {
-  width: 40%; 
+  width: 40%;
   margin-left: 6%;
 }
 
@@ -28,14 +28,21 @@
     text-decoration: none;
     margin-left: 3%;
     align-self: center;
-    color: #9D9B9B;
+    color: #9d9b9b;
   }
 }
 
 a:visited {
-  color: #9D9B9B;
+  color: #9d9b9b;
 }
 
-mat-icon{
+mat-icon {
   cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 100vw;
+    height: 100vh;
+  }
 }

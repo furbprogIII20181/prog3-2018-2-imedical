@@ -14,9 +14,20 @@ import { UserLoginComponent } from './components/user/user-login/user-login.comp
 import { DiagnosisComponent } from './components/diagnosis/diagnosis.component';
 import { AboutComponent } from './components/about/about.component';
 import { HelpComponent } from './components/help/help.component';
+import { MaterialModule } from './material.module';
+import { MyDiagnosisComponent } from './components/my-diagnosis/my-diagnosis.component';
+import { FindDoctorComponent } from './components/find-doctor/find-doctor.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
+  {
+    path: 'find-doctor',
+    component: FindDoctorComponent
+  },
+  {
+    path: 'my-diagnostics',
+    component: MyDiagnosisComponent
+  },
   {
     path: 'user-register',
     component: UserRegisterComponent
@@ -27,7 +38,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'login',
@@ -52,7 +64,7 @@ const routes: Routes = [
     path: 'help',
     component: HelpComponent
   },
-  { path: '**', component: UserLoginComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
@@ -61,7 +73,8 @@ const routes: Routes = [
     BrowserModule,
     UserModule,
     RouterModule.forRoot(routes),
-    HomeModule
+    HomeModule,
+    MaterialModule
   ],
   exports: [RouterModule],
   providers: [AuthGuardService],

@@ -1,3 +1,4 @@
+import { FindDoctorComponent } from '../../components/find-doctor/find-doctor.component';
 import { DiagnosisComponent } from './../../components/diagnosis/diagnosis.component';
 import { SymptomsComponent } from './../../components/symptoms/symptoms.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,14 +14,18 @@ import { MaterialModule } from '../../material.module';
 import { SymptomFilterPipe } from '../../components/pipe/filter.pipe';
 import { AboutComponent } from 'src/app/components/about/about.component';
 import { HelpComponent } from 'src/app/components/help/help.component';
+import { MyDiagnosisComponent } from 'src/app/components/my-diagnosis/my-diagnosis.component';
+import { FindDoctorModule } from 'src/app/components/find-doctor/find-doctor.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SymptomsComponent,
+
     DiagnosisComponent,
     AboutComponent,
     HelpComponent,
+    MyDiagnosisComponent,
     SymptomFilterPipe
   ],
   imports: [
@@ -30,6 +35,7 @@ import { HelpComponent } from 'src/app/components/help/help.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FindDoctorModule,
     MaterialModule,
     RouterModule
   ],
