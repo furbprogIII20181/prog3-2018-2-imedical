@@ -1,5 +1,5 @@
 import { User } from '../../models/user';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,6 +11,7 @@ const HOST = 'http://localhost:8000';
 @Injectable()
 export class UserService {
   token: string;
+  private authStatusListener = new Subject<boolean>();
 
   constructor(
     private http: HttpClient,
@@ -20,6 +21,10 @@ export class UserService {
 
   getToken() {
     return this.token;
+  }
+
+  getAuthStatusListener() {
+    return this.authStatusListener.asObservable();
   }
 
   getAllUsers() {
@@ -65,6 +70,7 @@ export class UserService {
       .subscribe(
         res => {
           this.token = res.token;
+          this.authStatusListener.next(true);
           this.router.navigate(['/home']);
         },
         error => {
