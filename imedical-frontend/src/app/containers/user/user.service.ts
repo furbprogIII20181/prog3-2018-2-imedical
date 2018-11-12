@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-const USER_API = 'http://localhost:4200/assets/user.json';
+const USER_API = 'http://localhost:4200/assets/users.json';
 const HOST = 'http://localhost:8000';
 
 @Injectable()
@@ -33,6 +33,10 @@ export class UserService {
 
   getById(id: number) {
     return this.http.get(`${HOST}/api/user/${id}`);
+  }
+
+  getByEmail(email: string) {
+    return this.http.get(`${HOST}/api/user/${email}`);
   }
 
   register(user: any, type: string) {

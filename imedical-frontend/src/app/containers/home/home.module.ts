@@ -16,6 +16,9 @@ import { AboutComponent } from 'src/app/components/about/about.component';
 import { HelpComponent } from 'src/app/components/help/help.component';
 import { MyDiagnosisComponent } from 'src/app/components/my-diagnosis/my-diagnosis.component';
 import { FindDoctorModule } from 'src/app/components/find-doctor/find-doctor.module';
+import { AddUserComponent } from 'src/app/components/user/crudl/add-user/add-user.component';
+import { EditUserComponent } from 'src/app/components/user/crudl/edit-user/edit-user.component';
+import { ListUserComponent } from 'src/app/components/user/crudl/list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { FindDoctorModule } from 'src/app/components/find-doctor/find-doctor.mod
     AboutComponent,
     HelpComponent,
     MyDiagnosisComponent,
-    SymptomFilterPipe
+    SymptomFilterPipe,
+    AddUserComponent,
+    EditUserComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserAnimationsModule,

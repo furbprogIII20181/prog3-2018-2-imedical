@@ -1,0 +1,64 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "marwippelviadinho",
+            "pwd": "123",
+            "email": "saddasdsadas",
+            "fullname": "asdasdsad",
+            "birthdate": "1998-03-03",
+            "phone": "adasdasda",
+            "sex": "M"
+        },
+        {
+            "id": 2,
+            "username": "marwippelviadinho",
+            "pwd": "123",
+            "email": "saddasdsadas",
+            "fullname": "asdasdsad",
+            "birthdate": "1998-03-03",
+            "phone": "adasdasda",
+            "sex": "M"
+        },
+        {
+            "id": 3,
+            "username": "marwippelviadinho",
+            "pwd": "123",
+            "email": "saddasdsadas",
+            "fullname": "asdasdsad",
+            "birthdate": "1998-03-03",
+            "phone": "adasdasda",
+            "sex": "M"
+        },
+        {
+            "id": 4,
+            "username": "marwippelviadinho",
+            "pwd": "123",
+            "email": "saddasdsadas",
+            "fullname": "asdasdsad",
+            "birthdate": "1998-03-03",
+            "phone": "adasdasda",
+            "sex": "M"
+        },
+        {
+            "id": 5,
+            "username": "marwippelviadinho",
+            "pwd": "123",
+            "email": "saddasdsadas",
+            "fullname": "asdasdsad",
+            "birthdate": "1998-03-03",
+            "phone": "adasdasda",
+            "sex": "M"
+        },
+        {
+            "id": 6,
+            "username": "marwippelviadinho",
+            "pwd": "123",
+            "email": "saddasdsadas",
+            "fullname": "asdasdsad",
+            "birthdate": "1998-03-03",
+            "phone": "adasdasda",
+            "sex": "M"
+        }
+    ]
+}
