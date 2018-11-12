@@ -28,12 +28,7 @@ export class SymptomsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.getUsers().subscribe((data: User[]) => {
-      this.users = data;
-      console.log('parapapapapa', this.users);
-    });
     this.homeService.getToken().subscribe(data => {
-      const token = data;
       this.homeService.getSymptoms(data).subscribe(symptoms => {
         this.symptoms = symptoms;
         this.loaded = true;

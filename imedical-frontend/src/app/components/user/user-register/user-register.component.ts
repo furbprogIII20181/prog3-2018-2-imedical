@@ -19,9 +19,9 @@ export class UserRegisterComponent implements OnInit {
       email: this.fb.control('', [Validators.required, Validators.email]),
       username: this.fb.control('', [Validators.required]),
       fullname: this.fb.control('', [Validators.required]),
-      password: this.fb.control('', [Validators.required]),
+      pwd: this.fb.control('', [Validators.required]),
       birthdate: this.fb.control('', [Validators.required]),
-      phoneNumber: this.fb.control('', [Validators.required])
+      phone: this.fb.control('', [Validators.required])
     })
   });
 
@@ -44,16 +44,23 @@ export class UserRegisterComponent implements OnInit {
 
   handleRegister() {
     this.userService
-      .register(this.form.value)
+      .register(this.form.value.user)
       .pipe(first())
       .subscribe(
         data => {
           console.log(this.form.value);
-          this.snackBar.open('You are successfully registered ', 'Awesome!');
+          this.snackBar.open(
+            'Congrats! You are now registered in iMedical',
+            'Awesome!'
+          );
           this.router.navigate(['/login']);
         },
         error => {
-          console.error('erro no register ' + error);
+          console.error('REGISTRATION ERROR ' + error);
+          this.snackBar.open(
+            'Awww :( an error occurred, please try again!',
+            'OK!'
+          );
         }
       );
   }

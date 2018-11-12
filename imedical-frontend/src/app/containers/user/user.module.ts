@@ -3,7 +3,7 @@ import { UserComponent } from './user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserService } from './user.service';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,9 +12,15 @@ import { UserLoginComponent } from '../../components/user/user-login/user-login.
 import { UserRegisterComponent } from '../../components/user/user-register/user-register.component';
 import { DoctorRegisterComponent } from '../../components/user/doctor-register/doctor-register.component';
 import { fakeBackendProvider } from '../../mock/fake-backend-interceptor';
+import { AuthInterceptor } from './auth-interrceptor';
 
 @NgModule({
-  declarations: [UserLoginComponent, UserRegisterComponent, DoctorRegisterComponent, UserComponent],
+  declarations: [
+    UserLoginComponent,
+    UserRegisterComponent,
+    DoctorRegisterComponent,
+    UserComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -26,6 +32,10 @@ import { fakeBackendProvider } from '../../mock/fake-backend-interceptor';
     RouterModule
   ],
   exports: [UserComponent],
-  providers: [UserService, fakeBackendProvider]
+  providers: [
+    UserService,
+    fakeBackendProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ]
 })
 export class UserModule {}

@@ -42,28 +42,6 @@ h1.app-name {
 }
 
 mat-toolbar {
-  background: #1d976c !important; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #93f9b9,
-    #1d976c
-  ) !important; /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #93f9b9,
-    #1d976c
-  ) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-mat-sidenav-content {
-  background: #ece9e6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #ffffff,
-    #ece9e6
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #ffffff,
-    #ece9e6
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00e68a !important; /* fallback for old browsers */
+
 }
