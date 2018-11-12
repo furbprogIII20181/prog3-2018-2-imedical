@@ -31,6 +31,10 @@ export class UserService {
     return this.http.get<User[]>(`${HOST}/api/users`);
   }
 
+  getAllUsersMock() {
+    return this.http.get<any>(USER_API).pipe(map((data) => data.users));
+  }
+
   getById(id: number) {
     return this.http.get(`${HOST}/api/user/${id}`);
   }
