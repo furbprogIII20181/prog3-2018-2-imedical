@@ -22,9 +22,5 @@ export class MyDiagnosisComponent implements OnInit {
     this.homeService
       .getMock()
       .subscribe(diagnosis => (this.diagnosis = diagnosis));
-    this.userService.getUsers().subscribe((data: User[]) => {
-      this.users = data;
-      console.log('parapapapapa', this.users);
-    });
   }
 }

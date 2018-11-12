@@ -21,7 +21,6 @@ import { FindDoctorModule } from 'src/app/components/find-doctor/find-doctor.mod
   declarations: [
     HomeComponent,
     SymptomsComponent,
-
     DiagnosisComponent,
     AboutComponent,
     HelpComponent,

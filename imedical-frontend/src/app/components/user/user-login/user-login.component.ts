@@ -28,26 +28,14 @@ export class UserLoginComponent {
     })
   });
 
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private fb: FormBuilder
-  ) {}
+  constructor(private userService: UserService, private fb: FormBuilder) {}
 
   handleLogin() {
     if (this.form.valid) {
-      this.userService
-        .login(this.form.value.user.username, this.form.value.user.password)
-        .pipe(first())
-        .subscribe(
-          data => {
-            this.router.navigate(['/home']);
-          },
-          error => {
-            alert('Erro no Login');
-          }
-        );
+      this.userService.login(
+        this.form.value.user.username,
+        this.form.value.user.password
+      );
     }
   }
 

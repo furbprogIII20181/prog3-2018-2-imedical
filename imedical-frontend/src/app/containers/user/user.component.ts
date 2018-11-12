@@ -6,17 +6,4 @@ import { User } from '../../models/user';
   selector: 'app-user',
   template: ''
 })
-export class UserComponent implements OnInit {
-  users: User[];
-  constructor(private userService: UserService) {}
-  ngOnInit() {
-    this.userService.getUsers().subscribe((data: User[]) => {
-      this.users = data;
-      console.log('parapapapapa', this.users);
-    });
-  }
-
-  onUpdatePassenger(event: User) {
-    this.userService.addUser(event);
-  }
-}
+export class UserComponent {}

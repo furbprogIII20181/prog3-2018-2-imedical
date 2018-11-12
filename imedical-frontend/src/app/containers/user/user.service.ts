@@ -3,23 +3,45 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-const USER_API = '/assets/db.json';
+const USER_API = 'http://localhost:4200/assets/user.json';
+const HOST = 'http://localhost:8000';
 
 @Injectable()
 export class UserService {
-  constructor(private http: HttpClient) {}
+  token: string;
 
-  getAll() {
-    return this.http.get<User[]>(`/users`);
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  getToken() {
+    return this.token;
+  }
+
+  getAllUsers() {
+    return this.http.get<User[]>(`${HOST}/api/users`);
   }
 
   getById(id: number) {
-    return this.http.get(`/users/` + id);
+    return this.http.get(`${HOST}/api/user/${id}`);
   }
 
   register(user: User) {
-    return this.http.post(`/users/register`, user);
+    const newUser = {
+      username: user.username,
+      fullname: user.fullname,
+      pwd: user.password,
+      email: user.email,
+      birthdate: user.birthDate,
+      phone: user.phone,
+      sex: 'M'
+    };
+
+    return this.http.post(`${HOST}/api/signup`, newUser);
   }
 
   update(user: User) {
@@ -34,34 +56,20 @@ export class UserService {
     return this.http.get(`${USER_API}/${name}`).pipe(map((data: User) => data));
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http
-      .get(`http://localhost:3000/api/getUsers`)
-      .pipe(map((data: User[]) => data));
-  }
-
-  addUser(user: User) {
-    return this.http
-      .post(`${USER_API}`, user)
-      .pipe(map((response: Response) => response));
-  }
-
   login(username: string, password: string) {
     return this.http
-      .post<any>('/users/authenticate', {
-        username: username,
-        password: password
+      .post<any>(`${HOST}/api/login`, {
+        username,
+        password
       })
-      .pipe(
-        map(user => {
-          // login successful if there's a jwt token in the response
-          if (user && user.token) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
-          }
-
-          return user;
-        })
+      .subscribe(
+        res => {
+          this.token = res.token;
+          this.router.navigate(['/home']);
+        },
+        error => {
+          console.error('Login error ', error);
+        }
       );
   }
 

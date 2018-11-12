@@ -3,7 +3,9 @@
   <div class="recentDiagnostics">
     <a>Recent diagnostics</a>
   </div>
-  <div class="diagnostics">
+  <div
+    class="diagnostics"
+    *ngIf="diagnosis.length > 0">
     <mat-card
       class="diagnosisCard"
       *ngFor="let diagnostic of diagnosis; let i=index">
@@ -19,4 +21,7 @@
       </div>
     </mat-card>
   </div>
+  <h1
+    class="diagnostics"
+    *ngIf="diagnosis.length <= 0">No diagnostic was made yet, click <a routerLink="symptoms">here</a> to make one!</h1>
 </div>
