@@ -44,7 +44,7 @@ export class AddUserComponent implements OnInit {
 
   handleRegister() {
     this.userService
-      .register(this.form.value)
+      .register(this.form.value, 'user')
       .pipe(first())
       .subscribe(
         data => {
