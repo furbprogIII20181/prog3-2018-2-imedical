@@ -35,6 +35,10 @@ export class UserService {
     return this.http.get(`${HOST}/api/user/${id}`);
   }
 
+  getByEmail(email: string) {
+    return this.http.get(`${HOST}/api/user/${email}`);
+  }
+
   register(user: User) {
     const newUser = {
       username: user.username,
