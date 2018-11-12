@@ -15,6 +15,7 @@
   display: block;
   justify-content: center;
   align-content: center;
+  background-color: #f2f2f2;
 }
 
 .menu {
@@ -30,17 +31,8 @@ button {
   height: 150px;
   padding: 20px;
   width: 200px;
-  background: #6190e8; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #a7bfe8,
-    #6190e8
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #a7bfe8,
-    #6190e8
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-style: solid;
+  border-color: #00b38f;
 }
 @media (min-width: 721px) and (max-width: 1024px) {
   .container mat-card {
@@ -51,23 +43,14 @@ button {
   .menu {
     display: flex;
     height: 86%;
-    justify-content: center;
-    align-items: center;
   }
   button {
     margin-top: 5px;
     height: 150px;
     padding: 20px;
     width: 200px;
-    background: #6190e8;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to top,
-      #a7bfe8,
-      #6190e8
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #a7bfe8, #6190e8);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-style: solid;
+    border-color: #00b38f;
   }
 }
 /* ##Device = Most of the Smartphones Mobiles (Portrait)
@@ -76,24 +59,18 @@ button {
   .container mat-card {
     width: 60%;
     height: 98%;
-    justify-content: center;
-    align-items: center;
   }
   .menu {
     display: flex;
-    height: 85%;
+    height: 75%;
     flex-direction: column;
   }
   button {
     margin-bottom: 10px;
-    height: 130px;
+    height: 150px;
     padding: 20px;
     width: 200px;
-    background: #6190e8;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #a7bfe8, #6190e8);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #a7bfe8, #6190e8);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-style: solid;
+    border-color: #00b38f;
   }
 }
