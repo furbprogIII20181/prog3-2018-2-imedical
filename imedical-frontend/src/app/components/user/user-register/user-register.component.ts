@@ -1,9 +1,6 @@
 import { MatSnackBar } from '@angular/material';
-import { EventEmitter } from '@angular/core';
-import { User } from './../../../models/user';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserValidators } from './user.validators';
 import { UserService } from '../../../containers/user/user.service';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -44,7 +41,7 @@ export class UserRegisterComponent implements OnInit {
 
   handleRegister() {
     this.userService
-      .register(this.form.value.user)
+      .register(this.form.value.user, 'user')
       .pipe(first())
       .subscribe(
         data => {

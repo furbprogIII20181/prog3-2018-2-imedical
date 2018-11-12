@@ -19,6 +19,7 @@ export class HomeService {
   token: string;
   API_URL_AUTH = 'https://sandbox-authservice.priaid.ch';
   API_URL_HEALT = 'https://sandbox-healthservice.priaid.ch';
+  HOST = 'http://localhost:8000';
 
   constructor(private http: HttpClient) {
     this.getToken();
@@ -37,8 +38,12 @@ export class HomeService {
 
   addPost(title: string, content: string) {
     const post: Post = { title: title, content: content };
-    this.posts.push(post);
-    this.postsUpdated.next([...this.posts]);
+    const body = {
+      Title: title,
+      Description: content,
+      fk_userid: 1
+    };
+    return this.http.post(`${this.HOST}/api/question`, body);
   }
 
   setSelectedSymptoms(symptoms: number[]) {
