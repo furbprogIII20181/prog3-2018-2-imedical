@@ -1,0 +1,14 @@
+{
+  "Description": 'Colds are very common and widespread and most cases are caused by a virus.  Treatment with antibiotics is not advisable, as antibiotics are ineffective against viruses.',
+  'DescriptionShort': 'The cold, or common cold, is usually the result of a viral infection.  It affects the nose and airways and its symptoms are milder than flu.  A sore throat, pain when swallowing, a runny nose, and (rarely) a mild fever are typical symptoms.',
+  'MedicalCondition': 'Colds are widespread and usually occur in colder seasons.  Colds typically start with a slowly developing sore throat, pain when swallowing, a runny nose, dry cough, mild headaches, exhaustion, joint pain, and a mild fever.  The illness usually lasts for a weeks and then slowly disappears, sometimes with a lingering cough.',
+  'Name': 'Cold',
+  'PossibleSymptoms': 'Itching eyes,Eye redness,Sputum,Burning in the throat,Fever,Pain in the limbs,Sore throat,Cough,Headache,Swollen glands on the neck,Tiredness,Runny nose,Sneezing,weakness,Stuffy nose,Burning eyes',
+  'ProfName': 'Common cold',
+  'Synonyms': 'Head cold,Head-cold',
+  'TreatmentDescription': 'A cold usually runs its course without lasting harm and then disappears on its own.  Rarely it is the start of a serious infection such as a lung infection.  Just as with the flu, bed rest and sufficient hydration are recommended.  It necessary, fever reducing medication can be taken.  Anti-inflammatory nasal sprays and inhalants can provide additional relief.  Although an exception to the rule, a bacterial infection may be present alongside a viral infection, in which case a doctor can prescribe an antibiotic.'
+}
+
+INSERT INTO "Issues"
+("Description", "DescriptionShort", "MedicalCondition", "Name", "PossibleSymptoms", "TreatmentDescription", "createdAt", "updatedAt")
+VALUES('lores descript', 'short desc', 'lores medical', 'Lores desease name', 'lores Possible', 'find a doctor ', '2018-11-05T21:33:06.598Z', '2018-11-05T21:33:06.598Z');

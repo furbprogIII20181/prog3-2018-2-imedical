@@ -1,27 +1,26 @@
 <div class="container">
-
-  <div class="recentDiagnostics">
-    <a>Recent diagnostics</a>
-  </div>
-  <div
-    class="diagnostics"
-    *ngIf="diagnosis.length > 0">
+  <div class="recentDiagnostics"><a>Recent diagnostics</a></div>
+  <div class="diagnostics" *ngIf="diagnosis?.length > 0">
     <mat-card
       class="diagnosisCard"
-      *ngFor="let diagnostic of diagnosis; let i=index">
+      *ngFor="let diagnostic of diagnosis; let i = index"
+    >
       <div class="issueDate">
-        <mat-card-title>{{ diagnostic?.Date | date: 'MMM, d' }}</mat-card-title>
+        <mat-card-title>{{ diagnostic?.Date | date: "MMM, d" }}</mat-card-title>
         <h1>{{ diagnostic?.Issue?.Name }}</h1>
-        <p>Find a doctor in the {{ diagnostic?.Specialisation[0]?.Name }} area</p>
+        <p>
+          Find a doctor in the {{ (diagnostic?.Specialisation)[0]?.Name }} area
+        </p>
       </div>
       <div>
         <a>
-          Probability: {{ diagnostic?.Issue?.Accuracy | number:'1.0-0'}}%
+          Probability: {{ diagnostic?.Issue?.Accuracy | number: "1.0-0" }}%
         </a>
       </div>
     </mat-card>
   </div>
-  <h1
-    class="diagnostics"
-    *ngIf="diagnosis.length <= 0">No diagnostic was made yet, click <a routerLink="symptoms">here</a> to make one!</h1>
+  <h1 class="diagnostics" *ngIf="diagnosis.length <= 0">
+    No diagnostic was made yet, click <a routerLink="symptoms">here</a> to make
+    one!
+  </h1>
 </div>

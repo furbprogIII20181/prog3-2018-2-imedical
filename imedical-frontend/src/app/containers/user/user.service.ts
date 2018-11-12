@@ -35,7 +35,7 @@ export class UserService {
     return this.http.get(`${HOST}/api/user/${id}`);
   }
 
-  register(user: User) {
+  register(user: any, type: string) {
     const newUser = {
       username: user.username,
       fullname: user.fullname,
@@ -43,7 +43,10 @@ export class UserService {
       email: user.email,
       birthdate: user.birthDate,
       phone: user.phone,
-      sex: 'M'
+      sex: 'M',
+      specialization: user.specialization,
+      docID: user.docID,
+      type
     };
 
     return this.http.post(`${HOST}/api/signup`, newUser);

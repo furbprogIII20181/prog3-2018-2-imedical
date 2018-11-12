@@ -1,48 +1,57 @@
 <div class="container">
   <mat-card class="reg-panel">
     <mat-card-title>Doctor Register</mat-card-title>
-    <form
-      (ngSubmit)="handleRegister()"
-      [formGroup]="form"
-      class="reg-form">
-      <div formGroupName="doctor">
+    <form (ngSubmit)="handleRegister()" [formGroup]="form" class="reg-form">
+      <div formGroupName="user">
         <mat-form-field>
           <input
             matInput
             required
             formControlName="email"
-            placeholder="E-mail">
-          <mat-error *ngIf="form.get('doctor.email').hasError('required')">{{getRequiredMessage('email')}}</mat-error>
-          <mat-error *ngIf="form.get('doctor.email').hasError('email')">Invalid e-mail</mat-error>
+            placeholder="E-mail"
+          />
+          <mat-error *ngIf="form.get('user.email').hasError('required')">{{
+            getRequiredMessage("email")
+          }}</mat-error>
+          <mat-error *ngIf="form.get('user.email').hasError('email')"
+            >Invalid e-mail</mat-error
+          >
         </mat-form-field>
         <mat-form-field>
           <input
             matInput
             required
             formControlName="username"
-            placeholder="Username">
-          <mat-error *ngIf="form.get('doctor.username').hasError('required')">{{getRequiredMessage('username')}}</mat-error>
+            placeholder="Username"
+          />
+          <mat-error *ngIf="form.get('user.username').hasError('required')">{{
+            getRequiredMessage("username")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
             matInput
             required
             formControlName="fullname"
-            placeholder="Full name">
-          <mat-error *ngIf="form.get('doctor.fullname').hasError('required')">{{getRequiredMessage('fullname')}}</mat-error>
+            placeholder="Full name"
+          />
+          <mat-error *ngIf="form.get('user.fullname').hasError('required')">{{
+            getRequiredMessage("fullname")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
             matInput
             required
             [type]="hide ? 'password' : 'text'"
-            formControlName="password"
-            placeholder="Password">
-          <mat-error *ngIf="form.get('doctor.password').hasError('required')">{{getRequiredMessage('password')}}</mat-error>
-          <mat-icon
-            matSuffix
-            (click)="hide = !hide">
-            {{hide ? 'visibility' : 'visibility_off'}}
+            formControlName="pwd"
+            placeholder="Password"
+          />
+          <mat-error *ngIf="form.get('user.pwd').hasError('required')">{{
+            getRequiredMessage("password")
+          }}</mat-error>
+          <mat-icon matSuffix (click)="hide = !hide">
+            {{ hide ? "visibility" : "visibility_off" }}
           </mat-icon>
         </mat-form-field>
         <mat-form-field>
@@ -50,12 +59,16 @@
             matInput
             [matDatepicker]="picker"
             formControlName="birthdate"
-            placeholder="Select your birth date">
+            placeholder="Select your birth date"
+          />
           <mat-datepicker-toggle
             matSuffix
-            [for]="picker"></mat-datepicker-toggle>
+            [for]="picker"
+          ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="form.get('doctor.birthdate').hasError('required')">{{getRequiredMessage('birthdate')}}</mat-error>
+          <mat-error *ngIf="form.get('user.birthdate').hasError('required')">{{
+            getRequiredMessage("birthdate")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
@@ -63,8 +76,11 @@
             type="tel"
             matInput
             placeholder="Telephone"
-            formControlName="phoneNumber">
-          <mat-error *ngIf="form.get('doctor.phoneNumber').hasError('required')">{{getRequiredMessage('phoneNumber')}}</mat-error>
+            formControlName="phone"
+          />
+          <mat-error *ngIf="form.get('user.phone').hasError('required')">{{
+            getRequiredMessage("phone")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input
@@ -72,19 +88,21 @@
             matInput
             required
             placeholder="Doctor ID"
-            formControlName="docID">
-          <mat-error *ngIf="form.get('doctor.docID').hasError('required')">{{getRequiredMessage('docID')}}</mat-error>
+            formControlName="docID"
+          />
+          <mat-error *ngIf="form.get('user.docID').hasError('required')">{{
+            getRequiredMessage("docID")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-select
             id="specialization"
             required
             placeholder="Specialization"
-            formControlName="specialization">
-            <mat-option
-              *ngFor="let spec of specs"
-              [value]="spec.value">
-              {{spec.viewValue}}
+            formControlName="specialization"
+          >
+            <mat-option *ngFor="let spec of specs" [value]="spec.value">
+              {{ spec.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -94,7 +112,8 @@
           mat-flat-button
           type="submit"
           color="primary"
-          [disabled]="form.invalid">
+          [disabled]="form.invalid"
+        >
           Register
         </button>
         <a routerLink="/user-register">Cancel</a>
