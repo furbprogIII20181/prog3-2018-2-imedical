@@ -17,6 +17,9 @@ import { HelpComponent } from './components/help/help.component';
 import { MaterialModule } from './material.module';
 import { MyDiagnosisComponent } from './components/my-diagnosis/my-diagnosis.component';
 import { FindDoctorComponent } from './components/find-doctor/find-doctor.component';
+import { AddUserComponent } from './components/user/crudl/add-user/add-user.component';
+import { EditUserComponent } from './components/user/crudl/edit-user/edit-user.component';
+import { ListUserComponent } from './components/user/crudl/list-user/list-user.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
@@ -62,6 +65,18 @@ const routes: Routes = [
   {
     path: 'help',
     component: HelpComponent
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent
+  },
+  {
+    path: 'edit-user',
+    component: EditUserComponent
+  },
+  {
+    path: 'list-user',
+    component: ListUserComponent
   },
   { path: '**', component: HomeComponent }
 ];
