@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 module.exports = {
     create(req, res) {
+        console.log(req.body);
         return User.create(req.body)
             .then(user => res.status(201).send(user))
             .catch(error => res.status(400).send(error));
@@ -22,11 +23,9 @@ module.exports = {
                     });
                 }
                 fetchedUser = user;
-                console.log(req.body.password, user.pwd);
                 return bcrypt.compare(req.body.password, user.pwd);
             })
             .then(result => {
-                console.log(result);
                 if (!result) {
                     return res.status(401).json({
                         message:
@@ -41,6 +40,7 @@ module.exports = {
                 return res.status(200).json({
                     message: 'Success',
                     token,
+                    userId: req.userId,
                     expiresIn: '3600'
                 });
             })

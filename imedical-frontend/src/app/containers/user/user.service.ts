@@ -14,6 +14,7 @@ export class UserService {
   private isAuthenticated = false;
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
+  private userId: number;
 
   constructor(
     private http: HttpClient,
@@ -53,7 +54,7 @@ export class UserService {
     const newUser = {
       username: user.username,
       fullname: user.fullname,
-      pwd: user.password,
+      pwd: user.pwd,
       email: user.email,
       birthdate: user.birthDate,
       phone: user.phone,
@@ -78,6 +79,10 @@ export class UserService {
     return this.http.get(`${USER_API}/${name}`).pipe(map((data: User) => data));
   }
 
+  getUserId() {
+    return this.userId;
+  }
+
   login(username: string, password: string) {
     return this.http
       .post<any>(`${HOST}/api/login`, {
@@ -91,6 +96,7 @@ export class UserService {
             const expiresIn = res.expiresIn;
             this.setAuthTimer(expiresIn);
             const now = new Date();
+            this.userId = res.userId;
             const exprirationDate = new Date(now.getTime() + expiresIn * 1000);
             this.saveAuthData(this.token, exprirationDate);
             this.isAuthenticated = true;

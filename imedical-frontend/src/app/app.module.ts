@@ -1,3 +1,4 @@
+import { PostCreateComponent } from './components/find-doctor/post-create/post-create.component';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { SymptomsComponent } from './components/symptoms/symptoms.component';
 import { HomeComponent } from './containers/home/home.component';
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'find-doctor',
     component: FindDoctorComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit/:postId',
+    component: PostCreateComponent,
     canActivate: [AuthGuardService]
   },
   {
