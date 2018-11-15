@@ -25,11 +25,13 @@ const routes: Routes = [
   { path: '', component: UserLoginComponent },
   {
     path: 'find-doctor',
-    component: FindDoctorComponent
+    component: FindDoctorComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'my-diagnostics',
-    component: MyDiagnosisComponent
+    component: MyDiagnosisComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user-register',
@@ -41,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'login',
@@ -59,8 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent,
-    canActivate: [AuthGuardService]
+    component: AboutComponent
   },
   {
     path: 'help',
