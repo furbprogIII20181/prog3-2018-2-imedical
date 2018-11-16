@@ -41,16 +41,7 @@ db.user = require("../models/user.js")(sequelize, Sequelize);
 db.diagnosis = require("../models/diagnosis.js")(sequelize, Sequelize);
 db.issue = require("../models/issue.js")(sequelize, Sequelize);
 db.question = require("../models/question.js")(sequelize, Sequelize);
-db.news = require("../models/news.js")(sequelize, Sequelize);
 
-db.news.belongsTo(db.user, {
-  foreignKey: "fk_userid",
-  targetKey: "id"
-});
-db.user.hasMany(db.news, {
-  foreignKey: "fk_userid",
-  sourceKey: "id"
-});
 db.issue.hasMany(db.diagnosis, {
   foreignKey: "fk_issueid",
   sourceKey: "id"
