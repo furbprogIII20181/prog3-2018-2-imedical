@@ -13,14 +13,17 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit, OnDestroy {
   private authListenSubs: Subscription;
   authenticated = false;
+  userType: string;
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.authenticated = this.userService.getIsAuthenticated();
+    if (!this.userType) this.userType = localStorage.getItem('userType');
     this.authListenSubs = this.userService
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {
         this.authenticated = isAuthenticated;
+        this.userType = this.userService.getUserType();
       });
   }
 

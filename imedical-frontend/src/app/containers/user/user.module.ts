@@ -11,7 +11,6 @@ import { MaterialModule } from '../../material.module';
 import { UserLoginComponent } from '../../components/user/user-login/user-login.component';
 import { UserRegisterComponent } from '../../components/user/user-register/user-register.component';
 import { DoctorRegisterComponent } from '../../components/user/doctor-register/doctor-register.component';
-import { fakeBackendProvider } from '../../mock/fake-backend-interceptor';
 import { AuthInterceptor } from './auth-interrceptor';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { AuthInterceptor } from './auth-interrceptor';
   exports: [UserComponent],
   providers: [
     UserService,
-    fakeBackendProvider,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ]
 })

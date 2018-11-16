@@ -15,6 +15,7 @@ export class UserService {
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
   private userId: number;
+  private userType: string;
 
   constructor(
     private http: HttpClient,
@@ -83,6 +84,10 @@ export class UserService {
     return this.userId;
   }
 
+  getUserType() {
+    return this.userType;
+  }
+
   login(username: string, password: string) {
     return this.http
       .post<any>(`${HOST}/api/login`, {
@@ -97,12 +102,13 @@ export class UserService {
             this.setAuthTimer(expiresIn);
             const now = new Date();
             this.userId = res.userId;
+            this.userType = res.type;
             const exprirationDate = new Date(now.getTime() + expiresIn * 1000);
-            this.saveAuthData(this.token, exprirationDate);
+            this.saveAuthData(this.token, exprirationDate, this.userType);
             this.isAuthenticated = true;
             this.authStatusListener.next(true);
+            this.router.navigate(['/home']);
           }
-          this.router.navigate(['/home']);
         },
         error => {
           console.error('Login error ', error);
@@ -150,13 +156,15 @@ export class UserService {
     this.router.navigate(['/login']);
   }
 
-  private saveAuthData(token: string, expirationDate: Date) {
+  private saveAuthData(token: string, expirationDate: Date, userType: string) {
     localStorage.setItem('token', token);
+    localStorage.setItem('userType', userType);
     localStorage.setItem('expiration', expirationDate.toISOString());
   }
 
   private clearAuthData() {
     localStorage.removeItem('token');
     localStorage.removeItem('expiration');
+    localStorage.removeItem('userType');
   }
 }

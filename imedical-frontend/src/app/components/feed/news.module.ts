@@ -1,6 +1,4 @@
-import { PostListComponent } from './post-list/post-list.component';
 import { NgModule } from '@angular/core';
-import { PostCreateComponent } from './post-create/post-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -8,11 +6,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 import { RouterModule } from '@angular/router';
-import { FindDoctorComponent } from './find-doctor.component';
 import { HomeService } from 'src/app/containers/home/home.service';
-import { PostsService } from './posts.service';
+import { NewsComponent } from './news.component';
+import { NewsListComponent } from './news-master/news-list/news-list.component';
+import { NewsCreateComponent } from './news-master/news-create/news-create.component';
+import { NewsMasterComponent } from './news-master/news-master.component';
 @NgModule({
-  declarations: [PostListComponent, PostCreateComponent, FindDoctorComponent],
+  declarations: [
+    NewsListComponent,
+    NewsCreateComponent,
+    NewsMasterComponent,
+    NewsComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -23,7 +28,7 @@ import { PostsService } from './posts.service';
     MaterialModule,
     RouterModule
   ],
-  exports: [FindDoctorComponent],
-  providers: [HomeService, PostsService]
+  exports: [NewsComponent, NewsMasterComponent],
+  providers: [HomeService]
 })
-export class FindDoctorModule {}
+export class NewsModule {}

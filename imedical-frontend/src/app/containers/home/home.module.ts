@@ -1,4 +1,4 @@
-import { FindDoctorComponent } from '../../components/find-doctor/find-doctor.component';
+import { NewsModule } from './../../components/feed/news.module';
 import { DiagnosisComponent } from './../../components/diagnosis/diagnosis.component';
 import { SymptomsComponent } from './../../components/symptoms/symptoms.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,8 +19,6 @@ import { FindDoctorModule } from 'src/app/components/find-doctor/find-doctor.mod
 import { AddUserComponent } from 'src/app/components/user/crudl/add-user/add-user.component';
 import { EditUserComponent } from 'src/app/components/user/crudl/edit-user/edit-user.component';
 import { ListUserComponent } from 'src/app/components/user/crudl/list-user/list-user.component';
-import { FeedComponent } from 'src/app/components/feed/feed.component';
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -32,8 +30,7 @@ import { FeedComponent } from 'src/app/components/feed/feed.component';
     SymptomFilterPipe,
     AddUserComponent,
     EditUserComponent,
-    ListUserComponent,
-    FeedComponent
+    ListUserComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -44,7 +41,8 @@ import { FeedComponent } from 'src/app/components/feed/feed.component';
     ReactiveFormsModule,
     FindDoctorModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    NewsModule
   ],
   exports: [HomeComponent],
   providers: [HomeService, SymptomFilterPipe]

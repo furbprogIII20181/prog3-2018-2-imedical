@@ -1,6 +1,7 @@
 import { UserService } from './containers/user/user.service';
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,9 @@ export class AppComponent implements OnInit {
   title = 'imedical-frontend';
   mobileQuery: MediaQueryList;
   isAuth = false;
+  private newsSub: Subscription;
+  private authStatusSub: Subscription;
+
   fillerContent = Array.from(
     { length: 50 },
     () =>
@@ -36,6 +40,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.userService.autoAuthUser();
     this.isAuth = this.userService.getIsAuthenticated();
+    this.authStatusSub = this.userService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.isAuth = isAuthenticated;
+      });
   }
 
   onLogout() {

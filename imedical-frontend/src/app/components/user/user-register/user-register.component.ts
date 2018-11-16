@@ -45,7 +45,6 @@ export class UserRegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(this.form.value);
           this.snackBar.open(
             'Congrats! You are now registered in iMedical',
             'Awesome!'

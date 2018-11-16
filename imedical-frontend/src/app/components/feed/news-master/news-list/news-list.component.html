@@ -1,0 +1,34 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion
+  multi="true"
+  *ngIf="news.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let new of news">
+    <mat-expansion-panel-header>{{ new.title }}</mat-expansion-panel-header>
+    <p>{{ new.content }}</p>
+    <mat-action-row *ngIf="userIsAuthenticated">
+      <a
+        mat-button
+        color="primary"
+        [routerLink]="['/edit-news', new.id]">
+        EDIT
+      </a>
+      <button
+        mat-button
+        color="warn"
+        (click)="onDelete(new.id)">
+        DELETE
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator
+  [length]="totalNews"
+  [pageSize]="newsPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)"
+  *ngIf="news.length > 0"></mat-paginator>
+<p
+  class="info-text mat-body-1"
+  *ngIf="news.length <= 0 && !isLoading">
+  No news added yet!
+</p>

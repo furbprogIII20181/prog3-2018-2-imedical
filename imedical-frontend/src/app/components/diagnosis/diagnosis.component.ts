@@ -31,9 +31,37 @@ export class DiagnosisComponent implements OnInit {
       this.symptoms = this.homeService.getSelectedSymptoms();
       this.gender = this.homeService.getGender();
       this.birthYear = this.homeService.getBirthYear();
-      this.homeService.getDiagnosis(token, this.symptoms, this.gender, this.birthYear).subscribe(
-        diagnosis => {
-          if (Array.isArray(diagnosis) && !diagnosis.length) {
+      this.homeService
+        .getDiagnosis(token, this.symptoms, this.gender, this.birthYear)
+        .subscribe(
+          diagnosis => {
+            if (Array.isArray(diagnosis) && !diagnosis.length) {
+              this.snackBar.open(
+                'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
+                'OK!',
+                {
+                  duration: 10000
+                }
+              );
+              this.router.navigate(['/symptoms']);
+            }
+            this.diagnosis = diagnosis;
+            diagnosis.forEach((diagnose, i) => {
+              if (diagnose.Issue.Accuracy > 5) {
+                this.homeService
+                  .getIssue(token, diagnose.Issue.ID)
+                  .subscribe(issue => {
+                    diagnose.Issue.DescriptionShort = issue.DescriptionShort;
+                    diagnose.Issue.MedicalCondition = issue.MedicalCondition;
+                    diagnose.Issue.TreatmentDescription =
+                      issue.TreatmentDescription;
+                    diagnose.Issue.Description = issue.Description;
+                    this.loaded = true;
+                  });
+              }
+            });
+          },
+          err => {
             this.snackBar.open(
               'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
               'OK!',
@@ -43,34 +71,7 @@ export class DiagnosisComponent implements OnInit {
             );
             this.router.navigate(['/symptoms']);
           }
-          this.diagnosis = diagnosis;
-          diagnosis.forEach((diagnose, i) => {
-            if (diagnose.Issue.Accuracy > 5) {
-              this.homeService
-                .getIssue(token, diagnose.Issue.ID)
-                .subscribe(issue => {
-                  diagnose.Issue.DescriptionShort = issue.DescriptionShort;
-                  diagnose.Issue.MedicalCondition = issue.MedicalCondition;
-                  diagnose.Issue.TreatmentDescription =
-                    issue.TreatmentDescription;
-                  diagnose.Issue.Description = issue.Description;
-                  this.loaded = true;
-                  localStorage.setItem('diagnose', JSON.stringify(diagnose));
-                });
-            }
-          });
-        },
-        err => {
-          this.snackBar.open(
-            'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
-            'OK!',
-            {
-              duration: 10000
-            }
-          );
-          this.router.navigate(['/symptoms']);
-        }
-      );
+        );
     });
   }
 }

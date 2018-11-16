@@ -1,3 +1,4 @@
+import { NewsCreateComponent } from './components/feed/news-master/news-create/news-create.component';
 import { PostCreateComponent } from './components/find-doctor/post-create/post-create.component';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { SymptomsComponent } from './components/symptoms/symptoms.component';
@@ -21,17 +22,28 @@ import { FindDoctorComponent } from './components/find-doctor/find-doctor.compon
 import { AddUserComponent } from './components/user/crudl/add-user/add-user.component';
 import { EditUserComponent } from './components/user/crudl/edit-user/edit-user.component';
 import { ListUserComponent } from './components/user/crudl/list-user/list-user.component';
-import { FeedComponent } from './components/feed/feed.component';
+import { NewsComponent } from './components/feed/news.component';
+import { NewsMasterComponent } from './components/feed/news-master/news-master.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
   {
     path: 'feed',
-    component: FeedComponent
+    component: NewsComponent
   },
+  {
+    path: 'my-articles',
+    component: NewsMasterComponent
+  },
+
   {
     path: 'find-doctor',
     component: FindDoctorComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit-news/:newsId',
+    component: NewsCreateComponent,
     canActivate: [AuthGuardService]
   },
   {

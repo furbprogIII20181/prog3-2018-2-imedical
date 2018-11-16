@@ -48,7 +48,6 @@ export class EditUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(this.form.value);
           this.snackBar.open('User successfully edited ', 'Awesome!');
           this.router.navigate(['/login']);
         },

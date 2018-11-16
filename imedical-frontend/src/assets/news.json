@@ -1,12 +1,8 @@
 {
-  "status": "ok",
-  "totalResults": 5141,
   "articles": [
     {
-      "source": {
-        "id": null,
-        "name": "Newsbtc.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Aayush Jindal",
       "title": "Bitcoin Cash Price Analysis: BCH/USD Accelerating Declines Below $400",
       "description": "Key Points Bitcoin cash price extended losses and traded below the $400 level against the US Dollar. There are two key bearish trend lines in place with resistance at $420 and $450 on the hourly chart of the BCH/USD pair (data feed from Kraken). The pair rema…",
@@ -16,10 +12,8 @@
       "content": "Key Points Bitcoin cash price extended losses and traded below the $400 level against the US Dollar. There are two key bearish trend lines in place with resistance at $420 and $450 on the hourly chart of the BCH/USD pair (data feed from Kraken). The pair rema… [+1634 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Thehindubusinessline.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Reuters",
       "title": "Asian mood soured by Nvidia slide, sterling scarred by Brexit chaos",
       "description": "Nasdaq futures fall as Nvidia shares dive 17 pct on poor results",
@@ -29,10 +23,8 @@
       "content": "The British pound lay battered and bruised in Asia on Friday after a bout of political turmoil fanned fears the country could crash out of the European Union without a divorce deal. Asian share markets fared better as hopes for a thaw in Sino-US trade relatio… [+2742 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Sys-con.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": null,
       "title": "Bithumb Holds Its Fifth Anniversary Event",
       "description": "SEOUL, South Korea, Nov. 15, 2018 /PRNewswire/ -- The global cryptocurrency stock exchange Bithumb is holding its third commemorative event in celebration of its fifth anniversary. read more",
@@ -42,10 +34,8 @@
       "content": "SEOUL, South Korea, Nov. 15, 2018 /PRNewswire/ -- The global cryptocurrency stock exchange Bithumb is holding its third commemorative event in celebration of its fifth anniversary. The 'Super Airdrop Festival' event has two parts, the Login Event and Air Drop… [+2450 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Prnewswire.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Bithumb",
       "title": "Bithumb Holds Its Fifth Anniversary Event",
       "description": "SEOUL, South Korea, Nov. 15, 2018 /PRNewswire/ -- The global cryptocurrency stock exchange Bithumb is holding its third commemorative event in celebration of its fifth anniversary. The 'Super Airdrop Festival' event has two parts, the Login Event and Air Drop…",
@@ -55,10 +45,8 @@
       "content": "Members can participate in the Login Event until December 11 th by logging into Bithumb and clicking on the enter event button. In this event, 15 Bitcoins (valued at USD 97,789 as of today) will be provided to one winner, who will be selected by lottery after… [+1825 chars]"
     },
     {
-      "source": {
-        "id": "financial-times",
-        "name": "Financial Times"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": null,
       "title": "Stablecoins are crypto sector’s next big bet",
       "description": "‘Hybrid’ cryptocurrencies are often pegged to real assets, including fiat currencies",
@@ -72,6 +60,8 @@
         "id": null,
         "name": "Indianexpress.com"
       },
+      "id": 1,
+      "fk_userid": 2,
       "author": "JAGPREET SINGH SANDHU",
       "title": "Chandigarh: CAT notice to UT Police on plea of SI dismissed after rape complaint",
       "description": "The petition alleges that SSP Nilambari Jagadale, DSP Rashmi Yadav and Inspector Jasminder Singh, along with the complainant, planted a false case against Kumar and dismissed him with an order passed in violation of statutory rules as it was not passed by the…",
@@ -81,10 +71,8 @@
       "content": "Naveen Kumar was dismissed on October 23. Central Administrative Tribunal (CAT) has issued a notice to Chandigarh Police, Union Territory senior superintendent of police (SSP), deputy superintendent of police (DSP) and an inspector over a plea by former sub-i… [+3777 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Fool.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "newsfeedback@fool.com (Chris Hill)",
       "title": "Chips and Fried Pickles",
       "description": "Tech stocks have been beaten down. Is this a buying opportunity for investors or dangerous market dynamics?",
@@ -94,10 +82,8 @@
       "content": "With NVIDIA ( NASDAQ:NVDA ), Western Digital ( NASDAQ:WDC ), and Micron Technology ( NASDAQ:MU ) all falling in recent days, are chipmakers a buying opportunity or should investors stay away? In this episode of the MarketFoolery podcast, host Chris Hill and M… [+14098 chars]"
     },
     {
-      "source": {
-        "id": "reuters",
-        "name": "Reuters"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Wayne Cole",
       "title": "Asia mood soured by Nvidia slide, sterling scarred by Brexit chaos",
       "description": "Asian shares shed early gains on Friday after disappointing results from U.S. chipmaker Nvidia Corp hammered its stock and sent selling rippling through the entire tech sector.",
@@ -107,10 +93,8 @@
       "content": "SYDNEY (Reuters) - Asian shares shed early gains on Friday after disappointing results from U.S. chipmaker Nvidia Corp hammered its stock and sent selling rippling through the entire tech sector. The British pound also lay battered and bruised after a bout of… [+3180 chars]"
     },
     {
-      "source": {
-        "id": "reuters",
-        "name": "Reuters"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Wayne Cole",
       "title": "Global Markets: Asia mood soured by Nvidia slide, sterling scarred by Brexit chaos",
       "description": "Asian shares shed early gains on Friday after disappointing results from U.S. chipmaker Nvidia Corp hammered its stock and sent selling rippling through the entire tech sector.",
@@ -120,10 +104,8 @@
       "content": "SYDNEY (Reuters) - Asian shares shed early gains on Friday after disappointing results from U.S. chipmaker Nvidia Corp hammered its stock and sent selling rippling through the entire tech sector. The British pound also lay battered and bruised after a bout of… [+3061 chars]"
     },
     {
-      "source": {
-        "id": "financial-times",
-        "name": "Financial Times"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": null,
       "title": "Nvidia: tales from the crypto",
       "description": "Fall in cryptocurrency prices leaves chipmaker with inventory overload",
@@ -133,10 +115,8 @@
       "content": "Nvidia backers like to argue that the chipmaker deserves to replace Netflix as the N in the big, fast-growing Faang group of tech stocks. Not only is it a leader in graphics chips used for gaming but its products power some of the most transformational develo… [+1970 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Siliconangle.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Duncan Riley",
       "title": "Acting Attorney General linked to company that promoted a time travel cryptocurrency",
       "description": "Acting U.S. Attorney General Matthew Whitaker has been linked to a company that among its various offerings was pitching a time travel cryptocurrency. Whitaker, appointed to replaced Jeff Sessions by the Trump Administration Nov. 7 sat on the advisory board o…",
@@ -146,10 +126,8 @@
       "content": "Acting U.S. Attorney General Matthew Whitaker has been linked to a company that among its various offerings was pitching a time travel cryptocurrency. Whitaker (pictured below), appointed to replaced Jeff Sessions by the Trump administration Nov. 7, sat on th… [+2850 chars]"
     },
     {
-      "source": {
-        "id": "bloomberg",
-        "name": "Bloomberg"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": null,
       "title": "$5500 Could be a Good Bitcoin Entry Point (Radio)",
       "description": null,
@@ -159,10 +137,8 @@
       "content": "To continue, please click the box below to let us know you're not a robot."
     },
     {
-      "source": {
-        "id": "the-times-of-india",
-        "name": "The Times of India"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "REUTERS",
       "title": "Sterling scarred by Brexit turmoil; Asia shares cling to trade hopes",
       "description": "MSCI's broadest index of Asia-Pacific shares outside Japan was ahead 0.26% in early trade.",
@@ -172,10 +148,8 @@
       "content": "SYDNEY: The British pound lay battered and bruised in Asia on Friday after a bout of political turmoil fanned fears the country could crash out of the European Union without a divorce deal. Asian share markets fared better as hopes for a thaw in Sino-US trade… [+2791 chars]"
     },
     {
-      "source": {
-        "id": "crypto-coins-news",
-        "name": "Crypto Coins News"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Joseph Young",
       "title": "Has Crypto Exchange KuCoin Proven its Legitimacy by Raising $20 Million?",
       "description": "Singapore-based KuCoin, a major crypto exchange with an active and loyal user base, has secured $20 million in a funding round led by $20 billion venture capital firm IDG. Michael Gan, the CEO of KuCoin, wrote, “Today, we are thrilled to announce that we have…",
@@ -185,10 +159,8 @@
       "content": "Singapore-based KuCoin, a major crypto exchange with an active and loyal user base, has secured $20 million in a funding round led by $20 billion venture capital firm IDG. Michael Gan, the CEO of KuCoin, wrote, Today, we are thrilled to announce that we have … [+3268 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Theregister.co.uk"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Richard Chirgwin",
       "title": "Nvidia just can't get a break. Revenues up, profit nearly doubles... and stock down 20%",
       "description": "Ongoing Bitcoin woes left the channel holding all the cards, and that's not a good thing Nvidia has turned in growth in revenue and profit, but has been punished for missing its guidance in the third quarter of its fiscal 2019, all amid a continuing sharp dro…",
@@ -198,10 +170,8 @@
       "content": "Nvidia has turned in growth in revenue and profit, but has been punished for missing its guidance in the third quarter of its fiscal 2019, all amid a continuing sharp drop in demand from crypto-currency miners. Its stock fell as much as 20 per cent after it r… [+2579 chars]"
     },
     {
-      "source": {
-        "id": "news-com-au",
-        "name": "News.com.au"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Shannon Molloy",
       "title": "ATO phone scam: Voicemail about a lawsuit, warrant for arrest sparks warning",
       "description": "Thousands of Australians have received a voicemail message that’s likely to have sent shivers down their spine.",
@@ -211,10 +181,8 @@
       "content": "Thousands of Australians have received a voicemail message thats likely to have sent shivers down their spine. The robotic-sounding voice warns the recipient that they are the subject of a lawsuit and should return the call immediately. If they don’t, a warra… [+3536 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Bitcoinist.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Georgi Georgiev",
       "title": "Coinbase-Backed Startup Releases Home Cryptocurrency Miner",
       "description": "A startup backed by Coinbase and Arrington Ventures has launched a cryptocurrency miner for domestic use. The new device, however, won’t be powerful enough to mine Bitcoin (BTC). Mass-Market Appeal Coinmine — a startup ran by computer scientist Farb Nivi and …",
@@ -224,10 +192,8 @@
       "content": "A startup backed by Coinbase and Arrington Ventures has launched a cryptocurrency miner for domestic use. The new device, however, wont be powerful enough to mine Bitcoin (BTC). Mass-Market Appeal Coinmine a startup ran by computer scientist Farb Nivi and ind… [+2333 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Forbes.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Panos Mourdoukoutas, Contributor, Panos Mourdoukoutas, Contributor https://www.forbes.com/sites/panosmourdoukoutas/",
       "title": "Bitcoin, Ripple And Litecoin Sell-Off: Is It Different This Time Around?",
       "description": "Bitcoin, Ripple, Litecoin and other cryptocurrencies sell off: There are a couple of things different this time around.",
@@ -237,10 +203,8 @@
       "content": "Share to facebook Share to twitter Share to linkedin Bitcoin, Ripple, Litecoin and other cryptocurrencies are selling off again. Its the fifth time this year, in case someone is counting. There are a couple of things different this time around. One of them is… [+6455 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Firstpost.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Reuters",
       "title": "Global markets: Sterling scarred by Brexit turmoil; Asia shares cling to trade hopes",
       "description": "By Wayne Cole SYDNEY (Reuters) - The British pound lay battered and bruised in Asia on Friday after a bout of political turmoil fanned fears the country could crash out of the European Union without a divorce deal. Asian share markets fared better as hopes fo…",
@@ -250,10 +214,8 @@
       "content": "By Wayne Cole SYDNEY (Reuters) - The British pound lay battered and bruised in Asia on Friday after a bout of political turmoil fanned fears the country could crash out of the European Union without a divorce deal. Asian share markets fared better as hopes fo… [+3075 chars]"
     },
     {
-      "source": {
-        "id": null,
-        "name": "Firstpost.com"
-      },
+      "id": 1,
+      "fk_userid": 2,
       "author": "Reuters",
       "title": "Sterling scarred by Brexit turmoil; Asia shares cling to trade hopes",
       "description": "By Wayne Cole SYDNEY (Reuters) - The British pound lay battered and bruised in Asia on Friday after a bout of political turmoil fanned fears the country could crash out of the European Union without a divorce deal. Asian share markets fared better as hopes fo…",

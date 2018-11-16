@@ -18,7 +18,6 @@ export class MyDiagnosisComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('a');
     this.homeService
       .getMock()
       .subscribe(diagnosis => (this.diagnosis = diagnosis));

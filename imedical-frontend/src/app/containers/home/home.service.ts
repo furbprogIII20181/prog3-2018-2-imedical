@@ -65,7 +65,6 @@ export class HomeService {
         Authorization: 'Bearer merinigames@hotmail.com:SV3+R2c0tD0+E12r51HVIg=='
       })
     };
-    console.log(httpOptions);
     return this.http
       .post(this.API_URL_AUTH + '/login', undefined, httpOptions)
       .pipe(

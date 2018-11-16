@@ -2,6 +2,8 @@ const userController = require('../controllers').users;
 const diagnosisController = require('../controllers').diagnosis;
 const issuesController = require('../controllers').issue;
 const questionController = require('../controllers').question;
+const newsController = require('../controllers').news;
+
 const checkAuth = require('../middleware/check-auth');
 module.exports = app => {
     app.get('/api', (req, res) =>
@@ -14,6 +16,12 @@ module.exports = app => {
     app.put('/api/question/:id', checkAuth, questionController.update);
     app.delete('/api/question/:id', checkAuth, questionController.delete);
     app.get('/api/question', checkAuth, questionController.listById);
+
+    app.post('/api/news', checkAuth, newsController.create);
+    app.put('/api/news/:id', checkAuth, newsController.update);
+    app.delete('/api/news/:id', checkAuth, newsController.delete);
+    app.get('/api/news', checkAuth, newsController.listById);
+    app.get('/api/allNews', checkAuth, newsController.list);
 
     app.post('/api/issue', checkAuth, issuesController.create);
     app.get('/api/issues', checkAuth, issuesController.list);

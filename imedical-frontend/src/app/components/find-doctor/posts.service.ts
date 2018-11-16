@@ -18,7 +18,6 @@ export class PostsService {
       .get<any>(`${this.HOST}/api/question`)
       .pipe(
         map(postData => {
-          console.log(postData);
           return {
             posts: postData.map(post => {
               return {
@@ -57,7 +56,6 @@ export class PostsService {
 
   addPost(title: string, content: string) {
     const postData = new FormData();
-    console.log(title, content);
     const body = {
       Title: title,
       Description: content

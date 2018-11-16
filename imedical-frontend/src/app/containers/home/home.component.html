@@ -8,6 +8,7 @@
     </mat-card-header>
     <div class="menu">
       <button
+        *ngIf="userType === 'user' || !userType"
         mat-raised-button
         matTooltip="Check out your symptoms"
         routerLink="/symptoms">
@@ -31,14 +32,25 @@
         </button>
       </div>
       <button
+        *ngIf="userType === 'doctor'"
         mat-raised-button
-        matTooltip="Check out the latest news about your health"
+        matTooltip="Check out your articles"
+        routerLink="/my-articles">
+        <img src="../../../assets/article.png">
+        <p>
+          My Articles
+        </p>
+      </button>
+      <button
+        mat-raised-button
+        matTooltip="Check out the latest news about health"
         routerLink="/feed">
         <img src="../../../assets/symptom.png">
         <p>
           Healthy Feed
         </p>
       </button>
+
     </div>
   </mat-card>
 </div>

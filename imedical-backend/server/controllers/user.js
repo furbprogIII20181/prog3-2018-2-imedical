@@ -40,6 +40,7 @@ module.exports = {
                 return res.status(200).json({
                     message: 'Success',
                     token,
+                    type: fetchedUser.type,
                     userId: req.userId,
                     expiresIn: '3600'
                 });

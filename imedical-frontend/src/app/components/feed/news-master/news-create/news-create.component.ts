@@ -2,27 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { PostsService } from '../posts.service';
-import { Post } from '../post.model';
+import { News } from 'src/app/models/news';
+import { NewsService } from '../../news.service';
 
 @Component({
-  selector: 'app-post-create',
-  templateUrl: './post-create.component.html',
-  styleUrls: ['./post-create.component.css']
+  selector: 'app-news-create',
+  templateUrl: './news-create.component.html',
+  styleUrls: ['./news-create.component.scss']
 })
-export class PostCreateComponent implements OnInit {
+export class NewsCreateComponent implements OnInit {
   enteredTitle = '';
   enteredContent = '';
-  post: Post;
+  news: News;
   isLoading = false;
   form: FormGroup;
   private mode = 'create';
-  private postId: string;
+  private newsId: string;
 
-  constructor(
-    public postsService: PostsService,
-    public route: ActivatedRoute
-  ) {}
+  constructor(public newsService: NewsService, public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -32,48 +29,48 @@ export class PostCreateComponent implements OnInit {
       content: new FormControl(null, { validators: [Validators.required] })
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.has('postId')) {
+      if (paramMap.has('newsId')) {
         this.mode = 'edit';
-        this.postId = paramMap.get('postId');
+        this.newsId = paramMap.get('newsId');
         this.isLoading = true;
-        this.postsService.getPost(this.postId).subscribe(postData => {
+        this.newsService.getNew(this.newsId).subscribe(newsData => {
           this.isLoading = false;
-          this.post = {
-            id: postData._id,
-            Title: postData.title,
-            Description: postData.content,
-            creator: postData.creator
+          this.news = {
+            id: newsData._id,
+            Title: newsData.title,
+            Content: newsData.content,
+            likes: 0
           };
           this.form.setValue({
-            title: this.post.Title,
-            content: this.post.Description
+            title: this.news.Title,
+            content: this.news.Content
           });
         });
       } else {
         this.mode = 'create';
-        this.postId = null;
+        this.newsId = null;
       }
     });
   }
 
-  onSavePost() {
+  onSaveNews() {
     if (this.form.invalid) {
       return;
     }
     this.isLoading = true;
     if (this.mode === 'create') {
-      this.postsService
-        .addPost(this.form.value.title, this.form.value.content)
+      this.newsService
+        .addNews(this.form.value.title, this.form.value.content)
         .subscribe(() => {
           this.isLoading = false;
-          this.postsService.getPosts(5, 1);
+          this.newsService.getNews(5, 1);
         });
     } else {
-      this.postsService
-        .updatePost(this.postId, this.form.value.title, this.form.value.content)
+      this.newsService
+        .updateNews(this.newsId, this.form.value.title, this.form.value.content)
         .subscribe(() => {
           this.isLoading = false;
-          this.postsService.getPosts(5, 1);
+          this.newsService.getNews(5, 1);
         });
     }
 
