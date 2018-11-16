@@ -10,16 +10,26 @@
       <mat-icon>menu</mat-icon>
     </button>
     <button
+      class="center"
       mat-icon-button
       routerLink="/home">
       <mat-icon>home</mat-icon>
     </button>
-    <span class="example-spacer"></span>
-    <button
-      mat-icon-button
-      routerLink="/login">
-      <mat-icon>logout</mat-icon>
-    </button>
+    <span class="spacer"></span>
+    <div *ngIf="isAuth">
+      <button
+        mat-icon-button
+        (click)="onLogout()">
+        Logout
+      </button>
+    </div>
+    <div *ngIf="!isAuth">
+      <button
+        mat-icon-button
+        routerLink="/login">
+        Login
+      </button>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container

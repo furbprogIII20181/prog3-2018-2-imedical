@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) {}
 
   ngOnInit() {
+    this.authenticated = this.userService.getIsAuthenticated();
     this.authListenSubs = this.userService
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {
