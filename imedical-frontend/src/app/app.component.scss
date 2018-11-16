@@ -15,8 +15,15 @@ mat-sidenav-content {
   width: 100%;
 }
 
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
+}
+
+.title-center {
+  flex: 1 1 auto !important;
+  vertical-align: center !important;
+  align-self: center;
+  justify-self: center;
 }
 
 .is-mobile .toolbar {
@@ -42,5 +49,6 @@ h1.app-name {
 }
 
 mat-toolbar {
+  display: flex !important;
   background: #00b3b3 !important; /* fallback for old browsers */
 }

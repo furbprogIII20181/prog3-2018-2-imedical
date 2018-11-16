@@ -1,3 +1,4 @@
+import { PostCreateComponent } from './components/find-doctor/post-create/post-create.component';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { SymptomsComponent } from './components/symptoms/symptoms.component';
 import { HomeComponent } from './containers/home/home.component';
@@ -20,16 +21,28 @@ import { FindDoctorComponent } from './components/find-doctor/find-doctor.compon
 import { AddUserComponent } from './components/user/crudl/add-user/add-user.component';
 import { EditUserComponent } from './components/user/crudl/edit-user/edit-user.component';
 import { ListUserComponent } from './components/user/crudl/list-user/list-user.component';
+import { FeedComponent } from './components/feed/feed.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
   {
+    path: 'feed',
+    component: FeedComponent
+  },
+  {
     path: 'find-doctor',
-    component: FindDoctorComponent
+    component: FindDoctorComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit/:postId',
+    component: PostCreateComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'my-diagnostics',
-    component: MyDiagnosisComponent
+    component: MyDiagnosisComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user-register',
@@ -41,7 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'login',
@@ -59,8 +72,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent,
-    canActivate: [AuthGuardService]
+    component: AboutComponent
   },
   {
     path: 'help',

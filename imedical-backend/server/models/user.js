@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.beforeCreate(function(user, options) {
-    console.log("asdas");
+    // console.log('asdas', user);
     return cryptpwd(user.pwd)
       .then(success => {
         user.pwd = success;
@@ -39,7 +39,6 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   function cryptpwd(pwd) {
-    console.log("cryptpwd " + pwd);
     return new Promise(function(resolve, reject) {
       bcrypt.genSalt(10, function(err, salt) {
         // Encrypt pwd using bycrpt module
@@ -55,7 +54,11 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     User.hasMany(models.Question, {
-      foreignKey: "fk_userid",
+      foreignKey: "fk_pacientid",
+      sourceKey: "id"
+    });
+    User.hasMany(models.Question, {
+      foreignKey: "fk_doctorid",
       sourceKey: "id"
     });
   };

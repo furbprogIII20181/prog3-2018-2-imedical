@@ -19,6 +19,7 @@ import { FindDoctorModule } from 'src/app/components/find-doctor/find-doctor.mod
 import { AddUserComponent } from 'src/app/components/user/crudl/add-user/add-user.component';
 import { EditUserComponent } from 'src/app/components/user/crudl/edit-user/edit-user.component';
 import { ListUserComponent } from 'src/app/components/user/crudl/list-user/list-user.component';
+import { FeedComponent } from 'src/app/components/feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ListUserComponent } from 'src/app/components/user/crudl/list-user/list-
     SymptomFilterPipe,
     AddUserComponent,
     EditUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    FeedComponent
   ],
   imports: [
     BrowserAnimationsModule,
