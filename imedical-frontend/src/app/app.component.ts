@@ -1,5 +1,4 @@
-import { UserService } from './containers/user/user.service';
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
@@ -7,10 +6,10 @@ import { MediaMatcher } from '@angular/cdk/layout';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'imedical-frontend';
   mobileQuery: MediaQueryList;
-  isAuth = false;
+
   fillerContent = Array.from(
     { length: 50 },
     () =>
@@ -23,23 +22,10 @@ export class AppComponent implements OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,
-    private userService: UserService
-  ) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-  }
-
-  ngOnInit() {
-    this.userService.autoAuthUser();
-    this.isAuth = this.userService.getIsAuthenticated();
-  }
-
-  onLogout() {
-    this.userService.logout();
   }
 
   ngOnDestroy(): void {

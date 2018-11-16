@@ -25,12 +25,37 @@ export class HomeService {
     this.getToken();
   }
 
-  initArticles() {
-    return this.http.get('http://localhost:4200/assets/news.json');
+  private posts: Post[] = [];
+  private postsUpdated = new Subject<Post[]>();
+
+  getPosts() {
+    return [...this.posts];
+  }
+
+  getPostUpdateListener() {
+    return this.postsUpdated.asObservable();
+  }
+
+  addPost(title: string, content: string) {
+    const post: Post = { title: title, content: content };
+    const body = {
+      Title: title,
+      Description: content,
+      fk_userid: 1
+    };
+    return this.http.post(`${this.HOST}/api/question`, body);
   }
 
   setSelectedSymptoms(symptoms: number[]) {
     this.symptoms = symptoms;
+  }
+
+  setGender(gender: string) {
+    this.gender = gender;
+  }
+
+  setBirthYear(birthYear: string) {
+    this.birthYear = birthYear;
   }
 
   getSelectedSymptoms(): number[] {

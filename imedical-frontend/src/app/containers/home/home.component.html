@@ -9,34 +9,27 @@
     <div class="menu">
       <button
         mat-raised-button
-        matTooltip="Check out your symptoms"
         routerLink="/symptoms">
-        <img src="../../../assets/diagnosis.png">
+        <img src="../../../assets/symptom.png">
         <p>
           Symptom Checker
         </p>
       </button>
-      <div
-        matTooltip="You have to log in to Find a Doctor"
-        [matTooltipDisabled]="authenticated">
-        <button
-          [disabled]="!authenticated"
-          collor="primary"
-          routerLink="/find-doctor"
-          mat-raised-button>
-          <img src="../../../assets/doctor.png">
-          <p>
+      <button
+        collor="primary"
+        routerLink="/find-doctor"
+        mat-raised-button>
+        <img src="../../../assets/doctor.png">
+        <p>
           Find a Doctor
         </p>
-        </button>
-      </div>
+      </button>
       <button
         mat-raised-button
-        matTooltip="Check out the latest news about your health"
-        routerLink="/feed">
-        <img src="../../../assets/symptom.png">
+        routerLink="/my-diagnostics">
+        <img src="../../../assets/diagnosis.png">
         <p>
-          Healthy Feed
+          My Diagnostics
         </p>
       </button>
     </div>

@@ -38,6 +38,8 @@ export class SymptomsComponent implements OnInit {
 
   handleSubmit() {
     this.homeService.setSelectedSymptoms(this.selectedSymptoms);
+    this.homeService.setGender(this.selectedGender);
+    this.homeService.setBirthYear(this.birthYear);
     this.router.navigate(['/diagnosis']);
   }
 

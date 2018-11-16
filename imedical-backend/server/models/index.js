@@ -57,20 +57,12 @@ db.issue.hasMany(db.diagnosis, {
 });
 db.diagnosis.belongsTo(db.issue, { foreignKey: "fk_issueid", targetKey: "id" });
 db.user.hasMany(db.question, {
-  foreignKey: "fk_pacientid",
+  foreignKey: "fk_userid",
   sourceKey: "id"
-});
-db.user.hasMany(db.question, {
-  foreignKey: "fk_doctorid",
-  sourceKey: "id"
-});
-db.question.belongsTo(db.User, {
-  foreignKey: "fk_pacientid",
-  targetKey: "id"
-});
-db.question.belongsTo(db.User, {
-  foreignKey: "fk_doctorid",
-  targetKey: "id"
 });
 
+db.question.belongsTo(db.user, {
+  foreignKey: "fk_userid",
+  targetKey: "id"
+});
 module.exports = db;

@@ -1,31 +1,22 @@
 <div class="col-md-6" *ngIf="loading">
-  <h2> Users</h2>
+  <h2> User Details</h2>
   <table class="table table-striped">
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>Username</th>
-      <th>E-mail</th>
-      <th>Fullname</th>
-      <th>Birthdate</th>
-      <th>Phone</th>
-      <th>Sex</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
       <td class="hidden"></td>
-      <td>{{ user?.id }}</td>
       <td>{{ user?.username }}</td>
-      <td>{{ user?.email }}</td>
-      <td>{{ user?.fullname }}</td>
-      <td>{{ user?.birthdate }}</td>
-      <td>{{ user?.phone }}</td>
-      <td>{{ user?.sex }}</td>
-      <td>
-        <button>Delete</button>
-        <button style="margin-left: 10px;">Edit</button>
-      </td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     </tbody>
   </table>
