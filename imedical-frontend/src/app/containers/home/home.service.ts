@@ -25,16 +25,12 @@ export class HomeService {
     this.getToken();
   }
 
+  initArticles() {
+    return this.http.get('http://localhost:4200/assets/news.json');
+  }
+
   setSelectedSymptoms(symptoms: number[]) {
     this.symptoms = symptoms;
-  }
-
-  setGender(gender: string) {
-    this.gender = gender;
-  }
-
-  setBirthYear(birthYear: string) {
-    this.birthYear = birthYear;
   }
 
   getSelectedSymptoms(): number[] {

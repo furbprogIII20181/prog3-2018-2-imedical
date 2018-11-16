@@ -21,7 +21,8 @@ import {
   MatToolbarModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatTooltipModule
 } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 
@@ -49,7 +50,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatTableModule,
     MatToolbarModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatTooltipModule
   ],
   exports: [
     MatButtonModule,
@@ -72,7 +74,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatStepperModule,
     MatSidenavModule,
     MatSortModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTooltipModule
   ]
 })
 export class MaterialModule {}

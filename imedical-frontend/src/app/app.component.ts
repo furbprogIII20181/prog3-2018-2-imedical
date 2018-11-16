@@ -10,7 +10,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class AppComponent implements OnInit {
   title = 'imedical-frontend';
   mobileQuery: MediaQueryList;
-
+  isAuth = false;
   fillerContent = Array.from(
     { length: 50 },
     () =>
@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.userService.autoAuthUser();
+    this.isAuth = this.userService.getIsAuthenticated();
   }
 
   onLogout() {
