@@ -24,6 +24,7 @@ import { EditUserComponent } from './components/user/crudl/edit-user/edit-user.c
 import { ListUserComponent } from './components/user/crudl/list-user/list-user.component';
 import { NewsComponent } from './components/feed/news.component';
 import { NewsMasterComponent } from './components/feed/news-master/news-master.component';
+import { NewsViewComponent } from './components/feed/news-view/news.view.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
@@ -50,6 +51,10 @@ const routes: Routes = [
     path: 'edit/:postId',
     component: PostCreateComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'news/:newsId',
+    component: NewsViewComponent
   },
   {
     path: 'my-diagnostics',

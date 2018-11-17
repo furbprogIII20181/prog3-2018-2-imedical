@@ -59,9 +59,9 @@ module.exports = {
             .catch(error => res.status(400).send(error));
     },
     listById(req, res) {
-        return News.findAll({
+        return News.findOne({
             where: {
-                fk_userid: req.userData.userId
+                id: req.params.id
             }
         })
             .then(news => {

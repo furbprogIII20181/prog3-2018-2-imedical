@@ -105,6 +105,7 @@ export class UserService {
             const now = new Date();
             this.userId = res.userId;
             this.userType = res.type;
+            localStorage.setItem('info', res.username);
             const exprirationDate = new Date(now.getTime() + expiresIn * 1000);
             this.saveAuthData(this.token, exprirationDate, this.userType);
             this.isAuthenticated = true;
@@ -114,10 +115,7 @@ export class UserService {
         },
         httpError => {
           console.log(httpError.error.message);
-          this.snackBar.open(
-            httpError.error.message,
-            'OK!'
-          )
+          this.snackBar.open(httpError.error.message, 'OK!');
         }
       );
   }
@@ -164,6 +162,7 @@ export class UserService {
 
   private saveAuthData(token: string, expirationDate: Date, userType: string) {
     localStorage.setItem('token', token);
+    console.log(userType);
     localStorage.setItem('userType', userType);
     localStorage.setItem('expiration', expirationDate.toISOString());
   }

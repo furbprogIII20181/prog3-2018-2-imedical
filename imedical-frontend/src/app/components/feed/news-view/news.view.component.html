@@ -1,12 +1,15 @@
 <div class="container">
-  <div class="card">
-    <mat-card *ngFor="let article of news">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div
+    class="card"
+    *ngIf="!isLoading">
+    <mat-card>
       <mat-card-header>
         <div
           mat-card-avatar
           [ngStyle]="{'background-image': 'url(../assets/doctor.png)'}"
           class="header-image"></div>
-        <mat-card-title class="title">{{article.title}}</mat-card-title>
+        <mat-card-title class="title">{{article.Title}}</mat-card-title>
         <mat-card-subtitle>{{Doctor}}</mat-card-subtitle>
       </mat-card-header>
       <img
@@ -16,8 +19,8 @@
         alt>
       <mat-card-content>
         <p>
-        {{article.content}}
-      </p>
+          {{article.Content}}
+        </p>
       </mat-card-content>
       <mat-card-actions class="action-buttons">
         <button

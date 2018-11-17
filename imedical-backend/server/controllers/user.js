@@ -15,7 +15,11 @@ module.exports = {
     },
     login(req, res) {
         let fetchedUser;
-        User.findOne({ username: req.body.username })
+        User.findOne({
+            where: {
+                username: req.body.username
+            }
+        })
             .then(user => {
                 if (!user) {
                     return res.status(401).json({
@@ -41,6 +45,7 @@ module.exports = {
                     message: 'Success',
                     token,
                     type: fetchedUser.type,
+                    username: fetchedUser.username,
                     userId: req.userId,
                     expiresIn: '3600'
                 });

@@ -1,0 +1,54 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #f2f2f2;
+}
+
+mat-card {
+  width: 100%;
+}
+
+.header-image {
+  background-size: cover;
+  vertical-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.img-article {
+  height: 350px;
+}
+
+.action-buttons {
+  text-align: center;
+}
+
+.source-name {
+  margin-left: 5px;
+}
+
+.list-item:hover {
+  cursor: pointer;
+  background-color: #3f51b5;
+  color: white;
+}

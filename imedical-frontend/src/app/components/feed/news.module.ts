@@ -11,12 +11,14 @@ import { NewsComponent } from './news.component';
 import { NewsListComponent } from './news-master/news-list/news-list.component';
 import { NewsCreateComponent } from './news-master/news-create/news-create.component';
 import { NewsMasterComponent } from './news-master/news-master.component';
+import { NewsViewComponent } from './news-view/news.view.component';
 @NgModule({
   declarations: [
     NewsListComponent,
     NewsCreateComponent,
     NewsMasterComponent,
-    NewsComponent
+    NewsComponent,
+    NewsViewComponent
   ],
   imports: [
     BrowserAnimationsModule,

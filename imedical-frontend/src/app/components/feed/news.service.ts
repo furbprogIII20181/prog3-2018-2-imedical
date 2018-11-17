@@ -14,7 +14,7 @@ export class NewsService {
 
   getNews(newsPerPage: number, currentPage: number) {
     this.http
-      .get<any>(`${this.HOST}/api/news`)
+      .get<any>(`${this.HOST}/api/allNews`)
       .pipe(
         map(newData => {
           return {
@@ -43,13 +43,8 @@ export class NewsService {
   }
 
   getNew(id: string) {
-    return this.http.get<{
-      _id: number;
-      title: string;
-      content: string;
-      imagePath: string;
-      creator: string;
-    }>(`${this.HOST}/api/new`);
+    console.log('asdas');
+    return this.http.get<any>(`${this.HOST}/api/news/${id}`);
   }
 
   addNews(title: string, content: string) {
