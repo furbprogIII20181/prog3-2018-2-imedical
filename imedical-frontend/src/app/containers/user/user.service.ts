@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { User } from '../../models/user';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -20,7 +21,8 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   getToken() {
@@ -110,8 +112,12 @@ export class UserService {
             this.router.navigate(['/home']);
           }
         },
-        error => {
-          console.error('Login error ', error);
+        httpError => {
+          console.log(httpError.error.message);
+          this.snackBar.open(
+            httpError.error.message,
+            'OK!'
+          )
         }
       );
   }
