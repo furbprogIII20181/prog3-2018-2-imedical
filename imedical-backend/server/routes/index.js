@@ -14,14 +14,20 @@ module.exports = app => {
 
     app.post('/api/question', checkAuth, questionController.create);
     app.put('/api/question/:id', checkAuth, questionController.update);
+    app.put(
+        '/api/replyQuestion/:id',
+        checkAuth,
+        questionController.replyQuestion
+    );
     app.delete('/api/question/:id', checkAuth, questionController.delete);
     app.get('/api/question', checkAuth, questionController.listById);
+    app.get('/api/question/:id', checkAuth, questionController.listOneById);
 
     app.post('/api/news', checkAuth, newsController.create);
     app.put('/api/news/:id', checkAuth, newsController.update);
     app.delete('/api/news/:id', checkAuth, newsController.delete);
     app.get('/api/news/:id', checkAuth, newsController.listById);
-    app.get('/api/allNews', checkAuth, newsController.list);
+    app.get('/api/allNews', newsController.list);
 
     app.post('/api/issue', checkAuth, issuesController.create);
     app.get('/api/issues', checkAuth, issuesController.list);

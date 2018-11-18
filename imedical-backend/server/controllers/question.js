@@ -1,5 +1,5 @@
 const Question = require('../models').Question;
-
+const Sequelize = require('sequelize');
 module.exports = {
     create(req, res) {
         return Question.create({
@@ -8,6 +8,12 @@ module.exports = {
             fk_pacientid: req.userData.userId
         })
             .then(question => {
+                question.update(
+                    {
+                        fk_doctorid: 2
+                    },
+                    { fields: ['fk_doctorid'] }
+                );
                 return res.status(201).send({
                     question,
                     id: question.id
@@ -18,6 +24,28 @@ module.exports = {
     list(req, res) {
         return Question.all()
             .then(questions => res.status(200).send(questions))
+            .catch(error => res.status(400).send(error));
+    },
+    replyQuestion(req, res) {
+        return Question.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(question => {
+                console.log(req.body);
+                question.update(
+                    {
+                        Reply: req.body.Reply
+                    },
+                    { fields: ['Reply'] }
+                );
+            })
+            .then(response => {
+                return res.status(200).send({
+                    message: 'Successfully updated'
+                });
+            })
             .catch(error => res.status(400).send(error));
     },
     update(req, res) {
@@ -58,11 +86,25 @@ module.exports = {
             })
             .catch(error => res.status(400).send(error));
     },
+    listOneById(req, res) {
+        return Question.findOne({
+            where: Sequelize.or(
+                { fk_pacientid: req.userData.userId },
+                { fk_doctorid: req.userData.userId }
+            )
+        })
+            .then(questions => {
+                console.log(questions);
+                return res.status(200).send(questions);
+            })
+            .catch(error => res.status(400).send(error));
+    },
     listById(req, res) {
         return Question.findAll({
-            where: {
-                fk_pacientid: req.userData.userId
-            }
+            where: Sequelize.or(
+                { fk_pacientid: req.userData.userId },
+                { fk_doctorid: req.userData.userId }
+            )
         })
             .then(questions => {
                 console.log(questions);

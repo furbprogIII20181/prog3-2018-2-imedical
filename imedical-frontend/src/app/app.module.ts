@@ -25,12 +25,22 @@ import { ListUserComponent } from './components/user/crudl/list-user/list-user.c
 import { NewsComponent } from './components/feed/news.component';
 import { NewsMasterComponent } from './components/feed/news-master/news-master.component';
 import { NewsViewComponent } from './components/feed/news-view/news.view.component';
+import { DoctorReplyComponent } from './components/find-doctor/doctor-reply/doctor-reply.component';
+import { DoctorReplyViewComponent } from './components/find-doctor/doctor-reply/doctor-reply-view/doctor-reply-view.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
   {
     path: 'feed',
     component: NewsComponent
+  },
+  {
+    path: 'reply',
+    component: DoctorReplyComponent
+  },
+  {
+    path: 'reply/:postId',
+    component: DoctorReplyViewComponent
   },
   {
     path: 'my-articles',

@@ -22,7 +22,7 @@ export class PostsService {
             posts: postData.map(post => {
               return {
                 title: post.Title,
-                description: post.Description,
+                description: atob(post.Description),
                 id: post.id,
                 creator: post.fk_pacientid
               };
@@ -45,20 +45,14 @@ export class PostsService {
   }
 
   getPost(id: string) {
-    return this.http.get<{
-      _id: string;
-      title: string;
-      content: string;
-      imagePath: string;
-      creator: string;
-    }>(`${this.HOST}/api/question`);
+    return this.http.get<any>(`${this.HOST}/api/question/${id}`);
   }
 
   addPost(title: string, content: string) {
     const postData = new FormData();
     const body = {
       Title: title,
-      Description: content
+      Description: btoa(content)
     };
     return this.http.post<{ message: string; post: Post }>(
       `${this.HOST}/api/question`,
@@ -70,10 +64,19 @@ export class PostsService {
     const postData = {
       id: id,
       Title: title,
-      Description: content,
+      Description: btoa(content),
       creator: null
     };
     return this.http.put(`${this.HOST}/api/question/${id}`, postData);
+  }
+
+  sendReply(id: string, reply: string) {
+    const postData = {
+      id: id,
+      Reply: btoa(reply),
+      creator: null
+    };
+    return this.http.put(`${this.HOST}/api/replyQuestion/${id}`, postData);
   }
 
   deletePost(postId: string) {

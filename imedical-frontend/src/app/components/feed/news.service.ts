@@ -21,7 +21,7 @@ export class NewsService {
             news: newData.map(news => {
               return {
                 title: news.Title,
-                content: news.Content,
+                content: atob(news.Content),
                 id: news.id,
                 creator: news.fk_pacientid
               };
@@ -50,7 +50,7 @@ export class NewsService {
   addNews(title: string, content: string) {
     const body = {
       Title: title,
-      Content: content
+      Content: btoa(content)
     };
     return this.http.post<{ message: string; news: News }>(
       `${this.HOST}/api/news`,
@@ -62,7 +62,7 @@ export class NewsService {
     const newsData = {
       id: id,
       Title: title,
-      Content: content
+      Content: btoa(content)
     };
     return this.http.put(`${this.HOST}/api/news/${id}`, newsData);
   }

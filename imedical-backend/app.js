@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const db = require('./server/models/index.js');
 
 // force: true will drop the table if it already exists
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     console.log('Drop and Resync with { force: true }');
 });
 

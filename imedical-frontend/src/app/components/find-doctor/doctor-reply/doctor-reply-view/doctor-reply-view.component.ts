@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
-import { PostsService } from '../posts.service';
-import { Post } from '../post.model';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Post } from './../../post.model';
+import { Component, OnInit } from '@angular/core';
+import { PostsService } from '../../posts.service';
 @Component({
-  selector: 'app-post-create',
-  templateUrl: './post-create.component.html',
-  styleUrls: ['./post-create.component.css']
+  selector: 'app-doctor-reply-view',
+  templateUrl: './doctor-reply-view.component.html',
+  styleUrls: ['./doctor-reply-view.component.scss']
 })
-export class PostCreateComponent implements OnInit {
+export class DoctorReplyViewComponent implements OnInit {
   enteredTitle = '';
   enteredContent = '';
   post: Post;
@@ -40,25 +38,19 @@ export class PostCreateComponent implements OnInit {
         this.postId = paramMap.get('postId');
         this.isLoading = true;
         this.postsService.getPost(this.postId).subscribe(postData => {
-          this.isLoading = false;
+          console.log(postData, !!postData.reply, postData.Description);
           this.post = {
             id: postData._id,
             Title: postData.Title,
             Description: atob(postData.Description),
-            Reply: atob(postData.Reply),
+            Reply: postData.Reply,
             creator: postData.creator
           };
-          this.form.setValue({
-            title: this.post.Title,
-            content: this.post.Description,
-            reply: this.post.Reply
-          });
+          this.form.get('title').disable();
+          this.form.get('content').disable();
+          this.isLoading = false;
         });
-      } else {
-        this.mode = 'create';
-        this.postId = null;
       }
-      this.form.get('reply').disable();
     });
   }
 
@@ -67,21 +59,13 @@ export class PostCreateComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    if (this.mode === 'create') {
-      this.postsService
-        .addPost(this.form.value.title, this.form.value.content)
-        .subscribe(() => {
-          this.isLoading = false;
-          this.postsService.getPosts(5, 1);
-        });
-    } else {
-      this.postsService
-        .updatePost(this.postId, this.form.value.title, this.form.value.content)
-        .subscribe(() => {
-          this.isLoading = false;
-          this.postsService.getPosts(5, 1);
-        });
-    }
+
+    this.postsService
+      .sendReply(this.postId, this.form.value.reply)
+      .subscribe(() => {
+        this.isLoading = false;
+        this.postsService.getPosts(5, 1);
+      });
 
     this.form.reset();
   }

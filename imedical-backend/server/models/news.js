@@ -3,8 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     const News = sequelize.define(
         'News',
         {
-            Title: DataTypes.STRING,
-            Content: DataTypes.STRING,
+            Title: DataTypes.STRING(9999),
+            Content: DataTypes.STRING(9999),
             likes: DataTypes.INTEGER
         },
         {}

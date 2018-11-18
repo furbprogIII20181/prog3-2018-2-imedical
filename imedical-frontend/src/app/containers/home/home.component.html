@@ -18,6 +18,7 @@
         </p>
       </button>
       <div
+        *ngIf="userType === 'user' || !userType"
         matTooltip="You have to log in to Find a Doctor"
         [matTooltipDisabled]="authenticated">
         <button
@@ -31,6 +32,16 @@
         </p>
         </button>
       </div>
+      <button
+        *ngIf="userType === 'doctor'"
+        mat-raised-button
+        matTooltip="Reply questions"
+        routerLink="/reply">
+        <img src="../../../assets/diagnosis.png">
+        <p>
+            Reply questions
+        </p>
+      </button>
       <button
         *ngIf="userType === 'doctor'"
         mat-raised-button

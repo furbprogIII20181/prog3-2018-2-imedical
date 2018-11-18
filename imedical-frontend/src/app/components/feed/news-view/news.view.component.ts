@@ -40,7 +40,7 @@ export class NewsViewComponent implements OnInit {
           this.article = {
             id: newsData.id,
             Title: newsData.Title,
-            Content: newsData.Content,
+            Content: atob(newsData.Content),
             likes: 12
           };
           console.log(this.article);
