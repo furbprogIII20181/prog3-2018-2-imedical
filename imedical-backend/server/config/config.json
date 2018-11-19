@@ -2,22 +2,22 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "imedicaldb",
-    "host": "gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com",
+    "database": "postgres",
+    "host": "gustavodb.cyfscy4fl7hv.us-east-2.rds.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "imedicaldb",
-    "host": "gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com",
+    "database": "postgres",
+    "host": "gustavodb.cyfscy4fl7hv.us-east-2.rds.amazonaws.com",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": "postgres",
-    "database": "imedicaldb",
-    "host": "gustavodb.cqjm2sakfywf.us-east-2.rds.amazonaws.com",
+    "database": "postgres",
+    "host": "gustavodb.cyf'scy4fl7hv.us-east-2.rds.amazonaws.com",
     "dialect": "postgres"
   }
 }
