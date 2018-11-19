@@ -18,7 +18,6 @@ export class SymptomsComponent implements OnInit {
   selectedSymptoms: number[];
   genders: string[] = ['Male', 'Female'];
   selectedGender: string;
-  birthYear: string;
   users: User[];
   constructor(
     private homeService: HomeService,

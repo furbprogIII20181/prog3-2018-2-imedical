@@ -15,7 +15,6 @@ export class DiagnosisComponent implements OnInit {
   diagnosis: Diagnosis[];
   symptoms: number[];
   gender: string;
-  birthYear: string;
   issues: Issue[];
   loaded = false;
   currentUser = {};
@@ -30,9 +29,8 @@ export class DiagnosisComponent implements OnInit {
       const token = data;
       this.symptoms = this.homeService.getSelectedSymptoms();
       this.gender = this.homeService.getGender();
-      this.birthYear = this.homeService.getBirthYear();
       this.homeService
-        .getDiagnosis(token, this.symptoms, this.gender, this.birthYear)
+        .getDiagnosis(token, this.symptoms, this.gender)
         .subscribe(
           diagnosis => {
             if (Array.isArray(diagnosis) && !diagnosis.length) {
