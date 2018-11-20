@@ -36,14 +36,12 @@ export class NewsViewComponent implements OnInit {
         this.newsId = paramMap.get('newsId');
         this.isLoading = true;
         this.newsService.getNew(this.newsId).subscribe(newsData => {
-          console.log(newsData);
           this.article = {
             id: newsData.id,
             Title: newsData.Title,
             Content: atob(newsData.Content),
             likes: 12
           };
-          console.log(this.article);
           this.isLoading = false;
         });
       }

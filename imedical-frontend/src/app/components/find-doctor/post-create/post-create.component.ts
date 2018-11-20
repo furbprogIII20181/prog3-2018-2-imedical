@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { PostsService } from '../posts.service';
 import { Post } from '../post.model';
@@ -21,7 +21,8 @@ export class PostCreateComponent implements OnInit {
 
   constructor(
     public postsService: PostsService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -40,12 +41,16 @@ export class PostCreateComponent implements OnInit {
         this.postId = paramMap.get('postId');
         this.isLoading = true;
         this.postsService.getPost(this.postId).subscribe(postData => {
+          if (!postData) {
+            this.router.navigate(['/home']);
+            return;
+          }
           this.isLoading = false;
           this.post = {
             id: postData._id,
             Title: postData.Title,
             Description: atob(postData.Description),
-            Reply: atob(postData.Reply),
+            Reply: postData.Reply ? atob(postData.Reply) : '',
             creator: postData.creator
           };
           this.form.setValue({

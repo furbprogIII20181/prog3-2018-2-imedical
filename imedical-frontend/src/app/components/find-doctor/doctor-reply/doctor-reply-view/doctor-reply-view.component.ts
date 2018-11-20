@@ -37,19 +37,21 @@ export class DoctorReplyViewComponent implements OnInit {
         this.mode = 'edit';
         this.postId = paramMap.get('postId');
         this.isLoading = true;
-        this.postsService.getPost(this.postId).subscribe(postData => {
-          console.log(postData, !!postData.reply, postData.Description);
-          this.post = {
-            id: postData._id,
-            Title: postData.Title,
-            Description: atob(postData.Description),
-            Reply: postData.Reply,
-            creator: postData.creator
-          };
-          this.form.get('title').disable();
-          this.form.get('content').disable();
-          this.isLoading = false;
-        });
+        this.postsService
+          .getQuestionToReply(this.postId)
+          .subscribe(postData => {
+            console.log(postData, !!postData.reply, postData.Description);
+            this.post = {
+              id: postData._id,
+              Title: postData.Title,
+              Description: atob(postData.Description),
+              Reply: postData.Reply,
+              creator: postData.creator
+            };
+            this.form.get('title').disable();
+            this.form.get('content').disable();
+            this.isLoading = false;
+          });
       }
     });
   }

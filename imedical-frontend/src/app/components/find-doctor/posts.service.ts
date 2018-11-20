@@ -40,12 +40,43 @@ export class PostsService {
       });
   }
 
+  getQuestionsToReply(postsPerPage: number, currentPage: number) {
+    this.http
+      .get<any>(`${this.HOST}/api/reply`)
+      .pipe(
+        map(postData => {
+          return {
+            posts: postData.map(post => {
+              return {
+                title: post.Title,
+                description: atob(post.Description),
+                id: post.id,
+                creator: post.fk_pacientid
+              };
+            }),
+            maxPosts: 10
+          };
+        })
+      )
+      .subscribe(transformedPostData => {
+        this.posts = transformedPostData.posts;
+        this.postsUpdated.next({
+          posts: [...this.posts],
+          postCount: transformedPostData.maxPosts
+        });
+      });
+  }
+
   getPostUpdateListener() {
     return this.postsUpdated.asObservable();
   }
 
   getPost(id: string) {
     return this.http.get<any>(`${this.HOST}/api/question/${id}`);
+  }
+
+  getQuestionToReply(id: string) {
+    return this.http.get<any>(`${this.HOST}/api/reply/${id}`);
   }
 
   addPost(title: string, content: string) {

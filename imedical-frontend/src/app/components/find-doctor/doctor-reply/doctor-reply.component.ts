@@ -35,7 +35,7 @@ export class DoctorReplyComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-    this.postsService.getPosts(this.postsPerPage, this.currentPage);
+    this.postsService.getQuestionsToReply(this.postsPerPage, this.currentPage);
     this.userId = this.authService.getUserId();
     this.postsSub = this.postsService
       .getPostUpdateListener()

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { News } from 'src/app/models/news';
 import { NewsService } from '../../news.service';
@@ -19,7 +19,11 @@ export class NewsCreateComponent implements OnInit {
   private mode = 'create';
   private newsId: string;
 
-  constructor(public newsService: NewsService, public route: ActivatedRoute) {}
+  constructor(
+    public newsService: NewsService,
+    public router: Router,
+    public route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -34,6 +38,10 @@ export class NewsCreateComponent implements OnInit {
         this.newsId = paramMap.get('newsId');
         this.isLoading = true;
         this.newsService.getNew(this.newsId).subscribe(newsData => {
+          if (!newsData) {
+            this.router.navigate(['/home']);
+            return;
+          }
           this.isLoading = false;
           this.news = {
             id: newsData._id,
