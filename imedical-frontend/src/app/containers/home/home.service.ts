@@ -86,7 +86,6 @@ export class HomeService {
 
   getDiagnosis(token, symptoms, gender): Observable<Diagnosis[]> {
     gender = 'male';
-    console.log(gender);
     return this.http
       .get(
         this.API_URL_HEALT +

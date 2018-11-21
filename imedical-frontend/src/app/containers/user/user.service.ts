@@ -114,8 +114,7 @@ export class UserService {
           }
         },
         httpError => {
-          console.log(httpError.error.message);
-          this.snackBar.open(httpError.error.message, 'OK!');
+          this.snackBar.open(httpError.error.message, 'OK!', {duration: 3000});
         }
       );
   }
@@ -162,7 +161,6 @@ export class UserService {
 
   private saveAuthData(token: string, expirationDate: Date, userType: string) {
     localStorage.setItem('token', token);
-    console.log(userType);
     localStorage.setItem('userType', userType);
     localStorage.setItem('expiration', expirationDate.toISOString());
   }

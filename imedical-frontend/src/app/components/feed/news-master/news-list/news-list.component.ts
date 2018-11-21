@@ -31,7 +31,7 @@ export class NewsListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-    this.newsService.getNews(this.newsPerPage, this.currentPage);
+    this.newsService.getMyNews(this.newsPerPage, this.currentPage);
     this.userId = this.authService.getUserId();
     this.newsSub = this.newsService
       .getNewsUpdateListener()
@@ -53,13 +53,13 @@ export class NewsListComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.currentPage = pageData.pageIndex + 1;
     this.newsPerPage = pageData.pageSize;
-    this.newsService.getNews(this.newsPerPage, this.currentPage);
+    this.newsService.getMyNews(this.newsPerPage, this.currentPage);
   }
 
   onDelete(newsId: string) {
     this.isLoading = true;
     this.newsService.deleteNews(newsId).subscribe(() => {
-      this.newsService.getNews(this.newsPerPage, this.currentPage);
+      this.newsService.getMyNews(this.newsPerPage, this.currentPage);
     });
   }
 

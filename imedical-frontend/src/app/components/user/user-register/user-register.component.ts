@@ -52,10 +52,10 @@ export class UserRegisterComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         httpError => {
-          console.log(httpError.error.errors[0].message);
           this.snackBar.open(
             httpError.error.errors[0].message,
-            'OK!'
+            'OK!',
+            {duration: 3000}
           );
         }
       );

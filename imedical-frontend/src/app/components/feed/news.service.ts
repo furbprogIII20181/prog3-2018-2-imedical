@@ -38,12 +38,37 @@ export class NewsService {
       });
   }
 
+  getMyNews(newsPerPage: number, currentPage: number) {
+    this.http
+      .get<any>(`${this.HOST}/api/myNews`)
+      .pipe(
+        map(newData => {
+          return {
+            news: newData.map(news => {
+              return {
+                title: news.Title,
+                content: atob(news.Content),
+                id: news.id,
+                creator: news.fk_pacientid
+              };
+            }),
+            maxnews: 10
+          };
+        })
+      )
+      .subscribe(transformednewData => {
+        this.news = transformednewData.news;
+        this.newsUpdated.next({
+          news: [...this.news]
+        });
+      });
+  }
+
   getNewsUpdateListener() {
     return this.newsUpdated.asObservable();
   }
 
   getNew(id: string) {
-    console.log('asdas');
     return this.http.get<any>(`${this.HOST}/api/news/${id}`);
   }
 

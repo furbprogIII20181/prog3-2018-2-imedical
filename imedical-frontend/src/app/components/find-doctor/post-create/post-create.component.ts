@@ -89,5 +89,6 @@ export class PostCreateComponent implements OnInit {
     }
 
     this.form.reset();
+    this.router.navigate(['/find-doctor']);
   }
 }

@@ -1,4 +1,4 @@
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Post } from './../../post.model';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,8 @@ export class DoctorReplyViewComponent implements OnInit {
 
   constructor(
     public postsService: PostsService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -40,12 +41,11 @@ export class DoctorReplyViewComponent implements OnInit {
         this.postsService
           .getQuestionToReply(this.postId)
           .subscribe(postData => {
-            console.log(postData, !!postData.reply, postData.Description);
             this.post = {
               id: postData._id,
               Title: postData.Title,
               Description: atob(postData.Description),
-              Reply: postData.Reply,
+              Reply: atob(postData.Reply),
               creator: postData.creator
             };
             this.form.get('title').disable();
@@ -66,9 +66,10 @@ export class DoctorReplyViewComponent implements OnInit {
       .sendReply(this.postId, this.form.value.reply)
       .subscribe(() => {
         this.isLoading = false;
-        this.postsService.getPosts(5, 1);
+        this.postsService.getQuestionsToReply(5, 1);
       });
 
     this.form.reset();
+    this.router.navigate(['/reply']);
   }
 }

@@ -29,7 +29,9 @@ module.exports = app => {
   app.put("/api/news/:id", checkAuth, newsController.update);
   app.delete("/api/news/:id", checkAuth, newsController.delete);
   app.get("/api/news/:id", checkAuth, newsController.listById);
-  app.get("/api/allNews", newsController.list);
+  app.get("/api/allNews", checkAuth,  newsController.list);
+  app.get("/api/myNews", checkAuth, newsController.listMyNews);
+  
 
   app.post("/api/issue", checkAuth, issuesController.create);
   app.get("/api/issues", checkAuth, issuesController.list);

@@ -38,7 +38,7 @@ export class DiagnosisComponent implements OnInit {
                 'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
                 'OK!',
                 {
-                  duration: 10000
+                  duration: 5000
                 }
               );
               this.router.navigate(['/symptoms']);
@@ -64,7 +64,7 @@ export class DiagnosisComponent implements OnInit {
               'None diagnosis were found for the inputed symptoms, try inputing less symptoms',
               'OK!',
               {
-                duration: 10000
+                duration: 5000
               }
             );
             this.router.navigate(['/symptoms']);

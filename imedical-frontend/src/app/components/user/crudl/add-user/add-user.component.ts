@@ -48,7 +48,7 @@ export class AddUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.snackBar.open('User successfully registered ', 'Awesome!');
+          this.snackBar.open('User successfully registered ', 'Awesome!', {duration: 3000});
           this.router.navigate(['/login']);
         },
         error => {

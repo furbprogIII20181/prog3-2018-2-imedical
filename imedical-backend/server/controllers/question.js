@@ -94,7 +94,6 @@ module.exports = {
       }
     })
       .then(questions => {
-        console.log(questions);
         return res.status(200).send(questions);
       })
       .catch(error => res.status(400).send(error));
@@ -107,7 +106,6 @@ module.exports = {
       })
     })
       .then(questions => {
-        console.log(questions);
         return res.status(200).send(questions);
       })
       .catch(error => res.status(400).send(error));
@@ -130,7 +128,6 @@ module.exports = {
       where: { fk_pacientid: req.userData.userId }
     })
       .then(questions => {
-        console.log(questions);
         return res.status(200).send(questions);
       })
       .catch(error => res.status(400).send(error));

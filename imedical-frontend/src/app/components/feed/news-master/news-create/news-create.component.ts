@@ -44,14 +44,14 @@ export class NewsCreateComponent implements OnInit {
           }
           this.isLoading = false;
           this.news = {
-            id: newsData._id,
-            Title: newsData.title,
-            Content: newsData.content,
+            id: newsData.id,
+            Title: newsData.Title,
+            Content: newsData.Content,
             likes: 0
           };
           this.form.setValue({
             title: this.news.Title,
-            content: this.news.Content
+            content: atob(this.news.Content)
           });
         });
       } else {
@@ -71,17 +71,18 @@ export class NewsCreateComponent implements OnInit {
         .addNews(this.form.value.title, this.form.value.content)
         .subscribe(() => {
           this.isLoading = false;
-          this.newsService.getNews(5, 1);
+          this.newsService.getMyNews(5, 1);
         });
     } else {
       this.newsService
         .updateNews(this.newsId, this.form.value.title, this.form.value.content)
         .subscribe(() => {
           this.isLoading = false;
-          this.newsService.getNews(5, 1);
+          this.newsService.getMyNews(5, 1);
         });
     }
 
     this.form.reset();
+    this.router.navigate(['/my-articles']);
   }
 }

@@ -20,6 +20,15 @@ module.exports = {
             .then(news => res.status(200).send(news))
             .catch(error => res.status(400).send(error));
     },
+    listMyNews(req, res) {
+        return News.findAll({
+          where: { fk_userid: req.userData.userId }
+        })
+          .then(questions => {
+            return res.status(200).send(questions);
+          })
+          .catch(error => res.status(400).send(error));
+    },
     update(req, res) {
         return News.findOne({
             where: {
@@ -65,7 +74,6 @@ module.exports = {
             }
         })
             .then(news => {
-                console.log(news);
                 return res.status(200).send(news);
             })
             .catch(error => res.status(400).send(error));

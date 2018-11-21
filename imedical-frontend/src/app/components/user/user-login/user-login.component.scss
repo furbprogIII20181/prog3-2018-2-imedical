@@ -39,16 +39,11 @@ a:visited {
 
 @media (max-width: 700px) {
   .container mat-card {
-    width: 50%;
-    height: 35%;
+    width: 350px;
+    height: 210px;
   }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  // CSS
-}
-/* ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px */
 @media (min-width: 320px) and (max-width: 480px) {
   .container {
     width: 100vw;
