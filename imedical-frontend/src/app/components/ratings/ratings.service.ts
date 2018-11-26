@@ -20,7 +20,7 @@ export class RatingsService {
             ratings: ratingsData.map(post => {
               return {
                 title: post.Title,
-                description: atob(post.Description),
+                description: atob(post.Content),
                 rating: post.Rating,
                 id: post.id,
                 creator: post.fk_userid
@@ -44,14 +44,14 @@ export class RatingsService {
   }
 
   getRating(id: string) {
-    return this.http.get<any>(`${this.HOST}/api/question/${id}`);
+    return this.http.get<any>(`${this.HOST}/api/rating/${id}`);
   }
 
-  addRating(title: string, content: string) {
-    const ratingData = new FormData();
+  addRating(title: string, content: string, rating: number) {
     const body = {
       Title: title,
-      Description: btoa(content)
+      Content: btoa(content),
+      Rating: rating
     };
     return this.http.post<any>(`${this.HOST}/api/ratings`, body);
   }
@@ -64,10 +64,10 @@ export class RatingsService {
       Rating: rating,
       creator: null
     };
-    return this.http.put(`${this.HOST}/api/ratings/${id}`, ratingData);
+    return this.http.put(`${this.HOST}/api/rating/${id}`, ratingData);
   }
 
   deleteRating(ratingId: string) {
-    return this.http.delete(`${this.HOST}/api/ratings/${ratingId}`);
+    return this.http.delete(`${this.HOST}/api/rating/${ratingId}`);
   }
 }

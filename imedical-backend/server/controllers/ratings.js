@@ -17,8 +17,12 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
   list(req, res) {
-    return Ratings.all()
-      .then(ratings => res.status(200).send(ratings))
+    return Ratings.findAll({
+      where: { fk_userid: req.userData.userId }
+    })
+      .then(ratings => {
+        return res.status(200).send(ratings);
+      })
       .catch(error => res.status(400).send(error));
   },
   update(req, res) {
@@ -27,8 +31,8 @@ module.exports = {
         id: req.params.id
       }
     })
-      .then(question => {
-        question.update(
+      .then(ratings => {
+        ratings.update(
           {
             Title: req.body.Title,
             Content: req.body.Content,
@@ -62,7 +66,6 @@ module.exports = {
   listOneById(req, res) {
     return Rating.findOne({
       where: Sequelize.and({
-        fk_userid: req.userData.userId,
         id: req.params.id
       })
     })

@@ -1,23 +1,23 @@
+const ratingsController = require("../controllers").ratings;
 const userController = require("../controllers").users;
 const diagnosisController = require("../controllers").diagnosis;
 const issuesController = require("../controllers").issue;
 const questionController = require("../controllers").question;
-const newsController = require("../controllers").news;
 const newsController = require("../controllers").news;
 
 const checkAuth = require("../middleware/check-auth");
 module.exports = app => {
   app.get("/api", (req, res) =>
     res.status(200).send({
-      message: "Welcome to the Todos API!"
+      message: "Welcome to the iMedical API!"
     })
   );
 
   app.post("/api/ratings", checkAuth, ratingsController.create);
-  app.put("/api/ratings/:id", checkAuth, ratingsController.update);
-  app.delete("/api/ratings/:id", checkAuth, ratingsController.delete);
-  app.get("/api/ratings/:id", checkAuth, ratingsController.listById);
-  app.get("/api/allRatings", checkAuth, ratingsController.list);
+  app.put("/api/rating/:id", checkAuth, ratingsController.update);
+  app.delete("/api/rating/:id", checkAuth, ratingsController.delete);
+  app.get("/api/rating/:id", checkAuth, ratingsController.listOneById);
+  app.get("/api/ratings", checkAuth, ratingsController.list);
 
   app.delete("/api/question/:id", checkAuth, questionController.delete);
   app.get("/api/question", checkAuth, questionController.listById);

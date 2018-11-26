@@ -27,6 +27,8 @@ import { NewsMasterComponent } from './components/feed/news-master/news-master.c
 import { NewsViewComponent } from './components/feed/news-view/news.view.component';
 import { DoctorReplyComponent } from './components/find-doctor/doctor-reply/doctor-reply.component';
 import { DoctorReplyViewComponent } from './components/find-doctor/doctor-reply/doctor-reply-view/doctor-reply-view.component';
+import { RatingsCreateComponent } from './components/ratings/ratings-create/ratings-create.component';
+import { RatingsComponent } from './components/ratings/ratings.component';
 
 const routes: Routes = [
   { path: '', component: UserLoginComponent },
@@ -50,6 +52,16 @@ const routes: Routes = [
   {
     path: 'find-doctor',
     component: FindDoctorComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'ratings',
+    component: RatingsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit-rating/:ratingId',
+    component: RatingsCreateComponent,
     canActivate: [AuthGuardService]
   },
   {

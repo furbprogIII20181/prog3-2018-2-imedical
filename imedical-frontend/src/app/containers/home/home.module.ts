@@ -21,6 +21,7 @@ import { EditUserComponent } from 'src/app/components/user/crudl/edit-user/edit-
 import { ListUserComponent } from 'src/app/components/user/crudl/list-user/list-user.component';
 import { DoctorReplyComponent } from 'src/app/components/find-doctor/doctor-reply/doctor-reply.component';
 import { DoctorReplyViewComponent } from 'src/app/components/find-doctor/doctor-reply/doctor-reply-view/doctor-reply-view.component';
+import { RatingsModule } from '../../components/ratings/ratings.module';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -46,7 +47,8 @@ import { DoctorReplyViewComponent } from 'src/app/components/find-doctor/doctor-
     FindDoctorModule,
     MaterialModule,
     RouterModule,
-    NewsModule
+    NewsModule,
+    RatingsModule
   ],
   exports: [HomeComponent],
   providers: [HomeService, SymptomFilterPipe]

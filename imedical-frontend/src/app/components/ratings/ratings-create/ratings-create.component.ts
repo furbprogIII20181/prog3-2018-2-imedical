@@ -4,11 +4,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { RatingsService } from '../ratings.service';
 
 @Component({
-  selector: 'app-post-create',
-  templateUrl: './post-create.component.html',
-  styleUrls: ['./post-create.component.css']
+  selector: 'app-ratings-create',
+  templateUrl: './ratings-create.component.html',
+  styleUrls: ['./ratings-create.component.css']
 })
-export class PostCreateComponent implements OnInit {
+export class RatingsCreateComponent implements OnInit {
   enteredTitle = '';
   enteredContent = '';
   rating: any;
@@ -28,9 +28,9 @@ export class PostCreateComponent implements OnInit {
       title: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      content: new FormControl(null, { validators: [Validators.required] }),
-      reply: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(3)]
+      description: new FormControl(null, { validators: [Validators.required] }),
+      rating: new FormControl(null, {
+        validators: [Validators.required, Validators.maxLength(2)]
       })
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -61,7 +61,6 @@ export class PostCreateComponent implements OnInit {
         this.mode = 'create';
         this.ratingId = null;
       }
-      this.form.get('reply').disable();
     });
   }
 
@@ -72,7 +71,11 @@ export class PostCreateComponent implements OnInit {
     this.isLoading = true;
     if (this.mode === 'create') {
       this.ratingsService
-        .addRating(this.form.value.title, this.form.value.content)
+        .addRating(
+          this.form.value.title,
+          this.form.value.description,
+          this.form.value.rating
+        )
         .subscribe(() => {
           this.isLoading = false;
           this.ratingsService.getRatings(5, 1);
@@ -82,8 +85,8 @@ export class PostCreateComponent implements OnInit {
         .updateRating(
           this.ratingId,
           this.form.value.title,
-          this.form.value.content,
-          8
+          this.form.value.description,
+          this.form.value.rating
         )
         .subscribe(() => {
           this.isLoading = false;
@@ -92,6 +95,6 @@ export class PostCreateComponent implements OnInit {
     }
 
     this.form.reset();
-    this.router.navigate(['/find-doctor']);
+    this.router.navigate(['/ratings']);
   }
 }

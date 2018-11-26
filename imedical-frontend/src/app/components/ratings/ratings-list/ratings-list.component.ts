@@ -17,7 +17,7 @@ export class RatingsListComponent implements OnInit, OnDestroy {
   currentPage = 1;
   pageSizeOptions = [1, 2, 5, 10];
   userIsAuthenticated = false;
-  ratings: any;
+  ratings: any = [];
   userId: number;
   private ratingsSub: Subscription;
   private authStatusSub: Subscription;
@@ -52,9 +52,9 @@ export class RatingsListComponent implements OnInit, OnDestroy {
     this.ratingsService.getRatings(10, this.currentPage);
   }
 
-  onDelete(postId: string) {
+  onDelete(ratingId: string) {
     this.isLoading = true;
-    this.ratingsService.deleteRating(postId).subscribe(() => {
+    this.ratingsService.deleteRating(ratingId).subscribe(() => {
       this.ratingsService.getRatings(10, this.currentPage);
     });
   }
